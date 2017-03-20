@@ -4,8 +4,10 @@ import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'tw-input-float',
-  templateUrl: './input-float.component.html',
-  styleUrls: ['./input-float.component.scss']
+  template: `
+  <div [formGroup]='group'>
+    <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [readonly]='field.readonly' />
+  </div>`
 })
 export class InputFloatComponent implements OnInit, OnDestroy {
   @Input() group: FormGroup

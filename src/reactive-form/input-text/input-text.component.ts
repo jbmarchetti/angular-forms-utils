@@ -2,8 +2,13 @@ import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'tw-input-text',
-  templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.scss']
+  template: `
+   <div [formGroup]='group'>
+  <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [(ngModel)]="request[field.id]"
+    [readonly]='field.readonly' />
+</div>
+   `
+
 })
 export class InputTextComponent {
   @Input() group: FormGroup

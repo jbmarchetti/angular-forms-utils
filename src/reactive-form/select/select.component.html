@@ -1,8 +1,0 @@
-<div [formGroup]='group'>
-  <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
-      <option [ngValue]="field.firstValue.value " *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>
-      <option [ngValue]="option[field.optionValue] " *ngFor="let option of field.options ">
-        {{option[field.optionText]}}
-      </option>
-    </select>
-</div>

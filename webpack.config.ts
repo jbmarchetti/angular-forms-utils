@@ -19,10 +19,16 @@ export default {
       test: /\.ts$/,
       loader: 'awesome-typescript-loader',
       exclude: /node_modules/
-    }]
+    },
+    {
+      test: /\.html$/,
+      loaders: [
+        "raw-loader",
+      ]
+    },]
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js', '.html']
   },
   devServer: {
     port: 8000,

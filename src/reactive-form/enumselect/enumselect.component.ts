@@ -2,8 +2,16 @@ import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'tw-enumselect',
-  templateUrl: './enumselect.component.html',
-  styleUrls: ['./enumselect.component.scss']
+  template: `
+  <div [formGroup]='group'>
+  <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
+      <option [ngValue]="field.firstValue.value" *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>
+      <option [ngValue]="option" *ngFor="let option of enumToArray(field.options)">
+        {{option}}
+      </option>
+    </select>
+</div>
+  `
 })
 export class EnumselectComponent {
 

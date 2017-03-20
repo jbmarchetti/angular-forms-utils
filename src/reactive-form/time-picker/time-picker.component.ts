@@ -2,12 +2,16 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs'
-import * as moment from 'moment'
 
 @Component({
   selector: 'tw-time-picker',
-  templateUrl: './time-picker.component.html',
-  styleUrls: ['./time-picker.component.scss']
+  template: `
+<div [formGroup]='group'>
+  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' date-format='HH:mm' parse-format='HH:mm' time-only="true"
+    ng2-datetime-picker close-on-select="false" />
+  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : HH:MM</small>
+</div>
+  `
 })
 export class TimePickerComponent implements OnInit, OnDestroy {
 

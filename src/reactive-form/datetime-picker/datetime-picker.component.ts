@@ -6,8 +6,13 @@ import * as moment from 'moment'
 
 @Component({
   selector: 'tw-datetime-picker',
-  templateUrl: './datetime-picker.component.html',
-  styleUrls: ['./datetime-picker.component.scss']
+  template: `
+  <div [formGroup]='group'>
+  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ng2-datetime-picker close-on-select="false"
+  />
+  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : YYYY-MM-DD HH:MM</small>
+</div>
+  `
 })
 export class DatetimePickerComponent implements OnInit, OnDestroy {
 
@@ -27,7 +32,7 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
     this.field.control.setValidators(validators)
 
     this.sub = this.field.control.valueChanges.subscribe(value => {
-      this.request[this.field.id] = moment(value).format()
+      // this.request[this.field.id] = moment(value).format()
     });
   }
 

@@ -20,8 +20,7 @@ export var ReactiveFormComponent = (function () {
     ReactiveFormComponent.decorators = [
         { type: Component, args: [{
                     selector: 'tw-reactive-form',
-                    templateUrl: './reactive-form.component.html',
-                    styleUrls: ['./reactive-form.component.scss']
+                    templateUrl: './reactive-form.component.html'
                 },] },
     ];
     /** @nocollapse */
