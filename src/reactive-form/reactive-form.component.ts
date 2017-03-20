@@ -30,7 +30,6 @@ export class ReactiveFormComponent implements OnInit {
   @Input() fields: any[] = []
   @Input() form: FormGroup; // our model driven form
   @Input() request: any; // our model driven form
-
   @Output() afterInit: EventEmitter<boolean>
 
   public submitted: boolean; // keep track on whether form is submitted
