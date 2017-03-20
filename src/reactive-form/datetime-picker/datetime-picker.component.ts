@@ -32,7 +32,8 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
     this.field.control.setValidators(validators)
 
     this.sub = this.field.control.valueChanges.subscribe(value => {
-      // this.request[this.field.id] = moment(value).format()
+      if (value)
+        this.request[this.field.id] = moment(value).format()
     });
   }
 

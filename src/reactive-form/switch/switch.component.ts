@@ -5,7 +5,7 @@ import { FormGroup } from '@angular/forms';
   template: `
   <div [formGroup]='group'>
   <label class="switch switch-icon switch-pill switch-primary-outline-alt">
-        <input type="checkbox" [formControlName]='field.id'class="switch-input" checked="{{request[field.id]}}" [(ngModel)]="request[field.id]" >
+        <input type="checkbox" [formControlName]='field.id' class="switch-input" checked="{{request[field.id]}}" [(ngModel)]="request[field.id]" >
         <span class="switch-label" data-on="yes" data-off="no"></span>
         <span class="switch-handle"></span>
     </label>

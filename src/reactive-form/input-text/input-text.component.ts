@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
   selector: 'tw-input-text',
   template: `
    <div [formGroup]='group'>
-  <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [(ngModel)]="request[field.id]"
+  <input [formControlName]='field.id' name='{{field.id}}' type='{{field.type}}' class='form-control' [(ngModel)]="request[field.id]"
     [readonly]='field.readonly' />
 </div>
    `

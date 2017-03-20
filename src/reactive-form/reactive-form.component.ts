@@ -8,13 +8,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   <div class="row">
     <div class="form-group col-{{field.col || 'sm-6'}}" [ngClass]="field.class" *ngFor="let field of fields">
       <label for="{{field.id}}">{{field.label | translate}} <small *ngIf='field.info'>{{field.info | translate}}</small></label>
-      <tw-input-text *ngIf='field.type==="text"' [group]='form' [field]='field' [request]='request'></tw-input-text>
+      <tw-input-text *ngIf='field.type==="text" || field.type==="number" || field.type==="hidden" || field.type==="email"' [group]='form' [field]='field' [request]='request'></tw-input-text>
       <tw-input-float *ngIf='field.type==="float"' [group]='form' [field]='field' [request]='request'></tw-input-float>
       <tw-select *ngIf='field.type==="select"' [group]='form' [field]='field' [request]='request'></tw-select>
       <tw-enumselect *ngIf='field.type==="enumselect"' [group]='form' [field]='field' [request]='request'></tw-enumselect>
       <tw-datetime-picker *ngIf='field.type==="datetime"' [group]='form' [field]='field' [request]='request'></tw-datetime-picker>
       <tw-time-picker *ngIf='field.type==="time"' [group]='form' [field]='field' [request]='request'></tw-time-picker>
       <tw-switch *ngIf='field.type==="boolean"' [group]='form' [field]='field' [request]='request'></tw-switch>
+      <tw-groupselect *ngIf='field.type==="groupselect"' [group]='form' [field]='field' [request]='request'></tw-groupselect>
+      <tw-multiselect *ngIf='field.type==="multiselect"' [group]='form' [field]='field' [request]='request'></tw-multiselect>
+      <tw-textarea *ngIf='field.type==="textarea"' [group]='form' [field]='field' [request]='request'></tw-textarea>
+      <tw-date-picker *ngIf='field.type==="date"' [group]='form' [field]='field' [request]='request'></tw-date-picker>
+      <tw-dof *ngIf='field.type==="daysOfWeek"' [group]='form' [field]='field' [request]='request'></tw-dof>
     </div>
   </div>
 </form>
