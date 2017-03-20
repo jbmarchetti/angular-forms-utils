@@ -1,0 +1,13 @@
+{
+  "generator-angular-library": {
+    "githubUsername": "jbmarchetti",
+    "githubRepoName": "angular-forms-utils",
+    "npmModuleName": "angular-forms-utils",
+    "moduleGlobal": "angularFormsUtils",
+    "ngModuleName": "AngularFormsUtilsModule",
+    "selectorPrefix": "tw",
+    "projectTitle": "angular forms utils",
+    "projectDescription": "Angular2 Reactive forms utils",
+    "authorName": "Jean Baptiste Marchetti"
+  }
+}

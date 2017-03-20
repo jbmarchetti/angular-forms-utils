@@ -1,0 +1,4 @@
+<div [formGroup]='group'>
+  <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [(ngModel)]="request[field.id]"
+    [readonly]='field.readonly' />
+</div>
