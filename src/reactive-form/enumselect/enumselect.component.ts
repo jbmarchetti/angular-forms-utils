@@ -1,22 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 @Component({
-  selector: 'rf-enumselect',
-  templateUrl: './enumselect.component.html',
-  styleUrls: ['./enumselect.component.scss']
+  selector: 'tw-enumselect',
+  template: `
+  <div [formGroup]='group'>
+  <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
+      <option [ngValue]="field.firstValue.value" *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>
+      <option [ngValue]="option" *ngFor="let option of enumToArray(field.options)">
+        {{option}}
+      </option>
+    </select>
+</div>
+  `
 })
-export class EnumselectComponent implements OnInit {
+export class EnumselectComponent {
 
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  private enumToArray(enumObj: any) {
+  private enumToArray(enumObj: any): string[] {
     return Object.keys(enumObj).slice(Object.keys(enumObj).length / 2)
   }
 }

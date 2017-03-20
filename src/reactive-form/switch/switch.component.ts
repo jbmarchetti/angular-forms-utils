@@ -1,17 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 @Component({
-  selector: 'rf-switch',
-  templateUrl: './switch.component.html',
-  styleUrls: ['./switch.component.scss']
+  selector: 'tw-switch',
+  template: `
+  <div [formGroup]='group'>
+  <label class="switch switch-icon switch-pill switch-primary-outline-alt">
+        <input type="checkbox" [formControlName]='field.id' class="switch-input" checked="{{request[field.id]}}" [(ngModel)]="request[field.id]" >
+        <span class="switch-label" data-on="yes" data-off="no"></span>
+        <span class="switch-handle"></span>
+    </label>
+</div>
+  `
 })
-export class SwitchComponent implements OnInit {
+export class SwitchComponent {
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

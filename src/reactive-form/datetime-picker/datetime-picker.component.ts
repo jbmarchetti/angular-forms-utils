@@ -2,12 +2,17 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs'
-var moment = require('moment')
+import * as moment from 'moment'
 
 @Component({
-  selector: 'rf-datetime-picker',
-  templateUrl: './datetime-picker.component.html',
-  styleUrls: ['./datetime-picker.component.scss']
+  selector: 'tw-datetime-picker',
+  template: `
+  <div [formGroup]='group'>
+  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ng2-datetime-picker close-on-select="false"
+  />
+  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : YYYY-MM-DD HH:MM</small>
+</div>
+  `
 })
 export class DatetimePickerComponent implements OnInit, OnDestroy {
 
@@ -16,9 +21,8 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
   @Input() request: any
 
   private sub: Subscription
-  constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     let validators: any[] = []
     if (this.field.control.validator)
       validators.push(this.field.control.validator)
@@ -28,11 +32,12 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
     this.field.control.setValidators(validators)
 
     this.sub = this.field.control.valueChanges.subscribe(value => {
-      this.request[this.field.id] = moment(value).format()
+      if (value)
+        this.request[this.field.id] = moment(value).format()
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.sub)
       this.sub.unsubscribe()
   }
