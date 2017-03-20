@@ -12,7 +12,8 @@ export var TimePickerComponent = (function () {
         this.field.control.setValidators(validators);
         this.field.control.setValue(this.request[this.field.id]);
         this.sub = this.field.control.valueChanges.subscribe(function (value) {
-            _this.request[_this.field.id] = value;
+            if (value)
+                _this.request[_this.field.id] = value;
         });
     };
     TimePickerComponent.prototype.ngOnDestroy = function () {
