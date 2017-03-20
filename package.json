@@ -1,6 +1,6 @@
 {
   "name": "angular-forms-utils",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Angular2 Reactive forms utils",
   "main": "./dist/bundles/angular-forms-utils.umd.js",
   "module": "./dist/index.js",
