@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -11,10 +11,7 @@ import { InputTextComponent } from './reactive-form/input-text/input-text.compon
 import { InputFloatComponent } from './reactive-form/input-float/input-float.component';
 import { TimePickerComponent } from './reactive-form/time-picker/time-picker.component';
 import { SwitchComponent } from './reactive-form/switch/switch.component';
-
-
-let decExp: any[] =
-  [
+var decExp = [
     ReactiveFormComponent,
     DatetimePickerComponent,
     SelectComponent,
@@ -23,26 +20,30 @@ let decExp: any[] =
     InputFloatComponent,
     TimePickerComponent,
     SwitchComponent
-  ]
-
-
-@NgModule({
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    TranslateModule,
-    Ng2DatetimePickerModule,
-    FormsModule
-  ],
-  declarations: decExp,
-  exports: decExp
-})
-export class AngularFormsUtilsModule {
-
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AngularFormsUtilsModule
+];
+export var AngularFormsUtilsModule = (function () {
+    function AngularFormsUtilsModule() {
     }
-  }
-
-}
+    AngularFormsUtilsModule.forRoot = function () {
+        return {
+            ngModule: AngularFormsUtilsModule
+        };
+    };
+    AngularFormsUtilsModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [
+                        ReactiveFormsModule,
+                        CommonModule,
+                        TranslateModule,
+                        Ng2DatetimePickerModule,
+                        FormsModule
+                    ],
+                    declarations: decExp,
+                    exports: decExp
+                },] },
+    ];
+    /** @nocollapse */
+    AngularFormsUtilsModule.ctorParameters = function () { return []; };
+    return AngularFormsUtilsModule;
+}());
+//# sourceMappingURL=angularFormsUtils.module.js.map
