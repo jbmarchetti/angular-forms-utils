@@ -28,7 +28,7 @@ export class AngularFormsUtilsModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: AngularFormsUtilsModule
-    };
+    }
   }
 
 }
