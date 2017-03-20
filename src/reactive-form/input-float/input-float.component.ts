@@ -1,20 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs'
 
 @Component({
-  selector: 'rf-input-float',
+  selector: 'tw-input-float',
   templateUrl: './input-float.component.html',
   styleUrls: ['./input-float.component.scss']
 })
-export class InputFloatComponent implements OnInit {
+export class InputFloatComponent implements OnInit, OnDestroy {
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
   private sub: Subscription
-  constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     let validators: any[] = []
     if (this.field.control.validator)
       validators.push(this.field.control.validator)
@@ -27,7 +26,7 @@ export class InputFloatComponent implements OnInit {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.sub)
       this.sub.unsubscribe()
   }

@@ -1,18 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 @Component({
-  selector: 'rf-select',
+  selector: 'tw-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent {
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

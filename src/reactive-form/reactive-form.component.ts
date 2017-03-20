@@ -2,11 +2,11 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
-  selector: 'reactive-form',
+  selector: 'tw-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.scss']
 })
-export class ReactiveFormComponent implements OnInit, OnDestroy {
+export class ReactiveFormComponent implements OnInit {
 
   @Input() fields: any[] = []
   @Input() form: FormGroup; // our model driven form
@@ -20,11 +20,11 @@ export class ReactiveFormComponent implements OnInit, OnDestroy {
   constructor() {
     this.afterInit = new EventEmitter<boolean>(true)
   }
-  ngOnInit() {
+  ngOnInit(): void {
 
     this.fields.forEach((field: any) => {
 
-      let control = new FormControl('')
+      let control: FormControl = new FormControl('')
       if (field.required)
         control.setValidators(<any>Validators.required)
 
@@ -36,6 +36,5 @@ export class ReactiveFormComponent implements OnInit, OnDestroy {
     this.afterInit.next(true)
   }
 
-  ngOnDestroy() {
-  }
+
 }

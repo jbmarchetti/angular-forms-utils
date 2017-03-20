@@ -2,10 +2,10 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs'
-var moment = require('moment')
+var moment: any = require('moment')
 
 @Component({
-  selector: 'rf-datetime-picker',
+  selector: 'tw-datetime-picker',
   templateUrl: './datetime-picker.component.html',
   styleUrls: ['./datetime-picker.component.scss']
 })
@@ -16,9 +16,8 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
   @Input() request: any
 
   private sub: Subscription
-  constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     let validators: any[] = []
     if (this.field.control.validator)
       validators.push(this.field.control.validator)
@@ -32,7 +31,7 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.sub)
       this.sub.unsubscribe()
   }

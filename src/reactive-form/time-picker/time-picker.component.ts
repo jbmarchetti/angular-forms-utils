@@ -2,23 +2,22 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs'
-var moment = require('moment')
+var moment: any = require('moment')
 
 @Component({
-  selector: 'rf-time-picker',
+  selector: 'tw-time-picker',
   templateUrl: './time-picker.component.html',
   styleUrls: ['./time-picker.component.scss']
 })
-export class TimePickerComponent implements OnInit {
+export class TimePickerComponent implements OnInit, OnDestroy {
 
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
 
   private sub: Subscription
-  constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     let validators: any[] = []
     if (this.field.control.validator)
       validators.push(this.field.control.validator)
@@ -34,7 +33,7 @@ export class TimePickerComponent implements OnInit {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.sub)
       this.sub.unsubscribe()
   }
