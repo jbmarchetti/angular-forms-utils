@@ -5,8 +5,7 @@ export var SelectComponent = (function () {
     SelectComponent.decorators = [
         { type: Component, args: [{
                     selector: 'tw-select',
-                    templateUrl: './select.component.html',
-                    styleUrls: ['./select.component.scss']
+                    template: "\n  <div [formGroup]='group'>\n  <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]=\"request[field.id]\">\n      <option [ngValue]=\"field.firstValue.value \" *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>\n      <option [ngValue]=\"option[field.optionValue] \" *ngFor=\"let option of field.options \">\n        {{option[field.optionText]}}\n      </option>\n    </select>\n</div>\n  "
                 },] },
     ];
     /** @nocollapse */

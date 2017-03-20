@@ -5,8 +5,7 @@ export var InputTextComponent = (function () {
     InputTextComponent.decorators = [
         { type: Component, args: [{
                     selector: 'tw-input-text',
-                    templateUrl: './input-text.component.html',
-                    styleUrls: ['./input-text.component.scss']
+                    template: "\n   <div [formGroup]='group'>\n  <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [(ngModel)]=\"request[field.id]\"\n    [readonly]='field.readonly' />\n</div>\n   "
                 },] },
     ];
     /** @nocollapse */

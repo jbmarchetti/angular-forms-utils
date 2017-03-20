@@ -22,8 +22,7 @@ export var TimePickerComponent = (function () {
     TimePickerComponent.decorators = [
         { type: Component, args: [{
                     selector: 'tw-time-picker',
-                    templateUrl: './time-picker.component.html',
-                    styleUrls: ['./time-picker.component.scss']
+                    template: "\n<div [formGroup]='group'>\n  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' date-format='HH:mm' parse-format='HH:mm' time-only=\"true\"\n    ng2-datetime-picker close-on-select=\"false\" />\n  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : HH:MM</small>\n</div>\n  "
                 },] },
     ];
     /** @nocollapse */

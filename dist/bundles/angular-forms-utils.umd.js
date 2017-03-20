@@ -2095,7 +2095,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = __webpack_require__(0);
 var forms_1 = __webpack_require__(1);
-// import * as moment  from 'moment'
 var DatetimePickerComponent = (function () {
     function DatetimePickerComponent() {
     }
@@ -2128,8 +2127,7 @@ var DatetimePickerComponent = (function () {
     DatetimePickerComponent = __decorate([
         core_1.Component({
             selector: 'tw-datetime-picker',
-            templateUrl: './datetime-picker.component.html',
-            styleUrls: ['./datetime-picker.component.scss']
+            template: "\n  <div [formGroup]='group'>\n  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ng2-datetime-picker close-on-select=\"false\"\n  />\n  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : YYYY-MM-DD HH:MM</small>\n</div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], DatetimePickerComponent);
@@ -2176,8 +2174,7 @@ var EnumselectComponent = (function () {
     EnumselectComponent = __decorate([
         core_1.Component({
             selector: 'tw-enumselect',
-            templateUrl: './enumselect.component.html',
-            styleUrls: ['./enumselect.component.scss']
+            template: "\n  <div [formGroup]='group'>\n  <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]=\"request[field.id]\">\n      <option [ngValue]=\"field.firstValue.value\" *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>\n      <option [ngValue]=\"option\" *ngFor=\"let option of enumToArray(field.options)\">\n        {{option}}\n      </option>\n    </select>\n</div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], EnumselectComponent);
@@ -2236,8 +2233,7 @@ var InputFloatComponent = (function () {
     InputFloatComponent = __decorate([
         core_1.Component({
             selector: 'tw-input-float',
-            templateUrl: './input-float.component.html',
-            styleUrls: ['./input-float.component.scss']
+            template: "\n  <div [formGroup]='group'>\n    <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [readonly]='field.readonly' />\n  </div>"
         }), 
         __metadata('design:paramtypes', [])
     ], InputFloatComponent);
@@ -2281,8 +2277,7 @@ var InputTextComponent = (function () {
     InputTextComponent = __decorate([
         core_1.Component({
             selector: 'tw-input-text',
-            templateUrl: './input-text.component.html',
-            styleUrls: ['./input-text.component.scss']
+            template: "\n   <div [formGroup]='group'>\n  <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [(ngModel)]=\"request[field.id]\"\n    [readonly]='field.readonly' />\n</div>\n   "
         }), 
         __metadata('design:paramtypes', [])
     ], InputTextComponent);
@@ -2346,7 +2341,7 @@ var ReactiveFormComponent = (function () {
     ReactiveFormComponent = __decorate([
         core_1.Component({
             selector: 'tw-reactive-form',
-            templateUrl: './reactive-form.component.html'
+            template: "\n<form [formGroup]=\"form\">\n  <div class=\"row\">\n    <div class=\"form-group col-{{field.col || 'sm-6'}}\" [ngClass]=\"field.class\" *ngFor=\"let field of fields\">\n      <label for=\"{{field.id}}\">{{field.label | translate}} <small *ngIf='field.info'>{{field.info | translate}}</small></label>\n      <tw-input-text *ngIf='field.type===\"text\"' [group]='form' [field]='field' [request]='request'></tw-input-text>\n      <tw-input-float *ngIf='field.type===\"float\"' [group]='form' [field]='field' [request]='request'></tw-input-float>\n      <tw-select *ngIf='field.type===\"select\"' [group]='form' [field]='field' [request]='request'></tw-select>\n      <tw-enumselect *ngIf='field.type===\"enumselect\"' [group]='form' [field]='field' [request]='request'></tw-enumselect>\n      <tw-datetime-picker *ngIf='field.type===\"datetime\"' [group]='form' [field]='field' [request]='request'></tw-datetime-picker>\n      <tw-time-picker *ngIf='field.type===\"time\"' [group]='form' [field]='field' [request]='request'></tw-time-picker>\n      <tw-switch *ngIf='field.type===\"boolean\"' [group]='form' [field]='field' [request]='request'></tw-switch>\n    </div>\n  </div>\n</form>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], ReactiveFormComponent);
@@ -2390,8 +2385,7 @@ var SelectComponent = (function () {
     SelectComponent = __decorate([
         core_1.Component({
             selector: 'tw-select',
-            templateUrl: './select.component.html',
-            styleUrls: ['./select.component.scss']
+            template: "\n  <div [formGroup]='group'>\n  <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]=\"request[field.id]\">\n      <option [ngValue]=\"field.firstValue.value \" *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>\n      <option [ngValue]=\"option[field.optionValue] \" *ngFor=\"let option of field.options \">\n        {{option[field.optionText]}}\n      </option>\n    </select>\n</div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], SelectComponent);
@@ -2435,8 +2429,7 @@ var SwitchComponent = (function () {
     SwitchComponent = __decorate([
         core_1.Component({
             selector: 'tw-switch',
-            templateUrl: './switch.component.html',
-            styleUrls: ['./switch.component.scss']
+            template: "\n  <div [formGroup]='group'>\n  <label class=\"switch switch-icon switch-pill switch-primary-outline-alt\">\n        <input type=\"checkbox\" [formControlName]='field.id'class=\"switch-input\" checked=\"{{request[field.id]}}\" [(ngModel)]=\"request[field.id]\" >\n        <span class=\"switch-label\" data-on=\"yes\" data-off=\"no\"></span>\n        <span class=\"switch-handle\"></span>\n    </label>\n</div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], SwitchComponent);
@@ -2496,8 +2489,7 @@ var TimePickerComponent = (function () {
     TimePickerComponent = __decorate([
         core_1.Component({
             selector: 'tw-time-picker',
-            templateUrl: './time-picker.component.html',
-            styleUrls: ['./time-picker.component.scss']
+            template: "\n<div [formGroup]='group'>\n  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' date-format='HH:mm' parse-format='HH:mm' time-only=\"true\"\n    ng2-datetime-picker close-on-select=\"false\" />\n  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : HH:MM</small>\n</div>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], TimePickerComponent);

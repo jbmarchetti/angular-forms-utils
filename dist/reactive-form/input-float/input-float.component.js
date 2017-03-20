@@ -21,8 +21,7 @@ export var InputFloatComponent = (function () {
     InputFloatComponent.decorators = [
         { type: Component, args: [{
                     selector: 'tw-input-float',
-                    templateUrl: './input-float.component.html',
-                    styleUrls: ['./input-float.component.scss']
+                    template: "\n  <div [formGroup]='group'>\n    <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [readonly]='field.readonly' />\n  </div>"
                 },] },
     ];
     /** @nocollapse */

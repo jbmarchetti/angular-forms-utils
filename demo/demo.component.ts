@@ -21,7 +21,4 @@ export class DemoComponent {
     { id: 'birthdate', type: 'datetime', label: 'USER.BIRTHDATE', required: true },
     { id: 'active', type: 'boolean', label: 'USER.ACTIVE' }
   ]
-
-
-
 }

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Validators } from '@angular/forms';
-// import * as moment  from 'moment'
 export var DatetimePickerComponent = (function () {
     function DatetimePickerComponent() {
     }
@@ -21,8 +20,7 @@ export var DatetimePickerComponent = (function () {
     DatetimePickerComponent.decorators = [
         { type: Component, args: [{
                     selector: 'tw-datetime-picker',
-                    templateUrl: './datetime-picker.component.html',
-                    styleUrls: ['./datetime-picker.component.scss']
+                    template: "\n  <div [formGroup]='group'>\n  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ng2-datetime-picker close-on-select=\"false\"\n  />\n  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : YYYY-MM-DD HH:MM</small>\n</div>\n  "
                 },] },
     ];
     /** @nocollapse */

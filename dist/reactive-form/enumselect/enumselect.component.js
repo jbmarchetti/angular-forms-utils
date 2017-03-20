@@ -8,8 +8,7 @@ export var EnumselectComponent = (function () {
     EnumselectComponent.decorators = [
         { type: Component, args: [{
                     selector: 'tw-enumselect',
-                    templateUrl: './enumselect.component.html',
-                    styleUrls: ['./enumselect.component.scss']
+                    template: "\n  <div [formGroup]='group'>\n  <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]=\"request[field.id]\">\n      <option [ngValue]=\"field.firstValue.value\" *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>\n      <option [ngValue]=\"option\" *ngFor=\"let option of enumToArray(field.options)\">\n        {{option}}\n      </option>\n    </select>\n</div>\n  "
                 },] },
     ];
     /** @nocollapse */
