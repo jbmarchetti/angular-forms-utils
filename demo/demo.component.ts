@@ -41,8 +41,6 @@ export class DemoComponent {
     }
   ]
 
-
-
   fields: any[] =
   [
     { id: 'text', type: 'text', label: 'Input Text' },
