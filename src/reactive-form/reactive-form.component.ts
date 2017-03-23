@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'tw-reactive-form',
   template: `
-<form [formGroup]="form" *ngIf='fieldsInit'>
+<form [formGroup]="form">
   <div class="row">
     <div class="form-group col-{{field.col || 'sm-6'}}" [ngClass]="field.class" *ngFor="let field of fields">
       <label for="{{field.id}}">{{field.label | translate}} <small *ngIf='field.info'>{{field.info | translate}}</small></label>
@@ -35,7 +35,6 @@ export class ReactiveFormComponent implements OnInit {
   public submitted: boolean; // keep track on whether form is submitted
   public events: any[] = []; // use later to display form changes
 
-  public fieldsInit: boolean = false
   constructor() {
     this.afterInit = new EventEmitter<boolean>(true)
   }
@@ -52,7 +51,6 @@ export class ReactiveFormComponent implements OnInit {
       this.form.addControl(field.id, control)
     })
 
-    this.fieldsInit = true
     this.afterInit.next(true)
   }
 
