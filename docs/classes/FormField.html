@@ -487,6 +487,21 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b> col</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>col:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b> control</b>
                                 </td>
                             </tr>
@@ -600,7 +615,8 @@ export interface IFormField {
     label: string
     options: any
     optionValue: string
-    optionText: string
+    optionText: string,
+    col: string
 }
 
 export class FormField implements IFormField {
@@ -611,6 +627,7 @@ export class FormField implements IFormField {
     options: any[]
     optionValue: string
     optionText: string
+    col: string
 
     control: FormControl
 
