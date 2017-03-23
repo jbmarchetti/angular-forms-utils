@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { FormField } from '../form-field.model'
+
 @Component({
   selector: 'tw-switch',
   template: `
@@ -14,6 +16,6 @@ import { FormGroup } from '@angular/forms';
 })
 export class SwitchComponent {
   @Input() group: FormGroup
-  @Input() field: any
+  @Input() field: FormField
   @Input() request: any
 }

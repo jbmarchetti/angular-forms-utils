@@ -3,6 +3,7 @@ import { FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs'
 import * as moment from 'moment'
+import { FormField } from '../form-field.model'
 
 @Component({
   selector: 'tw-date-picker',
@@ -17,20 +18,13 @@ import * as moment from 'moment'
 export class DatePickerComponent implements OnInit, OnDestroy {
 
   @Input() group: FormGroup
-  @Input() field: any
+  @Input() field: FormField
   @Input() request: any
 
   private sub: Subscription
 
   ngOnInit(): void {
-    let validators: any[] = []
-    if (this.field.control && this.field.control.validator)
-      validators.push(this.field.control.validator)
-
-    validators.push(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
-
-    this.field.control.setValidators(validators)
-
+    this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
     this.sub = this.field.control.valueChanges.subscribe(value => {
       if (value)
         this.request[this.field.id] = moment(value).format('YYYY-MM-DD')
