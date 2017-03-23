@@ -7,7 +7,8 @@ export interface IFormField {
     label: string
     options: any
     optionValue: string
-    optionText: string
+    optionText: string,
+    col: string
 }
 
 export class FormField implements IFormField {
@@ -18,6 +19,7 @@ export class FormField implements IFormField {
     options: any[]
     optionValue: string
     optionText: string
+    col: string
 
     control: FormControl
 
