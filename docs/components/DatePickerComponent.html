@@ -387,7 +387,7 @@
 
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, OnInit, Input, OnDestroy } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { Component, AfterContentInit, Input, OnDestroy } from &#x27;@angular/core&#x27;;
 import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 
 import { Subscription } from &#x27;rxjs&#x27;
@@ -403,7 +403,7 @@ import * as moment from &#x27;moment&#x27;
 &lt;/div&gt;
   &#x60;
 })
-export class DatePickerComponent implements OnInit, OnDestroy {
+export class DatePickerComponent implements AfterContentInit, OnDestroy {
 
   @Input() group: FormGroup
   @Input() field: any
@@ -411,7 +411,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
 
   private sub: Subscription
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     let validators: any[] &#x3D; []
     if (this.field.control.validator)
       validators.push(this.field.control.validator)
