@@ -121,9 +121,41 @@
                     </li>
             
             
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/FormField.html" >FormField</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
             
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/IFormField.html" >IFormField</a>
+                                </li>
+                        </ul>
+                    </li>
             
             
                     <li class="chapter">
@@ -249,9 +281,41 @@
                            </li>
                    
                    
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/FormField.html" >FormField</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                    
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/IFormField.html" >IFormField</a>
+                                       </li>
+                               </ul>
+                           </li>
                    
                    
                            <li class="chapter">
@@ -343,7 +407,7 @@
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code>any</code>
+                                <em>Type:</em>    <code><a href="../classes/FormField.html" target="_self" >FormField</a></code>
 
                               </p>
                         </td>
@@ -389,6 +453,9 @@
         <div class="tab-pane fade tab-source-code" id="source">
             <pre><code class="hljs javascript">import { Component, Input } from &#x27;@angular/core&#x27;;
 import { FormGroup } from &#x27;@angular/forms&#x27;;
+import { FormField } from &#x27;../form-field.model&#x27;
+
+
 @Component({
   selector: &#x27;tw-groupselect&#x27;,
   template: &#x60;
@@ -406,7 +473,7 @@ import { FormGroup } from &#x27;@angular/forms&#x27;;
 })
 export class GroupSelectComponent {
   @Input() group: FormGroup
-  @Input() field: any
+  @Input() field: FormField
   @Input() request: any
 }
 </code></pre>
