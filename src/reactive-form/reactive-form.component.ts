@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormField } from './form-field.model';
 
 @Component({
   selector: 'tw-reactive-form',
@@ -41,18 +42,9 @@ export class ReactiveFormComponent implements OnInit, AfterViewInit {
     this.afterViewInit = new EventEmitter<boolean>(true)
   }
   ngOnInit(): void {
-
-    this.fields.forEach((field: any) => {
-
-      let control: FormControl = new FormControl('')
-      if (field.required)
-        control.setValidators(<any>Validators.required)
-
-      field.control = control
-
-      this.form.addControl(field.id, control)
+    this.fields.forEach((field: FormField) => {
+      this.form.addControl(field.id, field.control)
     })
-
     this.afterInit.next(true)
   }
 

@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { FormField } from '../form-field.model'
+
 @Component({
   selector: 'tw-enumselect',
   template: `
@@ -16,7 +18,7 @@ import { FormGroup } from '@angular/forms';
 export class EnumselectComponent {
 
   @Input() group: FormGroup
-  @Input() field: any
+  @Input() field: FormField
   @Input() request: any
 
   private enumToArray(enumObj: any): string[] {
