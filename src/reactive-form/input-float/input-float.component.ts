@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, AfterContentInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs'
 
@@ -9,13 +9,13 @@ import { Subscription } from 'rxjs'
     <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [readonly]='field.readonly' />
   </div>`
 })
-export class InputFloatComponent implements OnInit, OnDestroy {
+export class InputFloatComponent implements AfterContentInit, OnDestroy {
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
   private sub: Subscription
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     let validators: any[] = []
     if (this.field.control.validator)
       validators.push(this.field.control.validator)

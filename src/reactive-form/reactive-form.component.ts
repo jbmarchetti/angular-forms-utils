@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, AfterContentInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -25,7 +25,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 </form>
   `
 })
-export class ReactiveFormComponent implements OnInit {
+export class ReactiveFormComponent implements AfterContentInit {
 
   @Input() fields: any[] = []
   @Input() form: FormGroup; // our model driven form
@@ -38,7 +38,7 @@ export class ReactiveFormComponent implements OnInit {
   constructor() {
     this.afterInit = new EventEmitter<boolean>(true)
   }
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
 
     this.fields.forEach((field: any) => {
 
