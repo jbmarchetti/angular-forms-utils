@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs'
@@ -13,16 +13,16 @@ import { Subscription } from 'rxjs'
 </div>
   `
 })
-export class TimePickerComponent implements AfterContentInit, OnDestroy {
+export class TimePickerComponent implements OnInit, OnDestroy {
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
 
   private sub: Subscription
 
-  ngAfterContentInit(): void {
+  ngOnInit(): void {
     let validators: any[] = []
-    if (this.field.control && this.field.control.validator)
+    if (this.field.control.validator)
       validators.push(this.field.control.validator)
 
     validators.push(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))

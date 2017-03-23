@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, AfterContentInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   template: `
 <form [formGroup]="form">
   <div class="row">
-    <div class="form-group col-{{field.col || 'sm-6'}}" [ngClass]="field.class" *ngFor="let field of fields">
+    <div class="form-group col-{{field.col || 'sm-6'}}" [ngClass]="field.class" *ngFor="let field of controlFields">
       <label for="{{field.id}}">{{field.label | translate}} <small *ngIf='field.info'>{{field.info | translate}}</small></label>
       <tw-input-text *ngIf='field.type==="text" || field.type==="number" || field.type==="hidden" || field.type==="email"' [group]='form' [field]='field' [request]='request'></tw-input-text>
       <tw-input-float *ngIf='field.type==="float"' [group]='form' [field]='field' [request]='request'></tw-input-float>
@@ -25,7 +25,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 </form>
   `
 })
-export class ReactiveFormComponent implements AfterContentInit {
+export class ReactiveFormComponent implements OnInit {
 
   @Input() fields: any[] = []
   @Input() form: FormGroup; // our model driven form
@@ -35,10 +35,12 @@ export class ReactiveFormComponent implements AfterContentInit {
   public submitted: boolean; // keep track on whether form is submitted
   public events: any[] = []; // use later to display form changes
 
+  private controlFields: any[] = []
+
   constructor() {
     this.afterInit = new EventEmitter<boolean>(true)
   }
-  ngAfterContentInit(): void {
+  ngOnInit(): void {
 
     this.fields.forEach((field: any) => {
 
@@ -51,6 +53,7 @@ export class ReactiveFormComponent implements AfterContentInit {
       this.form.addControl(field.id, control)
     })
 
+    this.controlFields = this.fields
     this.afterInit.next(true)
   }
 

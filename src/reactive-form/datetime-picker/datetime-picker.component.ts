@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, Input, OnDestroy } from '@angular/core';
+import { OnInit, Component, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
 import { Subscription } from 'rxjs'
@@ -14,7 +14,7 @@ import * as moment from 'moment'
 </div>
   `
 })
-export class DatetimePickerComponent implements AfterContentInit, OnDestroy {
+export class DatetimePickerComponent implements OnInit, OnDestroy {
 
   @Input() group: FormGroup
   @Input() field: any
@@ -22,7 +22,7 @@ export class DatetimePickerComponent implements AfterContentInit, OnDestroy {
 
   private sub: Subscription
 
-  ngAfterContentInit(): void {
+  ngOnInit(): void {
     let validators: any[] = []
     if (this.field.control && this.field.control.validator)
       validators.push(this.field.control.validator)
