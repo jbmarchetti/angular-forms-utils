@@ -17,7 +17,7 @@ export class InputFloatComponent implements AfterContentInit, OnDestroy {
 
   ngAfterContentInit(): void {
     let validators: any[] = []
-    if (this.field.control.validator)
+    if (this.field.control && this.field.control.validator)
       validators.push(this.field.control.validator)
 
     validators.push(Validators.pattern(/^[+-]?([0-9]*[.])?[0-9]+$/))

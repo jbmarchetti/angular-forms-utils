@@ -24,7 +24,7 @@ export class DatePickerComponent implements AfterContentInit, OnDestroy {
 
   ngAfterContentInit(): void {
     let validators: any[] = []
-    if (this.field.control.validator)
+    if (this.field.control && this.field.control.validator)
       validators.push(this.field.control.validator)
 
     validators.push(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
