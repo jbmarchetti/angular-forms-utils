@@ -397,6 +397,19 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>afterViewInit</code>
+                        </td>
+                        <td class="col-md-10">
+                            <em><code>$event</code> type:</em>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 
     <section>
@@ -449,7 +462,7 @@
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from &#x27;@angular/core&#x27;;
 import { FormGroup, FormControl, Validators } from &#x27;@angular/forms&#x27;;
 
 @Component({
@@ -476,18 +489,20 @@ import { FormGroup, FormControl, Validators } from &#x27;@angular/forms&#x27;;
 &lt;/form&gt;
   &#x60;
 })
-export class ReactiveFormComponent implements OnInit {
+export class ReactiveFormComponent implements OnInit, AfterViewInit {
 
   @Input() fields: any[] &#x3D; []
   @Input() form: FormGroup; // our model driven form
   @Input() request: any; // our model driven form
   @Output() afterInit: EventEmitter&lt;boolean&gt;
+  @Output() afterViewInit: EventEmitter&lt;boolean&gt;
 
   public submitted: boolean; // keep track on whether form is submitted
   public events: any[] &#x3D; []; // use later to display form changes
 
   constructor() {
     this.afterInit &#x3D; new EventEmitter&lt;boolean&gt;(true)
+    this.afterViewInit &#x3D; new EventEmitter&lt;boolean&gt;(true)
   }
   ngOnInit(): void {
 
@@ -505,7 +520,9 @@ export class ReactiveFormComponent implements OnInit {
     this.afterInit.next(true)
   }
 
-
+  ngAfterViewInit(): void {
+    this.afterViewInit.next(true)
+  }
 }</code></pre>
         </div>
     </div>
