@@ -22,7 +22,7 @@ export class TimePickerComponent implements AfterContentInit, OnDestroy {
 
   ngAfterContentInit(): void {
     let validators: any[] = []
-    if (this.field.control.validator)
+    if (this.field.control && this.field.control.validator)
       validators.push(this.field.control.validator)
 
     validators.push(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))
