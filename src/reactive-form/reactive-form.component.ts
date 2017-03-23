@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -25,18 +25,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 </form>
   `
 })
-export class ReactiveFormComponent implements OnInit {
+export class ReactiveFormComponent implements OnInit, AfterViewInit {
 
   @Input() fields: any[] = []
   @Input() form: FormGroup; // our model driven form
   @Input() request: any; // our model driven form
   @Output() afterInit: EventEmitter<boolean>
+  @Output() afterViewInit: EventEmitter<boolean>
 
   public submitted: boolean; // keep track on whether form is submitted
   public events: any[] = []; // use later to display form changes
 
   constructor() {
     this.afterInit = new EventEmitter<boolean>(true)
+    this.afterViewInit = new EventEmitter<boolean>(true)
   }
   ngOnInit(): void {
 
@@ -54,5 +56,7 @@ export class ReactiveFormComponent implements OnInit {
     this.afterInit.next(true)
   }
 
-
+  ngAfterViewInit(): void {
+    this.afterViewInit.next(true)
+  }
 }
