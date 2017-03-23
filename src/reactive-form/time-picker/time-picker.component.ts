@@ -14,7 +14,6 @@ import { Subscription } from 'rxjs'
   `
 })
 export class TimePickerComponent implements AfterContentInit, OnDestroy {
-
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
