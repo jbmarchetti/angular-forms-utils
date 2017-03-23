@@ -324,7 +324,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;form&nbsp;[formGroup]&#x3D;&quot;form&quot;&nbsp;*ngIf&#x3D;&#x27;fieldsInit&#x27;&gt;<br>&nbsp;&nbsp;&lt;div&nbsp;class&#x3D;&quot;row&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class&#x3D;&quot;form-group&nbsp;col-{{field.col&nbsp;||&nbsp;&#x27;sm-6&#x27;}}&quot;&nbsp;[ngClass]&#x3D;&quot;field.class&quot;&nbsp;*ngFor&#x3D;&quot;let&nbsp;field&nbsp;of&nbsp;fields&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for&#x3D;&quot;{{field.id}}&quot;&gt;{{field.label&nbsp;|&nbsp;translate}}&nbsp;&lt;small&nbsp;*ngIf&#x3D;&#x27;field.info&#x27;&gt;{{field.info&nbsp;|&nbsp;translate}}&lt;/small&gt;&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-input-text&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;text&quot;&nbsp;||&nbsp;field.type&#x3D;&#x3D;&#x3D;&quot;number&quot;&nbsp;||&nbsp;field.type&#x3D;&#x3D;&#x3D;&quot;hidden&quot;&nbsp;||&nbsp;field.type&#x3D;&#x3D;&#x3D;&quot;email&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-input-text&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-input-float&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;float&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-input-float&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-select&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;select&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-select&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-enumselect&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;enumselect&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-enumselect&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-datetime-picker&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;datetime&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-datetime-picker&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-time-picker&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;time&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-time-picker&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-switch&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;boolean&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-switch&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-groupselect&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;groupselect&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-groupselect&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-multiselect&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;multiselect&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-multiselect&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-textarea&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;textarea&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-textarea&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-date-picker&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;date&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-date-picker&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-dof&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;daysOfWeek&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-dof&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/form&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;form&nbsp;[formGroup]&#x3D;&quot;form&quot;&gt;<br>&nbsp;&nbsp;&lt;div&nbsp;class&#x3D;&quot;row&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class&#x3D;&quot;form-group&nbsp;col-{{field.col&nbsp;||&nbsp;&#x27;sm-6&#x27;}}&quot;&nbsp;[ngClass]&#x3D;&quot;field.class&quot;&nbsp;*ngFor&#x3D;&quot;let&nbsp;field&nbsp;of&nbsp;fields&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;for&#x3D;&quot;{{field.id}}&quot;&gt;{{field.label&nbsp;|&nbsp;translate}}&nbsp;&lt;small&nbsp;*ngIf&#x3D;&#x27;field.info&#x27;&gt;{{field.info&nbsp;|&nbsp;translate}}&lt;/small&gt;&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-input-text&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;text&quot;&nbsp;||&nbsp;field.type&#x3D;&#x3D;&#x3D;&quot;number&quot;&nbsp;||&nbsp;field.type&#x3D;&#x3D;&#x3D;&quot;hidden&quot;&nbsp;||&nbsp;field.type&#x3D;&#x3D;&#x3D;&quot;email&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-input-text&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-input-float&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;float&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-input-float&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-select&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;select&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-select&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-enumselect&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;enumselect&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-enumselect&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-datetime-picker&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;datetime&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-datetime-picker&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-time-picker&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;time&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-time-picker&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-switch&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;boolean&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-switch&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-groupselect&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;groupselect&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-groupselect&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-multiselect&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;multiselect&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-multiselect&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-textarea&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;textarea&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-textarea&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-date-picker&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;date&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-date-picker&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-dof&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;daysOfWeek&quot;&#x27;&nbsp;[group]&#x3D;&#x27;form&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-dof&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/form&gt;<br></code></td>
             </tr>
 
 
@@ -435,26 +435,6 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b><span class="modifier">Public</span> fieldsInit</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <span class="modifier-icon fa fa-circle"></span><code>fieldsInit:     <code>boolean</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Default value: </i><code>false</code>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
                             <b><span class="modifier">Public</span> submitted</b>
                         </td>
                     </tr>
@@ -475,7 +455,7 @@ import { FormGroup, FormControl, Validators } from &#x27;@angular/forms&#x27;;
 @Component({
   selector: &#x27;tw-reactive-form&#x27;,
   template: &#x60;
-&lt;form [formGroup]&#x3D;&quot;form&quot; *ngIf&#x3D;&#x27;fieldsInit&#x27;&gt;
+&lt;form [formGroup]&#x3D;&quot;form&quot;&gt;
   &lt;div class&#x3D;&quot;row&quot;&gt;
     &lt;div class&#x3D;&quot;form-group col-{{field.col || &#x27;sm-6&#x27;}}&quot; [ngClass]&#x3D;&quot;field.class&quot; *ngFor&#x3D;&quot;let field of fields&quot;&gt;
       &lt;label for&#x3D;&quot;{{field.id}}&quot;&gt;{{field.label | translate}} &lt;small *ngIf&#x3D;&#x27;field.info&#x27;&gt;{{field.info | translate}}&lt;/small&gt;&lt;/label&gt;
@@ -506,7 +486,6 @@ export class ReactiveFormComponent implements OnInit {
   public submitted: boolean; // keep track on whether form is submitted
   public events: any[] &#x3D; []; // use later to display form changes
 
-  public fieldsInit: boolean &#x3D; false
   constructor() {
     this.afterInit &#x3D; new EventEmitter&lt;boolean&gt;(true)
   }
@@ -523,7 +502,6 @@ export class ReactiveFormComponent implements OnInit {
       this.form.addControl(field.id, control)
     })
 
-    this.fieldsInit &#x3D; true
     this.afterInit.next(true)
   }
 
