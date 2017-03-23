@@ -387,7 +387,7 @@
 
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, Input, OnDestroy, AfterContentInit } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { Component, Input, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
 import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 import { Subscription } from &#x27;rxjs&#x27;
 
@@ -398,13 +398,13 @@ import { Subscription } from &#x27;rxjs&#x27;
     &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; type&#x3D;&#x27;text&#x27; class&#x3D;&#x27;form-control&#x27; [readonly]&#x3D;&#x27;field.readonly&#x27; /&gt;
   &lt;/div&gt;&#x60;
 })
-export class InputFloatComponent implements AfterContentInit, OnDestroy {
+export class InputFloatComponent implements OnInit, OnDestroy {
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
   private sub: Subscription
 
-  ngAfterContentInit(): void {
+  ngOnInit(): void {
     let validators: any[] &#x3D; []
     if (this.field.control &amp;&amp; this.field.control.validator)
       validators.push(this.field.control.validator)

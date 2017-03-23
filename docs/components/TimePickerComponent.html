@@ -387,7 +387,7 @@
 
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, AfterContentInit, Input, OnDestroy } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { Component, OnInit, Input, OnDestroy } from &#x27;@angular/core&#x27;;
 import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 
 import { Subscription } from &#x27;rxjs&#x27;
@@ -402,16 +402,16 @@ import { Subscription } from &#x27;rxjs&#x27;
 &lt;/div&gt;
   &#x60;
 })
-export class TimePickerComponent implements AfterContentInit, OnDestroy {
+export class TimePickerComponent implements OnInit, OnDestroy {
   @Input() group: FormGroup
   @Input() field: any
   @Input() request: any
 
   private sub: Subscription
 
-  ngAfterContentInit(): void {
+  ngOnInit(): void {
     let validators: any[] &#x3D; []
-    if (this.field.control &amp;&amp; this.field.control.validator)
+    if (this.field.control.validator)
       validators.push(this.field.control.validator)
 
     validators.push(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))
