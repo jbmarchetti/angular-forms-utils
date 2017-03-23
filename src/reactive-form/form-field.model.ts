@@ -5,10 +5,14 @@ export interface IFormField {
     id: string
     type: string
     label: string
+    col: string
+
+    /*For selects*/
     options: any
     optionValue: string
-    optionText: string,
-    col: string
+    optionText: string
+    firstValue: any
+
 }
 
 export class FormField implements IFormField {
@@ -20,6 +24,7 @@ export class FormField implements IFormField {
     optionValue: string
     optionText: string
     col: string
+    firstValue: any
 
     control: FormControl
 
