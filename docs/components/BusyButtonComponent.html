@@ -79,7 +79,7 @@
                                 id="xs-components-links"
                             >
                                 <li class="link">
-                                    <a href="../components/BusyButtonComponent.html" >BusyButtonComponent</a>
+                                    <a href="../components/BusyButtonComponent.html"  class="active" >BusyButtonComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/DatePickerComponent.html" >DatePickerComponent</a>
@@ -112,7 +112,7 @@
                                     <a href="../components/SelectComponent.html" >SelectComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/SwitchComponent.html"  class="active" >SwitchComponent</a>
+                                    <a href="../components/SwitchComponent.html" >SwitchComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/TextAreaComponent.html" >TextAreaComponent</a>
@@ -258,7 +258,7 @@
                                        id="components-links"
                    >
                                        <li class="link">
-                                           <a href="../components/BusyButtonComponent.html" >BusyButtonComponent</a>
+                                           <a href="../components/BusyButtonComponent.html"  class="active" >BusyButtonComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/DatePickerComponent.html" >DatePickerComponent</a>
@@ -291,7 +291,7 @@
                                            <a href="../components/SelectComponent.html" >SelectComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/SwitchComponent.html"  class="active" >SwitchComponent</a>
+                                           <a href="../components/SwitchComponent.html" >SwitchComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/TextAreaComponent.html" >TextAreaComponent</a>
@@ -378,7 +378,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>SwitchComponent</li>
+  <li>BusyButtonComponent</li>
 </ol>
 
 
@@ -396,7 +396,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/reactive-form/switch/switch.component.ts</code>
+    <code>src/busy-button/busy-button.component.ts</code>
 </p>
 
 
@@ -419,14 +419,14 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>tw-switch</code></td>
+                <td class="col-md-9"><code>tw-busy-button</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;label&nbsp;class&#x3D;&quot;switch&nbsp;switch-icon&nbsp;switch-pill&nbsp;switch-primary-outline-alt&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type&#x3D;&quot;checkbox&quot;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;class&#x3D;&quot;switch-input&quot;&nbsp;checked&#x3D;&quot;{{request[field.id]}}&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;switch-label&quot;&nbsp;data-on&#x3D;&quot;yes&quot;&nbsp;data-off&#x3D;&quot;no&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;switch-handle&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;button&nbsp;(click)&#x3D;&#x27;send()&#x27;&nbsp;[class]&#x3D;&quot;cssClass&quot;&nbsp;[disabled]&#x3D;&quot;disabled&nbsp;||&nbsp;busy.global&quot;&gt;&lt;span&nbsp;style&#x3D;&#x27;margin-&nbsp;right:5px&#x27;&nbsp;&nbsp;*ngIf&#x3D;&#x27;busy.global&#x27;&gt;&lt;img&nbsp;src&#x3D;&quot;assets/img/ajax-loader.gif&quot;/&gt;&lt;/span&gt;&lt;i&nbsp;class&#x3D;&#x27;fa&nbsp;fa-{{icon&nbsp;}}&#x27;&nbsp;style&#x3D;&#x27;margin-&nbsp;right:5px&#x27;&nbsp;&nbsp;*ngIf&#x3D;&#x27;icon&nbsp;&amp;&amp;&nbsp;!busy.global&#x27;&gt;&lt;/i&gt;&lt;ng-content&gt;&lt;/ng-content&gt;&lt;/button&gt;</code></td>
             </tr>
 
 
@@ -441,11 +441,11 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
-                            <code>field</code>
+                            <code>cssClass</code>
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code><a href="../classes/FormField.html" target="_self" >FormField</a></code>
+                                <em>Type:</em>    <code>string</code>
 
                               </p>
                         </td>
@@ -456,11 +456,11 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
-                            <code>group</code>
+                            <code>disabled</code>
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html" target="_blank" >FormGroup</a></code>
+                                <em>Type:</em>    <code>boolean</code>
 
                               </p>
                         </td>
@@ -471,11 +471,11 @@
                 <tbody>
                     <tr>
                         <td class="col-md-2">
-                            <code>request</code>
+                            <code>icon</code>
                         </td>
                         <td class="col-md-10">
                               <p>
-                                <em>Type:</em>    <code>any</code>
+                                <em>Type:</em>    <code>string</code>
 
                               </p>
                         </td>
@@ -484,31 +484,107 @@
             </table>
     </section>
 
+    <section>
+        <h3 id="outputs">Outputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>onClick</code>
+                        </td>
+                        <td class="col-md-10">
+                            <em><code>$event</code> type:</em>    <code>EventEmitter&lt;boolean&gt;</code>
 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(busy: <a href="../injectables/BusyService.html" >BusyService</a>)</code>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+    </section>
 
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> send</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>send()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> busy</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>busy:     <code><a href="../injectables/BusyService.html" target="_self" >BusyService</a></code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, Input } from &#x27;@angular/core&#x27;;
-import { FormGroup } from &#x27;@angular/forms&#x27;;
-import { FormField } from &#x27;../form-field.model&#x27;
+            <pre><code class="hljs javascript">import { Component, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
+import { BusyService } from &#x27;./busy.service&#x27;;
 
 @Component({
-  selector: &#x27;tw-switch&#x27;,
-  template: &#x60;
-  &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-  &lt;label class&#x3D;&quot;switch switch-icon switch-pill switch-primary-outline-alt&quot;&gt;
-        &lt;input type&#x3D;&quot;checkbox&quot; [formControlName]&#x3D;&#x27;field.id&#x27; class&#x3D;&quot;switch-input&quot; checked&#x3D;&quot;{{request[field.id]}}&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;
-        &lt;span class&#x3D;&quot;switch-label&quot; data-on&#x3D;&quot;yes&quot; data-off&#x3D;&quot;no&quot;&gt;&lt;/span&gt;
-        &lt;span class&#x3D;&quot;switch-handle&quot;&gt;&lt;/span&gt;
-    &lt;/label&gt;
-&lt;/div&gt;
-  &#x60;
+    selector: &#x27;tw-busy-button&#x27;,
+    template: &#x27;&lt;button (click)&#x3D;\&#x27;send()\&#x27; [class]&#x3D;&quot;cssClass&quot; [disabled]&#x3D;&quot;disabled || busy.global&quot;&gt;&lt;span style&#x3D;\&#x27;margin- right:5px\&#x27;  *ngIf&#x3D;\&#x27;busy.global\&#x27;&gt;&lt;img src&#x3D;&quot;assets/img/ajax-loader.gif&quot;/&gt;&lt;/span&gt;&lt;i class&#x3D;\&#x27;fa fa-{{icon }}\&#x27; style&#x3D;\&#x27;margin- right:5px\&#x27;  *ngIf&#x3D;\&#x27;icon &amp;&amp; !busy.global\&#x27;&gt;&lt;/i&gt;&lt;ng-content&gt;&lt;/ng-content&gt;&lt;/button&gt;&#x27;
 })
-export class SwitchComponent {
-  @Input() group: FormGroup
-  @Input() field: FormField
-  @Input() request: any
+export class BusyButtonComponent {
+
+    @Input() cssClass: string
+    @Input() disabled: boolean
+    @Input() icon: string
+    @Output() onClick: EventEmitter&lt;boolean&gt;
+
+    constructor(public busy: BusyService) {
+        this.onClick &#x3D; new EventEmitter&lt;boolean&gt;(true)
+    }
+
+    send(): void {
+        this.onClick.next(true)
+    }
+
 }
 </code></pre>
         </div>

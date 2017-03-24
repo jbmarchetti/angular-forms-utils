@@ -112,7 +112,7 @@
                                     <a href="../components/SelectComponent.html" >SelectComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/SwitchComponent.html"  class="active" >SwitchComponent</a>
+                                    <a href="../components/SwitchComponent.html" >SwitchComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/TextAreaComponent.html" >TextAreaComponent</a>
@@ -154,7 +154,7 @@
                                 id="xs-injectables-links"
                             >
                                 <li class="link">
-                                    <a href="../injectables/BusyService.html" >BusyService</a>
+                                    <a href="../injectables/BusyService.html"  class="active" >BusyService</a>
                                 </li>
                         </ul>
                     </li>
@@ -291,7 +291,7 @@
                                            <a href="../components/SelectComponent.html" >SelectComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/SwitchComponent.html"  class="active" >SwitchComponent</a>
+                                           <a href="../components/SwitchComponent.html" >SwitchComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/TextAreaComponent.html" >TextAreaComponent</a>
@@ -333,7 +333,7 @@
                                        id="injectables-links"
                    >
                                        <li class="link">
-                                           <a href="../injectables/BusyService.html" >BusyService</a>
+                                           <a href="../injectables/BusyService.html"  class="active" >BusyService</a>
                                        </li>
                                </ul>
                            </li>
@@ -372,150 +372,130 @@
                    
                    </nav>
                </div>
-               <div class="content component">
+               <div class="content injectable">
                    <div class="content-data">
 
 
+
+
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li>SwitchComponent</li>
+  <li>Injectables</li>
+  <li>BusyService</li>
 </ol>
 
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+    </li>
+</ul>
 
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
-        </li>
-        <li>
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
-        </li>
-    </ul>
-
-    <div class="tab-content">
-        <div class="tab-pane fade active in" id="infos"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/reactive-form/switch/switch.component.ts</code>
-</p>
-
-
-
-<section>
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
-        <tbody>
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/busy-button/busy.service.ts</code>
+        </p>
 
 
 
+            <section>
+                <h3 id="methods">Methods</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> start</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>start()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> stop</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>stop()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
 
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> global</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>global:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value: </i><code>false</code>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre><code class="hljs javascript">import { Injectable } from &#x27;@angular/core&#x27;;
 
+@Injectable()
+export class BusyService {
+    global: boolean &#x3D; false
 
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>tw-switch</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;label&nbsp;class&#x3D;&quot;switch&nbsp;switch-icon&nbsp;switch-pill&nbsp;switch-primary-outline-alt&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type&#x3D;&quot;checkbox&quot;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;class&#x3D;&quot;switch-input&quot;&nbsp;checked&#x3D;&quot;{{request[field.id]}}&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;switch-label&quot;&nbsp;data-on&#x3D;&quot;yes&quot;&nbsp;data-off&#x3D;&quot;no&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;switch-handle&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>&lt;/div&gt;<br></code></td>
-            </tr>
-
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section>
-        <h3 id="inputs">Inputs</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <code>field</code>
-                        </td>
-                        <td class="col-md-10">
-                              <p>
-                                <em>Type:</em>    <code><a href="../classes/FormField.html" target="_self" >FormField</a></code>
-
-                              </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <code>group</code>
-                        </td>
-                        <td class="col-md-10">
-                              <p>
-                                <em>Type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html" target="_blank" >FormGroup</a></code>
-
-                              </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <code>request</code>
-                        </td>
-                        <td class="col-md-10">
-                              <p>
-                                <em>Type:</em>    <code>any</code>
-
-                              </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
-
-
-
-
-</div>
-        <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, Input } from &#x27;@angular/core&#x27;;
-import { FormGroup } from &#x27;@angular/forms&#x27;;
-import { FormField } from &#x27;../form-field.model&#x27;
-
-@Component({
-  selector: &#x27;tw-switch&#x27;,
-  template: &#x60;
-  &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-  &lt;label class&#x3D;&quot;switch switch-icon switch-pill switch-primary-outline-alt&quot;&gt;
-        &lt;input type&#x3D;&quot;checkbox&quot; [formControlName]&#x3D;&#x27;field.id&#x27; class&#x3D;&quot;switch-input&quot; checked&#x3D;&quot;{{request[field.id]}}&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;
-        &lt;span class&#x3D;&quot;switch-label&quot; data-on&#x3D;&quot;yes&quot; data-off&#x3D;&quot;no&quot;&gt;&lt;/span&gt;
-        &lt;span class&#x3D;&quot;switch-handle&quot;&gt;&lt;/span&gt;
-    &lt;/label&gt;
-&lt;/div&gt;
-  &#x60;
-})
-export class SwitchComponent {
-  @Input() group: FormGroup
-  @Input() field: FormField
-  @Input() request: any
+    start(): void {
+        this.global &#x3D; true
+    }
+    stop(): void {
+        this.global &#x3D; false
+    }
 }
 </code></pre>
-        </div>
     </div>
-
-
-
+</div>
 
 
 
