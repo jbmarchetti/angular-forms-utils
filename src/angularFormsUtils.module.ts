@@ -16,6 +16,9 @@ import { GroupSelectComponent } from './reactive-form/group-select/group-select.
 import { MultiSelectComponent } from './reactive-form/multi-select/multi-select.component';
 import { DaysOfWeekComponent } from './reactive-form/days-of-week/days-of-week.component'
 import { TextAreaComponent } from './reactive-form/textarea/textarea.component'
+
+import { BusyButtonComponent } from './busy-button/busy-button.component'
+
 let decExp: any[] =
   [
     ReactiveFormComponent,
@@ -30,7 +33,8 @@ let decExp: any[] =
     DatePickerComponent,
     DaysOfWeekComponent,
     MultiSelectComponent,
-    TextAreaComponent
+    TextAreaComponent,
+    BusyButtonComponent
   ]
 
 
