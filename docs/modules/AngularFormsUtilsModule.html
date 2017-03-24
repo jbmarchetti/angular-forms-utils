@@ -411,10 +411,21 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <h3>Providers<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#providers-anchor" target="_blank"><span class="fa fa-info-circle"></a></h3>
+                    <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="../injectables/BusyService.html" >BusyService</a>
+                            </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <h3>Exports<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#exports-anchor" target="_blank"><span class="fa fa-info-circle"></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
-                                    <a href="../s/decExp.html" >decExp</a>
+                                    <a href="../s/...decExp.html" >...decExp</a>
+                            </li>
+                            <li class="list-group-item">
+                                    <a href="../s/BusyService.html" >BusyService</a>
                             </li>
                     </ul>
                 </div>
@@ -442,6 +453,7 @@ import { DaysOfWeekComponent } from &#x27;./reactive-form/days-of-week/days-of-w
 import { TextAreaComponent } from &#x27;./reactive-form/textarea/textarea.component&#x27;
 
 import { BusyButtonComponent } from &#x27;./busy-button/busy-button.component&#x27;
+import { BusyService } from &#x27;./busy-button/busy.service&#x27;
 
 let decExp: any[] &#x3D;
   [
@@ -470,8 +482,9 @@ let decExp: any[] &#x3D;
     Ng2DatetimePickerModule,
     FormsModule
   ],
+  providers: [BusyService],
   declarations: decExp,
-  exports: decExp
+  exports: [...decExp, BusyService]
 })
 export class AngularFormsUtilsModule {
 
