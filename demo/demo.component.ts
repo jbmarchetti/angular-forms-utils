@@ -43,7 +43,6 @@ export class DemoComponent {
   ]
 
   fields: FormField[]
-
   constructor() {
 
     this.fields = [
