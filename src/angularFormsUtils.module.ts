@@ -49,7 +49,7 @@ let decExp: any[] =
   ],
   providers: [BusyService],
   declarations: decExp,
-  exports: decExp
+  exports: [...decExp, BusyService]
 })
 export class AngularFormsUtilsModule {
 
