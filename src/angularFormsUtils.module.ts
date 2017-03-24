@@ -18,6 +18,7 @@ import { DaysOfWeekComponent } from './reactive-form/days-of-week/days-of-week.c
 import { TextAreaComponent } from './reactive-form/textarea/textarea.component'
 
 import { BusyButtonComponent } from './busy-button/busy-button.component'
+import { BusyService } from './busy-button/busy.service'
 
 let decExp: any[] =
   [
@@ -46,6 +47,7 @@ let decExp: any[] =
     Ng2DatetimePickerModule,
     FormsModule
   ],
+  providers: [BusyService],
   declarations: decExp,
   exports: decExp
 })
