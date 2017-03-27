@@ -16,9 +16,14 @@ import { GroupSelectComponent } from './reactive-form/group-select/group-select.
 import { MultiSelectComponent } from './reactive-form/multi-select/multi-select.component';
 import { DaysOfWeekComponent } from './reactive-form/days-of-week/days-of-week.component'
 import { TextAreaComponent } from './reactive-form/textarea/textarea.component'
+import { TreeViewComponent } from './reactive-form/treeview/treeview.component'
+import { TreeViewTxtComponent } from './reactive-form/treeview-txt/treeview-txt.component'
 
 import { BusyButtonComponent } from './busy-button/busy-button.component'
 import { BusyService } from './busy-button/busy.service'
+
+import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
+
 
 let decExp: any[] =
   [
@@ -35,7 +40,9 @@ let decExp: any[] =
     DaysOfWeekComponent,
     MultiSelectComponent,
     TextAreaComponent,
-    BusyButtonComponent
+    BusyButtonComponent,
+    TreeViewComponent,
+    TreeViewTxtComponent
   ]
 
 
@@ -45,7 +52,8 @@ let decExp: any[] =
     CommonModule,
     TranslateModule,
     Ng2DatetimePickerModule,
-    FormsModule
+    FormsModule,
+    DropdownTreeviewModule
   ],
   declarations: decExp,
   exports: [...decExp, BusyService]
