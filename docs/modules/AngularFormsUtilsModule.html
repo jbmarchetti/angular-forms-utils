@@ -411,14 +411,6 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h3>Providers<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#providers-anchor" target="_blank"><span class="fa fa-info-circle"></a></h3>
-                    <ul class="list-group">
-                            <li class="list-group-item">
-                                <a href="../injectables/BusyService.html" >BusyService</a>
-                            </li>
-                    </ul>
-                </div>
-                <div class="col-sm-3">
                     <h3>Exports<a href="https://angular.io/docs/ts/latest/api/core/index/NgModule-interface.html#!#exports-anchor" target="_blank"><span class="fa fa-info-circle"></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
@@ -482,17 +474,15 @@ let decExp: any[] &#x3D;
     Ng2DatetimePickerModule,
     FormsModule
   ],
-  providers: [BusyService],
   declarations: decExp,
   exports: [...decExp, BusyService]
 })
 export class AngularFormsUtilsModule {
 
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AngularFormsUtilsModule
-    }
+  public static forRoot(): ModuleWithProviders {
+    return { ngModule: AngularFormsUtilsModule, providers: [BusyService] };
   }
+
 
 }</code></pre>
     </div>
