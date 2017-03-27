@@ -120,6 +120,12 @@
                                 <li class="link">
                                     <a href="../components/TimePickerComponent.html" >TimePickerComponent</a>
                                 </li>
+                                <li class="link">
+                                    <a href="../components/TreeViewComponent.html" >TreeViewComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/TreeViewTxtComponent.html" >TreeViewTxtComponent</a>
+                                </li>
                         </ul>
                     </li>
             
@@ -299,6 +305,12 @@
                                        <li class="link">
                                            <a href="../components/TimePickerComponent.html" >TimePickerComponent</a>
                                        </li>
+                                       <li class="link">
+                                           <a href="../components/TreeViewComponent.html" >TreeViewComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/TreeViewTxtComponent.html" >TreeViewTxtComponent</a>
+                                       </li>
                                </ul>
                            </li>
                    
@@ -443,9 +455,14 @@ import { GroupSelectComponent } from &#x27;./reactive-form/group-select/group-se
 import { MultiSelectComponent } from &#x27;./reactive-form/multi-select/multi-select.component&#x27;;
 import { DaysOfWeekComponent } from &#x27;./reactive-form/days-of-week/days-of-week.component&#x27;
 import { TextAreaComponent } from &#x27;./reactive-form/textarea/textarea.component&#x27;
+import { TreeViewComponent } from &#x27;./reactive-form/treeview/treeview.component&#x27;
+import { TreeViewTxtComponent } from &#x27;./reactive-form/treeview-txt/treeview-txt.component&#x27;
 
 import { BusyButtonComponent } from &#x27;./busy-button/busy-button.component&#x27;
 import { BusyService } from &#x27;./busy-button/busy.service&#x27;
+
+import { DropdownTreeviewModule } from &#x27;ng2-dropdown-treeview&#x27;;
+
 
 let decExp: any[] &#x3D;
   [
@@ -462,7 +479,9 @@ let decExp: any[] &#x3D;
     DaysOfWeekComponent,
     MultiSelectComponent,
     TextAreaComponent,
-    BusyButtonComponent
+    BusyButtonComponent,
+    TreeViewComponent,
+    TreeViewTxtComponent
   ]
 
 
@@ -472,7 +491,8 @@ let decExp: any[] &#x3D;
     CommonModule,
     TranslateModule,
     Ng2DatetimePickerModule,
-    FormsModule
+    FormsModule,
+    DropdownTreeviewModule
   ],
   declarations: decExp,
   exports: [...decExp, BusyService]

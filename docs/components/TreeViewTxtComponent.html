@@ -91,7 +91,7 @@
                                     <a href="../components/DaysOfWeekComponent.html" >DaysOfWeekComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/EnumselectComponent.html"  class="active" >EnumselectComponent</a>
+                                    <a href="../components/EnumselectComponent.html" >EnumselectComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/GroupSelectComponent.html" >GroupSelectComponent</a>
@@ -124,7 +124,7 @@
                                     <a href="../components/TreeViewComponent.html" >TreeViewComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/TreeViewTxtComponent.html" >TreeViewTxtComponent</a>
+                                    <a href="../components/TreeViewTxtComponent.html"  class="active" >TreeViewTxtComponent</a>
                                 </li>
                         </ul>
                     </li>
@@ -276,7 +276,7 @@
                                            <a href="../components/DaysOfWeekComponent.html" >DaysOfWeekComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/EnumselectComponent.html"  class="active" >EnumselectComponent</a>
+                                           <a href="../components/EnumselectComponent.html" >EnumselectComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/GroupSelectComponent.html" >GroupSelectComponent</a>
@@ -309,7 +309,7 @@
                                            <a href="../components/TreeViewComponent.html" >TreeViewComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/TreeViewTxtComponent.html" >TreeViewTxtComponent</a>
+                                           <a href="../components/TreeViewTxtComponent.html"  class="active" >TreeViewTxtComponent</a>
                                        </li>
                                </ul>
                            </li>
@@ -390,7 +390,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>EnumselectComponent</li>
+  <li>TreeViewTxtComponent</li>
 </ol>
 
 
@@ -408,7 +408,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/reactive-form/enumselect/enumselect.component.ts</code>
+    <code>src/reactive-form/treeview-txt/treeview-txt.component.ts</code>
 </p>
 
 
@@ -431,14 +431,14 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>tw-enumselect</code></td>
+                <td class="col-md-9"><code>tw-treeview-txt</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;select&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;field.firstValue.value&quot;&nbsp;*ngIf&#x3D;&#x27;field.firstValue&#x27;&nbsp;&gt;{{field.firstValue.text&nbsp;|&nbsp;translate}}&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;option&quot;&nbsp;*ngFor&#x3D;&quot;let&nbsp;option&nbsp;of&nbsp;enumToArray(field.options)&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{option}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;leo-dropdown-treeview&nbsp;id&#x3D;&quot;treeview_{{field.id}}&quot;&nbsp;[config]&#x3D;&quot;selectConfig&quot;&nbsp;[items]&#x3D;&quot;field.options&quot;&nbsp;(selectedChange)&#x3D;&quot;updateModel($event)&quot;&gt;&lt;/leo-dropdown-treeview&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;type&#x3D;&#x27;hidden&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -498,34 +498,90 @@
 
 
 
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> updateModel</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <span class="modifier-icon method fa fa-play circle">
+                                    <span class="fa fa-circle"></span>
+                                </span>
+                            <code>updateModel(values: any[])</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b><span class="modifier">Public</span> selectConfig</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <span class="modifier-icon fa fa-circle"></span><code>selectConfig:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, Input } from &#x27;@angular/core&#x27;;
-import { FormGroup } from &#x27;@angular/forms&#x27;;
+            <pre><code class="hljs javascript">import { Component, OnInit, Input, OnDestroy } from &#x27;@angular/core&#x27;;
+import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+
+import { Subscription } from &#x27;rxjs&#x27;
+import * as moment from &#x27;moment&#x27;
 import { FormField } from &#x27;../form-field.model&#x27;
 
 @Component({
-  selector: &#x27;tw-enumselect&#x27;,
+  selector: &#x27;tw-treeview-txt&#x27;,
   template: &#x60;
   &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-  &lt;select [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot;&gt;
-      &lt;option [ngValue]&#x3D;&quot;field.firstValue.value&quot; *ngIf&#x3D;&#x27;field.firstValue&#x27; &gt;{{field.firstValue.text | translate}}&lt;/option&gt;
-      &lt;option [ngValue]&#x3D;&quot;option&quot; *ngFor&#x3D;&quot;let option of enumToArray(field.options)&quot;&gt;
-        {{option}}
-      &lt;/option&gt;
-    &lt;/select&gt;
+   &lt;leo-dropdown-treeview id&#x3D;&quot;treeview_{{field.id}}&quot; [config]&#x3D;&quot;selectConfig&quot; [items]&#x3D;&quot;field.options&quot; (selectedChange)&#x3D;&quot;updateModel($event)&quot;&gt;&lt;/leo-dropdown-treeview&gt;
+    &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; type&#x3D;&#x27;hidden&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;
 &lt;/div&gt;
   &#x60;
 })
-export class EnumselectComponent {
+export class TreeViewTxtComponent {
 
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
 
-  private enumToArray(enumObj: any): string[] {
-    return Object.keys(enumObj).slice(Object.keys(enumObj).length / 2)
+  public selectConfig: any &#x3D; {
+    isShowAllCheckBox: true,
+    isShowFilter: true,
+    isShowCollapseExpand: false
+  }
+
+  public updateModel(values?: any[]): void {
+    if (values)
+      this.field.setValue(values.join(&#x27;,&#x27;))
+    else
+      this.field.setValue(&#x27;&#x27;)
   }
 }
 </code></pre>
