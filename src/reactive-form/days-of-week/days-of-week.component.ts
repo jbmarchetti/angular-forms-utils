@@ -1,36 +1,31 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormField } from '../form-field.model'
 
 @Component({
   selector: 'tw-dof',
-  template: `
-  <div [formGroup]='group'>
-    <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]" >
-      <option [ngValue]="option.val" *ngFor="let option of daysOfWeek">
-        {{option.text | translate}}
-      </option>
-    </select>
-</div>
-  `
+  template: `<tw-enumselect [group]='group' [field]='field' [request]='request'></tw-enumselect>`
+
 })
-export class DaysOfWeekComponent {
+export class DaysOfWeekComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
 
-
-  get daysOfWeek(): any[] {
-    return [
-      { val: 'Sunday', text: 'Sunday' },
-      { val: 'Monday', text: 'Monday' },
-      { val: 'Tuesday', text: 'Tuesday' },
-      { val: 'Wednesday', text: 'Wednesday' },
-      { val: 'Thursday', text: 'Thursday' },
-      { val: 'Friday', text: 'Friday' },
-      { val: 'Saturday', text: 'Saturday' }
-    ]
-
+  ngOnInit(): void {
+    this.field.options = DaysOfWeekValues
   }
 
+}
+
+
+
+export enum DaysOfWeekValues {
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
 }
