@@ -438,7 +438,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ng2-datetime-picker<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;close-on-select&#x3D;&quot;false&quot;&nbsp;date-only&#x3D;&quot;true&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;<br>&nbsp;&nbsp;&lt;small&nbsp;class&#x3D;&#x27;text-danger&#x27;&nbsp;*ngIf&#x3D;&#x27;field.control.value&nbsp;&amp;&amp;&nbsp;field.control.invalid&#x27;&gt;Invalid&nbsp;Format&nbsp;:&nbsp;YYYY-MM-DD&lt;/small&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;close-on-select&#x3D;&quot;false&quot;&nbsp;date-only&#x3D;&quot;true&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;<br>&nbsp;&nbsp;&lt;small&nbsp;class&#x3D;&#x27;text-danger&#x27;&nbsp;*ngIf&#x3D;&#x27;field.control.value&nbsp;&amp;&amp;&nbsp;field.control.invalid&#x27;&gt;Invalid&nbsp;Format&nbsp;:&nbsp;YYYY-MM-DD&lt;/small&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -512,7 +512,7 @@ import { FormField } from &#x27;../form-field.model&#x27;
   selector: &#x27;tw-date-picker&#x27;,
   template: &#x60;
   &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-   &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27;  class&#x3D;&#x27;form-control&#x27; ng2-datetime-picker
+   &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27;  class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker
       close-on-select&#x3D;&quot;false&quot; date-only&#x3D;&quot;true&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;
   &lt;small class&#x3D;&#x27;text-danger&#x27; *ngIf&#x3D;&#x27;field.control.value &amp;&amp; field.control.invalid&#x27;&gt;Invalid Format : YYYY-MM-DD&lt;/small&gt;
 &lt;/div&gt;
