@@ -438,7 +438,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;select&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;option.val&quot;&nbsp;*ngFor&#x3D;&quot;let&nbsp;option&nbsp;of&nbsp;daysOfWeek&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{option.text&nbsp;|&nbsp;translate}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;tw-enumselect&nbsp;[group]&#x3D;&#x27;group&#x27;&nbsp;[field]&#x3D;&#x27;field&#x27;&nbsp;[request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-enumselect&gt;</code></td>
             </tr>
 
 
@@ -499,61 +499,38 @@
 
 
 
-    <section>
-        <h3 id="inputs">Properties</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> daysOfWeek</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>daysOfWeek:     <code>any[]</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, Input } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 import { FormGroup } from &#x27;@angular/forms&#x27;;
 import { FormField } from &#x27;../form-field.model&#x27;
 
 @Component({
   selector: &#x27;tw-dof&#x27;,
-  template: &#x60;
-  &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-    &lt;select [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;
-      &lt;option [ngValue]&#x3D;&quot;option.val&quot; *ngFor&#x3D;&quot;let option of daysOfWeek&quot;&gt;
-        {{option.text | translate}}
-      &lt;/option&gt;
-    &lt;/select&gt;
-&lt;/div&gt;
-  &#x60;
+  template: &#x60;&lt;tw-enumselect [group]&#x3D;&#x27;group&#x27; [field]&#x3D;&#x27;field&#x27; [request]&#x3D;&#x27;request&#x27;&gt;&lt;/tw-enumselect&gt;&#x60;
+
 })
-export class DaysOfWeekComponent {
+export class DaysOfWeekComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
 
-
-  get daysOfWeek(): any[] {
-    return [
-      { val: &#x27;Sunday&#x27;, text: &#x27;Sunday&#x27; },
-      { val: &#x27;Monday&#x27;, text: &#x27;Monday&#x27; },
-      { val: &#x27;Tuesday&#x27;, text: &#x27;Tuesday&#x27; },
-      { val: &#x27;Wednesday&#x27;, text: &#x27;Wednesday&#x27; },
-      { val: &#x27;Thursday&#x27;, text: &#x27;Thursday&#x27; },
-      { val: &#x27;Friday&#x27;, text: &#x27;Friday&#x27; },
-      { val: &#x27;Saturday&#x27;, text: &#x27;Saturday&#x27; }
-    ]
-
+  ngOnInit(): void {
+    this.field.options &#x3D; DaysOfWeekValues
   }
 
+}
+
+
+
+export enum DaysOfWeekValues {
+  &#x27;Sunday&#x27;,
+  &#x27;Monday&#x27;,
+  &#x27;Tuesday&#x27;,
+  &#x27;Wednesday&#x27;,
+  &#x27;Thursday&#x27;,
+  &#x27;Friday&#x27;,
+  &#x27;Saturday&#x27;
 }
 </code></pre>
         </div>
