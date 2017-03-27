@@ -1,6 +1,6 @@
 {
   "name": "angular-forms-utils",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "description": "Angular2 Reactive forms utils",
   "main": "./bundles/angular-forms-utils.umd.js",
   "module": "./index.js",
@@ -101,9 +101,9 @@
     }
   },
   "dependencies": {
+    "@ngui/datetime-picker": "^0.16.0",
     "@ngx-translate/core": "^6.0.0",
     "moment": "^2.18.0",
-    "ng2-datetime-picker": "^0.14.8",
     "ng2-dropdown-treeview": "^1.0.5"
   }
 }

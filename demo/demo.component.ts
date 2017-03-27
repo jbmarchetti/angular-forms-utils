@@ -57,7 +57,7 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'hidden', type: 'hidden', label: 'Input Hidden (Set label to \'\')' }),
       new FormField(<IFormField>{ id: 'float', type: 'float', label: 'Input Float' }),
       new FormField(<IFormField>{ id: 'textarea', type: 'textarea', label: 'Textarea' }),
-      new FormField(<IFormField>{ id: 'datetime', type: 'datetime', label: 'Datetime' }).required(),
+      new FormField(<IFormField>{ id: 'datetime', type: 'datetime', label: 'Datetime', more: { hour: '08' } }).required(),
       new FormField(<IFormField>{ id: 'time', type: 'time', label: 'Time' }),
       new FormField(<IFormField>{ id: 'date', type: 'date', label: 'Date' }),
       new FormField(<IFormField>{ id: 'switch', type: 'boolean', label: 'Switch' }),
@@ -68,7 +68,6 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'groupselect', type: 'groupselect', label: 'Group Select', options: this.groupSelect, optionValue: 'id', optionText: 'label' }),
       new FormField(<IFormField>{ id: 'treeview', type: 'treeview-txt', label: 'Treeview Select', options: this.createCategoriesTree(), optionValue: '', optionText: '' }),
     ]
-
 
 
   }
