@@ -6,7 +6,7 @@ import * as moment from 'moment'
 import { FormField } from '../form-field.model'
 
 @Component({
-  selector: 'tw-treeview-txt',
+  selector: 'tw-treeview',
   template: `
   <div [formGroup]='group'>
    <leo-dropdown-treeview id="treeview_{{field.id}}" [config]="selectConfig" [items]="field.options" (selectedChange)="updateModel($event)"></leo-dropdown-treeview>
