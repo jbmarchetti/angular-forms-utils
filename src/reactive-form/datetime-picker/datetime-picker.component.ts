@@ -9,7 +9,7 @@ import { FormField } from '../form-field.model'
   selector: 'tw-datetime-picker',
   template: `
   <div [formGroup]='group'>
-  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker [attr.hour]="{{hour}}" [attr.minute]="{{minute}}" close-on-select="false" [(ngModel)]="request[field.id]" />
+  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker [attr.hour]="hour" [attr.minute]="minute" close-on-select="false" [(ngModel)]="request[field.id]" />
   <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : YYYY-MM-DD HH:MM</small>
 </div>
   `
