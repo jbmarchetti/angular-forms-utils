@@ -47,16 +47,14 @@ let decExp: any[] =
     Ng2DatetimePickerModule,
     FormsModule
   ],
-  providers: [BusyService],
   declarations: decExp,
   exports: [...decExp, BusyService]
 })
 export class AngularFormsUtilsModule {
 
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AngularFormsUtilsModule
-    }
+  public static forRoot(): ModuleWithProviders {
+    return { ngModule: AngularFormsUtilsModule, providers: [BusyService] };
   }
+
 
 }
