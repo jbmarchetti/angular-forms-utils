@@ -13,6 +13,8 @@ export interface IFormField {
     optionText: string
     firstValue: any
 
+    more: any
+
 }
 
 export class FormField implements IFormField {
@@ -25,6 +27,7 @@ export class FormField implements IFormField {
     optionText: string
     col: string
     firstValue: any
+    more: any
 
     control: FormControl
 

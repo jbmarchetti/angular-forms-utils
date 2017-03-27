@@ -21,9 +21,8 @@ import { FormField } from './form-field.model';
       <tw-textarea *ngIf='field.type==="textarea"' [group]='form' [field]='field' [request]='request'></tw-textarea>
       <tw-date-picker *ngIf='field.type==="date"' [group]='form' [field]='field' [request]='request'></tw-date-picker>
       <tw-dof *ngIf='field.type==="daysOfWeek"' [group]='form' [field]='field' [request]='request'></tw-dof>
-      <tw-treeview-txt *ngIf='field.type==="treeview-txt"' [group]='form' [field]='field' [request]='request'></tw-treeview-txt>
-      <tw-treeview *ngIf='field.type==="treeview"' [group]='form' [field]='field' [request]='request'></tw-treeview>
-    
+      <tw-treeview-txt *ngIf='field.type==="treeview-txt" || field.type==="dropdown-treeview-txt"' [group]='form' [field]='field' [request]='request'></tw-treeview-txt>
+      <tw-treeview *ngIf='field.type==="treeview" || field.type==="dropdown-treeview"' [group]='form' [field]='field' [request]='request'></tw-treeview>
     </div>
   </div>
 </form>

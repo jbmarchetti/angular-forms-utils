@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms'
 import { FormField, IFormField } from '../src/reactive-form/form-field.model'
+import { TreeviewItem } from 'ng2-dropdown-treeview';
 
 @Component({
   selector: 'tw-demo-app',
@@ -42,6 +43,10 @@ export class DemoComponent {
     }
   ]
 
+
+
+
+
   fields: FormField[]
   constructor() {
 
@@ -61,11 +66,48 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'multiselect', type: 'multiselect', label: 'Multi Select', options: this.selectValues, optionValue: 'id', optionText: 'label' }),
       new FormField(<IFormField>{ id: 'enumselect', type: 'enumselect', label: 'Enum Select', options: EnumValues, optionValue: '', optionText: '' }),
       new FormField(<IFormField>{ id: 'groupselect', type: 'groupselect', label: 'Group Select', options: this.groupSelect, optionValue: 'id', optionText: 'label' }),
+      new FormField(<IFormField>{ id: 'treeview', type: 'treeview-txt', label: 'Treeview Select', options: this.createCategoriesTree(), optionValue: '', optionText: '' }),
     ]
 
 
 
   }
+
+  private createCategoriesTree(): TreeviewItem[] {
+    let childrenCategory: TreeviewItem = new TreeviewItem({
+      text: 'Children', value: 1, collapsed: true, children: [
+        { text: 'Baby 3-5', value: 11 },
+        { text: 'Baby 6-8', value: 12 },
+        { text: 'Baby 9-12', value: 13 }
+      ]
+    });
+    let itCategory: TreeviewItem = new TreeviewItem({
+      text: 'IT', value: 9, children: [
+        {
+          text: 'Programming', value: 91, children: [
+            { text: 'Angular 1', value: 911 },
+            { text: 'Angular 2', value: 912 },
+            { text: 'ReactJS', value: 913 }
+          ]
+        },
+        {
+          text: 'Networking', value: 92, children: [
+            { text: 'Internet', value: 921 },
+            { text: 'Security', value: 922 }
+          ]
+        }
+      ]
+    });
+    let teenCategory: TreeviewItem = new TreeviewItem({
+      text: 'Teen', value: 2, collapsed: true, disabled: true, children: [
+        { text: 'Adventure', value: 21 },
+        { text: 'Science', value: 22 }
+      ]
+    });
+    let othersCategory: TreeviewItem = new TreeviewItem({ text: 'Others', value: 3, collapsed: true, disabled: true });
+    return [childrenCategory, itCategory, teenCategory, othersCategory];
+  }
+
   // [
   // { id: 'text', type: 'text', label: 'Input Text' },
   // { id: 'number', type: 'number', label: 'Input Number' },

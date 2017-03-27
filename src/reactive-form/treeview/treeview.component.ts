@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
+import { TreeviewConfig } from 'ng2-dropdown-treeview';
 
 import { Subscription } from 'rxjs'
 import * as moment from 'moment'
@@ -9,21 +10,23 @@ import { FormField } from '../form-field.model'
   selector: 'tw-treeview',
   template: `
   <div [formGroup]='group'>
-   <leo-dropdown-treeview id="treeview_{{field.id}}" [config]="selectConfig" [items]="field.options" (selectedChange)="updateModel($event)"></leo-dropdown-treeview>
+   <leo-treeview *ngIf='field.type==="treeview"' [config]="selectConfig" [items]="field.options" (selectedChange)="updateModel($event)"></leo-treeview>
+   <leo-dropdown-treeview *ngIf='field.type==="dropdown-treeview"'  [config]="selectConfig" [items]="field.options" (selectedChange)="updateModel($event)"></leo-dropdown-treeview>
   <input [formControlName]='field.id' name='{{field.id}}' type='hidden' class='form-control' [(ngModel)]="request[field.id]"/>
 </div>
   `
 })
-export class TreeViewComponent {
+export class TreeViewComponent implements OnInit {
 
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
 
-  public selectConfig: any = {
+  public selectConfig: TreeviewConfig = {
     isShowAllCheckBox: true,
     isShowFilter: true,
-    isShowCollapseExpand: false
+    isShowCollapseExpand: true,
+    maxHeight: 500
   }
 
   public updateModel(values?: any[]): void {
@@ -31,5 +34,10 @@ export class TreeViewComponent {
       this.field.setValue(values)
     else
       this.field.setValue([])
+  }
+
+  ngOnInit(): void {
+    if (this.field.more && this.field.more.selectConfig)
+      this.selectConfig = this.field.more.selectConfig
   }
 }
