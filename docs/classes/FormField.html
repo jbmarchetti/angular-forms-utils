@@ -612,6 +612,21 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b> more</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>more:     <code>any</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b> options</b>
                                 </td>
                             </tr>
@@ -686,6 +701,8 @@ export interface IFormField {
     optionText: string
     firstValue: any
 
+    more: any
+
 }
 
 export class FormField implements IFormField {
@@ -698,6 +715,7 @@ export class FormField implements IFormField {
     optionText: string
     col: string
     firstValue: any
+    more: any
 
     control: FormControl
 
