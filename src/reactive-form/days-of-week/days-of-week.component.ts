@@ -22,13 +22,13 @@ export class DaysOfWeekComponent {
 
   get daysOfWeek(): any[] {
     return [
-      { val: 'sunday', text: 'sunday' },
-      { val: 'monday', text: 'monday' },
-      { val: 'tuesday', text: 'tuesday' },
-      { val: 'wednesday', text: 'wednesday' },
-      { val: 'thursday', text: 'thursday' },
-      { val: 'friday', text: 'friday' },
-      { val: 'saturday', text: 'saturday' }
+      { val: 'Sunday', text: 'Sunday' },
+      { val: 'Monday', text: 'Monday' },
+      { val: 'Tuesday', text: 'Tuesday' },
+      { val: 'Wednesday', text: 'Wednesday' },
+      { val: 'Thursday', text: 'Thursday' },
+      { val: 'Friday', text: 'Friday' },
+      { val: 'Saturday', text: 'Saturday' }
     ]
 
   }
