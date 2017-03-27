@@ -22,6 +22,9 @@ import { TreeViewTxtComponent } from './reactive-form/treeview-txt/treeview-txt.
 import { BusyButtonComponent } from './busy-button/busy-button.component'
 import { BusyService } from './busy-button/busy.service'
 
+import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
+
+
 let decExp: any[] =
   [
     ReactiveFormComponent,
@@ -49,7 +52,8 @@ let decExp: any[] =
     CommonModule,
     TranslateModule,
     Ng2DatetimePickerModule,
-    FormsModule
+    FormsModule,
+    DropdownTreeviewModule
   ],
   declarations: decExp,
   exports: decExp

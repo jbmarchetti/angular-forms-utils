@@ -20,13 +20,13 @@ export class TreeViewComponent {
   @Input() field: FormField
   @Input() request: any
 
-  private selectConfig: any = {
+  public selectConfig: any = {
     isShowAllCheckBox: true,
     isShowFilter: true,
     isShowCollapseExpand: false
   }
 
-  private updateModel(values?: any[]) {
+  public updateModel(values?: any[]) {
     if (values)
       this.field.setValue(values)
     else
