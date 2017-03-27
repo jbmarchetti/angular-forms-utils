@@ -22,7 +22,7 @@ export class FormField implements IFormField {
     id: string
     type: string
     label: string
-    options: any[]
+    options: any
     optionValue: string
     optionText: string
     col: string
