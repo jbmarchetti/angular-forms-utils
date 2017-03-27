@@ -74,14 +74,14 @@ export class DemoComponent {
   }
 
   private createCategoriesTree(): TreeviewItem[] {
-    let childrenCategory = new TreeviewItem({
+    let childrenCategory: TreeviewItem = new TreeviewItem({
       text: 'Children', value: 1, collapsed: true, children: [
         { text: 'Baby 3-5', value: 11 },
         { text: 'Baby 6-8', value: 12 },
         { text: 'Baby 9-12', value: 13 }
       ]
     });
-    let itCategory = new TreeviewItem({
+    let itCategory: TreeviewItem = new TreeviewItem({
       text: 'IT', value: 9, children: [
         {
           text: 'Programming', value: 91, children: [
@@ -98,13 +98,13 @@ export class DemoComponent {
         }
       ]
     });
-    let teenCategory = new TreeviewItem({
+    let teenCategory: TreeviewItem = new TreeviewItem({
       text: 'Teen', value: 2, collapsed: true, disabled: true, children: [
         { text: 'Adventure', value: 21 },
         { text: 'Science', value: 22 }
       ]
     });
-    let othersCategory = new TreeviewItem({ text: 'Others', value: 3, collapsed: true, disabled: true });
+    let othersCategory: TreeviewItem = new TreeviewItem({ text: 'Others', value: 3, collapsed: true, disabled: true });
     return [childrenCategory, itCategory, teenCategory, othersCategory];
   }
 

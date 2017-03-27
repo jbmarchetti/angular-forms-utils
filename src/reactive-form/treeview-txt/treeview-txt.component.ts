@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
+import { TreeviewConfig } from 'ng2-dropdown-treeview';
 
 import { Subscription } from 'rxjs'
 import * as moment from 'moment'
@@ -15,16 +16,17 @@ import { FormField } from '../form-field.model'
 </div>
   `
 })
-export class TreeViewTxtComponent {
+export class TreeViewTxtComponent implements OnInit {
 
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
 
-  public selectConfig: any = {
+  public selectConfig: TreeviewConfig = {
     isShowAllCheckBox: true,
     isShowFilter: true,
-    isShowCollapseExpand: false
+    isShowCollapseExpand: true,
+    maxHeight: 500
   }
 
   public updateModel(values?: any[]): void {
@@ -32,5 +34,9 @@ export class TreeViewTxtComponent {
       this.field.setValue(values.join(','))
     else
       this.field.setValue('')
+  }
+  ngOnInit(): void {
+    if (this.field.more && this.field.more.selectConfig)
+      this.selectConfig = this.field.more.selectConfig
   }
 }

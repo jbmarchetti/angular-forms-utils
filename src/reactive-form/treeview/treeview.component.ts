@@ -36,7 +36,7 @@ export class TreeViewComponent implements OnInit {
       this.field.setValue([])
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.field.more && this.field.more.selectConfig)
       this.selectConfig = this.field.more.selectConfig
   }
