@@ -26,7 +26,7 @@ export class TreeViewComponent {
     isShowCollapseExpand: false
   }
 
-  public updateModel(values?: any[]) {
+  public updateModel(values?: any[]): void {
     if (values)
       this.field.setValue(values)
     else
