@@ -66,6 +66,7 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'select', type: 'select', label: 'Select', options: this.selectValues, optionValue: 'id', optionText: 'label' }),
       new FormField(<IFormField>{ id: 'multiselect', type: 'multiselect', label: 'Multi Select', options: this.selectValues, optionValue: 'id', optionText: 'label' }),
       new FormField(<IFormField>{ id: 'enumselect', type: 'enumselect', label: 'Enum Select', options: EnumValues, optionValue: '', optionText: '' }),
+      new FormField(<IFormField>{ id: 'enummultiselect', type: 'enummultiselect', label: 'Enum Multi Select', options: EnumValues, optionValue: '', optionText: '' }),
       new FormField(<IFormField>{ id: 'groupselect', type: 'groupselect', label: 'Group Select', options: this.groupSelect, optionValue: 'id', optionText: 'label' }),
       new FormField(<IFormField>{ id: 'treeview', type: 'treeview-txt', label: 'Treeview Select', options: this.createCategoriesTree(), optionValue: '', optionText: '' }),
     ]

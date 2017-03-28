@@ -6,7 +6,7 @@ import { FormField } from '../form-field.model'
   selector: 'tw-enumselect',
   template: `
   <div [formGroup]='group'>
-  <select [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
+  <select [attr.multiple]='field.type === "enumselect"?null:true' [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
       <option [ngValue]="field.firstValue.value" *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>
       <option [ngValue]="option" *ngFor="let option of enumToArray(field.options)">
         {{option}}
