@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
-import { Subscription } from 'rxjs'
-import * as moment from 'moment'
+// import { Subscription } from 'rxjs'
 import { FormField } from '../form-field.model'
 
 @Component({
@@ -22,7 +21,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   @Input() request: any
   defaultValue: string = ''
 
-  private sub: Subscription
+  // private sub: Subscription
 
   ngOnInit(): void {
     this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
@@ -35,7 +34,7 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.sub)
-      this.sub.unsubscribe()
+    // if (this.sub)
+    //   this.sub.unsubscribe()
   }
 }

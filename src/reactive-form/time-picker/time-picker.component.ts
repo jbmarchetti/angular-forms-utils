@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs'
+// import { Subscription } from 'rxjs'
 import { FormField } from '../form-field.model'
 
 @Component({
@@ -18,7 +18,7 @@ export class TimePickerComponent implements OnInit, OnDestroy {
   @Input() field: FormField
   @Input() request: any
 
-  private sub: Subscription
+  // private sub: Subscription
   defaultValue: string = ''
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class TimePickerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.sub)
-      this.sub.unsubscribe()
+    // if (this.sub)
+    //   this.sub.unsubscribe()
   }
 }

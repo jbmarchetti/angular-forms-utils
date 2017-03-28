@@ -1,7 +1,7 @@
 import { OnInit, Component, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 
-import { Subscription } from 'rxjs'
+// import { Subscription } from 'rxjs'
 import * as moment from 'moment'
 import { FormField } from '../form-field.model'
 
@@ -22,7 +22,7 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
 
   defaultValue: string = ''
   minute: string = ''
-  private sub: Subscription
+  // private sub: Subscription
 
   ngOnInit(): void {
     this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|0[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$/))
@@ -47,7 +47,7 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.sub)
-      this.sub.unsubscribe()
+    // if (this.sub)
+    //   this.sub.unsubscribe()
   }
 }
