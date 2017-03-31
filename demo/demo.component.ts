@@ -10,7 +10,7 @@ import { TreeviewItem } from 'ng2-dropdown-treeview';
 export class DemoComponent {
 
   form: FormGroup = new FormGroup({});
-  request: any = { time: '23:59:59' }
+  request: any = { time: '10:00' }
 
   selectValues: any[] =
   [
