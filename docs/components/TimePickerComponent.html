@@ -438,7 +438,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;time-only&#x3D;&quot;true&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;ngui-datetime-picker&nbsp;close-on-select&#x3D;&quot;false&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;<br>&nbsp;&nbsp;&lt;small&nbsp;class&#x3D;&#x27;text-danger&#x27;&nbsp;*ngIf&#x3D;&#x27;field.control.value&nbsp;&amp;&amp;&nbsp;field.control.invalid&#x27;&gt;Invalid&nbsp;Format&nbsp;:&nbsp;HH:MM&lt;/small&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;time-only&#x3D;&quot;true&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;ngui-datetime-picker&nbsp;[close-on-select]&#x3D;&quot;closeOnSelect&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;<br>&nbsp;&nbsp;&lt;small&nbsp;class&#x3D;&#x27;text-danger&#x27;&nbsp;*ngIf&#x3D;&#x27;field.control.value&nbsp;&amp;&amp;&nbsp;field.control.invalid&#x27;&gt;Invalid&nbsp;Format&nbsp;:&nbsp;HH:MM&lt;/small&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -505,6 +505,26 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> closeOnSelect</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>closeOnSelect:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>false</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> defaultValue</b>
                         </td>
                     </tr>
@@ -529,7 +549,7 @@ import { FormField } from &#x27;../form-field.model&#x27;
   template: &#x60;
 &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
   &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; default-value&#x3D;&#x27;{{defaultValue}}&#x27; date-format&#x3D;&#x27;HH:mm&#x27; parse-format&#x3D;&#x27;HH:mm&#x27; time-only&#x3D;&quot;true&quot;
-    ngui-datetime-picker close-on-select&#x3D;&quot;false&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;
+    ngui-datetime-picker [close-on-select]&#x3D;&quot;closeOnSelect&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;
   &lt;small class&#x3D;&#x27;text-danger&#x27; *ngIf&#x3D;&#x27;field.control.value &amp;&amp; field.control.invalid&#x27;&gt;Invalid Format : HH:MM&lt;/small&gt;
 &lt;/div&gt;
   &#x60;
@@ -541,11 +561,27 @@ export class TimePickerComponent implements OnInit, OnDestroy {
 
   // private sub: Subscription
   defaultValue: string &#x3D; &#x27;&#x27;
+  closeOnSelect: boolean &#x3D; false
 
   ngOnInit(): void {
     this.field.addValidator(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))
-    if (this.field.more &amp;&amp; this.field.more.defaultValue)
-      this.defaultValue &#x3D; this.field.more.defaultValue
+    if (this.field.more) {
+      if (this.field.more.defaultValue)
+        switch (this.field.more.defaultValue) {
+          case &#x27;startOfDay&#x27;:
+            this.defaultValue &#x3D; &#x27;00:00&#x27;
+            break
+          case &#x27;endOfDay&#x27;:
+            this.defaultValue &#x3D; &#x27;23:59&#x27;
+            break
+          default:
+            this.defaultValue &#x3D; this.field.more.defaultValue
+            break
+        }
+
+      if (this.field.more.closeOnSelect)
+        this.closeOnSelect &#x3D; this.field.more.closeOnSelect
+    }
     // this.field.setValue(this.request[this.field.id])
 
     // this.sub &#x3D; this.field.control.valueChanges.subscribe(value &#x3D;&gt; {

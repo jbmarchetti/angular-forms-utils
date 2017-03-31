@@ -438,7 +438,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;close-on-select&#x3D;&quot;false&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;small&nbsp;class&#x3D;&#x27;text-danger&#x27;&nbsp;*ngIf&#x3D;&#x27;field.control.value&nbsp;&amp;&amp;&nbsp;field.control.invalid&#x27;&gt;Invalid&nbsp;Format&nbsp;:&nbsp;YYYY-MM-DD&nbsp;HH:MM&lt;/small&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;[close-on-select]&#x3D;&quot;closeOnSelect&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;small&nbsp;class&#x3D;&#x27;text-danger&#x27;&nbsp;*ngIf&#x3D;&#x27;field.control.value&nbsp;&amp;&amp;&nbsp;field.control.invalid&#x27;&gt;Invalid&nbsp;Format&nbsp;:&nbsp;YYYY-MM-DD&nbsp;HH:MM&lt;/small&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -505,6 +505,26 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> closeOnSelect</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>closeOnSelect:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value: </i><code>false</code>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> defaultValue</b>
                         </td>
                     </tr>
@@ -545,7 +565,7 @@ import { FormField } from &#x27;../form-field.model&#x27;
   selector: &#x27;tw-datetime-picker&#x27;,
   template: &#x60;
   &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-  &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker default-value&#x3D;&#x27;{{defaultValue}}&#x27; close-on-select&#x3D;&quot;false&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; /&gt;
+  &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker default-value&#x3D;&#x27;{{defaultValue}}&#x27; [close-on-select]&#x3D;&quot;closeOnSelect&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; /&gt;
   &lt;small class&#x3D;&#x27;text-danger&#x27; *ngIf&#x3D;&#x27;field.control.value &amp;&amp; field.control.invalid&#x27;&gt;Invalid Format : YYYY-MM-DD HH:MM&lt;/small&gt;
 &lt;/div&gt;
   &#x60;
@@ -559,28 +579,34 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
   defaultValue: string &#x3D; &#x27;&#x27;
   minute: string &#x3D; &#x27;&#x27;
   // private sub: Subscription
+  closeOnSelect: boolean &#x3D; false
 
   ngOnInit(): void {
     this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|0[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$/))
-    if (this.field.more &amp;&amp; this.field.more.defaultValue) {
-      switch (this.field.more.defaultValue) {
-        case &#x27;startOfDay&#x27;:
-          this.defaultValue &#x3D; moment().startOf(&#x27;day&#x27;).format(&#x27;YYYY-MM-DD HH:mm&#x27;)
-          break
-        case &#x27;endOfDay&#x27;:
-          this.defaultValue &#x3D; moment().endOf(&#x27;day&#x27;).format(&#x27;YYYY-MM-DD HH:mm&#x27;)
-          break
-        default:
-          this.defaultValue &#x3D; this.field.more.defaultValue
-          break
-      }
+    if (this.field.more) {
+      if (this.field.more.defaultValue)
+        switch (this.field.more.defaultValue) {
+          case &#x27;startOfDay&#x27;:
+            this.defaultValue &#x3D; moment().startOf(&#x27;day&#x27;).format(&#x27;YYYY-MM-DD HH:mm&#x27;)
+            break
+          case &#x27;endOfDay&#x27;:
+            this.defaultValue &#x3D; moment().endOf(&#x27;day&#x27;).format(&#x27;YYYY-MM-DD HH:mm&#x27;)
+            break
+          default:
+            this.defaultValue &#x3D; this.field.more.defaultValue
+            break
+        }
 
+
+      if (this.field.more.closeOnSelect)
+        this.closeOnSelect &#x3D; this.field.more.closeOnSelect
     }
-    // this.sub &#x3D; this.field.control.valueChanges.subscribe(value &#x3D;&gt; {
-    //   if (value)
-    //     this.request[this.field.id] &#x3D; moment(value).format()
-    // });
+
   }
+  // this.sub &#x3D; this.field.control.valueChanges.subscribe(value &#x3D;&gt; {
+  //   if (value)
+  //     this.request[this.field.id] &#x3D; moment(value).format()
+  // });
 
   ngOnDestroy(): void {
     // if (this.sub)
