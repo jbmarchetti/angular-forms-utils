@@ -438,7 +438,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;time-only&#x3D;&quot;true&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;ngui-datetime-picker&nbsp;[close-on-select]&#x3D;&quot;closeOnSelect&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;<br>&nbsp;&nbsp;&lt;small&nbsp;class&#x3D;&#x27;text-danger&#x27;&nbsp;*ngIf&#x3D;&#x27;field.control.value&nbsp;&amp;&amp;&nbsp;field.control.invalid&#x27;&gt;Invalid&nbsp;Format&nbsp;:&nbsp;HH:MM&lt;/small&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;[close-on-select]&#x3D;&quot;closeOnSelect&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;[time-only]&#x3D;&quot;true&quot;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;&nbsp;/&gt;<br>&nbsp;&nbsp;&lt;small&nbsp;class&#x3D;&#x27;text-danger&#x27;&nbsp;*ngIf&#x3D;&#x27;field.control.value&nbsp;&amp;&amp;&nbsp;field.control.invalid&#x27;&gt;Invalid&nbsp;Format&nbsp;:&nbsp;HH:MM&lt;/small&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -548,8 +548,7 @@ import { FormField } from &#x27;../form-field.model&#x27;
   selector: &#x27;tw-time-picker&#x27;,
   template: &#x60;
 &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-  &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; default-value&#x3D;&#x27;{{defaultValue}}&#x27; date-format&#x3D;&#x27;HH:mm&#x27; parse-format&#x3D;&#x27;HH:mm&#x27; time-only&#x3D;&quot;true&quot;
-    ngui-datetime-picker [close-on-select]&#x3D;&quot;closeOnSelect&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;
+  &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker default-value&#x3D;&#x27;{{defaultValue}}&#x27; [close-on-select]&#x3D;&quot;closeOnSelect&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; [time-only]&#x3D;&quot;true&quot; date-format&#x3D;&#x27;HH:mm&#x27; parse-format&#x3D;&#x27;HH:mm&#x27;  /&gt;
   &lt;small class&#x3D;&#x27;text-danger&#x27; *ngIf&#x3D;&#x27;field.control.value &amp;&amp; field.control.invalid&#x27;&gt;Invalid Format : HH:MM&lt;/small&gt;
 &lt;/div&gt;
   &#x60;

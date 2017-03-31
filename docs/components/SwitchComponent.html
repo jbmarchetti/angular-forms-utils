@@ -438,7 +438,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;label&nbsp;class&#x3D;&quot;switch&nbsp;switch-icon&nbsp;switch-pill&nbsp;switch-primary-outline-alt&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type&#x3D;&quot;checkbox&quot;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;class&#x3D;&quot;switch-input&quot;&nbsp;checked&#x3D;&quot;{{request[field.id]}}&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;switch-label&quot;&nbsp;data-on&#x3D;&quot;yes&quot;&nbsp;data-off&#x3D;&quot;no&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;switch-handle&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;label&nbsp;class&#x3D;&quot;switch&nbsp;switch-icon&nbsp;switch-pill&nbsp;switch-primary-outline-alt&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type&#x3D;&quot;checkbox&quot;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;class&#x3D;&quot;switch-input&quot;&nbsp;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;switch-label&quot;&nbsp;data-on&#x3D;&quot;yes&quot;&nbsp;data-off&#x3D;&quot;no&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;switch-handle&quot;&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -510,7 +510,7 @@ import { FormField } from &#x27;../form-field.model&#x27;
   template: &#x60;
   &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
   &lt;label class&#x3D;&quot;switch switch-icon switch-pill switch-primary-outline-alt&quot;&gt;
-        &lt;input type&#x3D;&quot;checkbox&quot; [formControlName]&#x3D;&#x27;field.id&#x27; class&#x3D;&quot;switch-input&quot; checked&#x3D;&quot;{{request[field.id]}}&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;
+        &lt;input type&#x3D;&quot;checkbox&quot; [formControlName]&#x3D;&#x27;field.id&#x27; class&#x3D;&quot;switch-input&quot;  [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;
         &lt;span class&#x3D;&quot;switch-label&quot; data-on&#x3D;&quot;yes&quot; data-off&#x3D;&quot;no&quot;&gt;&lt;/span&gt;
         &lt;span class&#x3D;&quot;switch-handle&quot;&gt;&lt;/span&gt;
     &lt;/label&gt;
