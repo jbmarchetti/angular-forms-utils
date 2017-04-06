@@ -6,13 +6,8 @@ import { FormField } from '../form-field.model'
 
 @Component({
   selector: 'tw-date-picker',
-  template: `
-  <div [formGroup]='group'>
-   <input [formControlName]='field.id' name='{{field.id}}' default-value='{{defaultValue}}' class='form-control' ngui-datetime-picker
-      [close-on-select]="closeOnSelect" date-only="true" [(ngModel)]="request[field.id]"/>
-  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : YYYY-MM-DD</small>
-</div>
-  `
+  template: `<tw-datetime-picker [group]='group' [field]='field' [request]='request'></tw-datetime-picker>`
+
 })
 export class DatePickerComponent implements OnInit, OnDestroy {
 
@@ -25,18 +20,12 @@ export class DatePickerComponent implements OnInit, OnDestroy {
   // private sub: Subscription
 
   ngOnInit(): void {
-    this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
-    if (this.field.more) {
-      if (this.field.more.defaultValue)
-        this.defaultValue = this.field.more.defaultValue
+    if (!this.field.more)
+      this.field.more = {}
 
-      if (this.field.more.closeOnSelect)
-        this.closeOnSelect = this.field.more.closeOnSelect
-    }
-    // this.sub = this.field.control.valueChanges.subscribe(value => {
-    //   if (value)
-    //     this.request[this.field.id] = moment(value).format('YYYY-MM-DD')
-    // });
+    this.field.more.pickerType = 'date'
+    if (!this.field.more.dateFormat)
+      this.field.more.dateFormat = 'yyyy-MM-dd'
   }
 
   ngOnDestroy(): void {
