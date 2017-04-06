@@ -1,55 +1,50 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { OnInit, Component, Input } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
-// import { Subscription } from 'rxjs'
+import * as moment from 'moment'
 import { FormField } from '../form-field.model'
 
 @Component({
   selector: 'tw-time-picker',
   template: `
-<div [formGroup]='group'>
-  <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="closeOnSelect" [(ngModel)]="request[field.id]" [time-only]="true" date-format='HH:mm' parse-format='HH:mm'  />
-  <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : HH:MM</small>
+  <div [formGroup]='group'>
+  <input [formControlName]='field.id' name='{{field.id}}' [viewFormat]= "'HH:mm'"  [returnObject] = "'string'"  [(ngModel)]="request[field.id]" [(dateTimePicker)]="request[field.id]"  [locale]=" field.more.locale ||'en' " [mode]="field.more.mode ||'dropdown'" [pickerType]="'time'" [theme]="field.more.theme ||'default'" readonly/>
 </div>
   `
 })
-export class TimePickerComponent implements OnInit, OnDestroy {
+export class TimePickerComponent implements OnInit {
+  // <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : YYYY-MM-DD HH:MM</small>
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
 
-  // private sub: Subscription
   defaultValue: string = ''
+  minute: string = ''
+  // private sub: Subscription
   closeOnSelect: boolean = false
 
   ngOnInit(): void {
-    this.field.addValidator(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))
+
     if (this.field.more) {
-      if (this.field.more.defaultValue)
+      if (this.field.more.defaultValue) {
         switch (this.field.more.defaultValue) {
           case 'startOfDay':
-            this.defaultValue = '00:00'
+            this.request[this.field.id] = '00:00'
             break
           case 'endOfDay':
-            this.defaultValue = '23:59'
+            this.request[this.field.id] = '23:59'
             break
           default:
-            this.defaultValue = this.field.more.defaultValue
+            this.request[this.field.id] = this.field.more.defaultValue
             break
         }
-
-      if (this.field.more.closeOnSelect)
-        this.closeOnSelect = this.field.more.closeOnSelect
+      }
+    } else {
+      this.field.more = {}
     }
-    // this.field.setValue(this.request[this.field.id])
+    this.field.addValidator(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))
 
-    // this.sub = this.field.control.valueChanges.subscribe(value => {
-    //   if (value)
-    //     this.request[this.field.id] = value
-    // });
+
   }
 
-  ngOnDestroy(): void {
-    // if (this.sub)
-    //   this.sub.unsubscribe()
-  }
+
 }
