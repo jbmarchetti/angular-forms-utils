@@ -59,7 +59,7 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'textarea', type: 'textarea', label: 'Textarea' }),
       new FormField(<IFormField>{ id: 'datetime', type: 'datetime', label: 'Datetime From', more: { defaultValue: 'startOfDay' } }).required(),
       new FormField(<IFormField>{ id: 'datetime2', type: 'datetime', label: 'Datetime To', more: { defaultValue: 'endOfDay' } }).required(),
-      new FormField(<IFormField>{ id: 'time', type: 'time', label: 'Time' }),
+      new FormField(<IFormField>{ id: 'time', type: 'time', label: 'Time', more: { defaultValue: 'startOfDay' } }),
       new FormField(<IFormField>{ id: 'date', type: 'date', label: 'Date' }),
       new FormField(<IFormField>{ id: 'switch', type: 'boolean', label: 'Switch' }),
       new FormField(<IFormField>{ id: 'daysOfWeek', type: 'daysOfWeek', label: 'Days Of Week' }),
