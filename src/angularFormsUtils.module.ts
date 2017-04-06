@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
 import { DatetimePickerComponent } from './reactive-form/datetime-picker/datetime-picker.component';
 import { DatePickerComponent } from './reactive-form/date-picker/date-picker.component';
 import { SelectComponent } from './reactive-form/select/select.component';
@@ -51,7 +50,6 @@ let decExp: any[] =
     ReactiveFormsModule,
     CommonModule,
     TranslateModule,
-    NguiDatetimePickerModule,
     DateTimePickerModule,
     FormsModule,
     DropdownTreeviewModule
