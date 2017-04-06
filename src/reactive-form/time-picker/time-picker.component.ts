@@ -25,7 +25,7 @@ export class TimePickerComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.field.more) {
-      if (this.field.more.defaultValue)
+      if (this.field.more.defaultValue) {
         switch (this.field.more.defaultValue) {
           case 'startOfDay':
             this.request[this.field.id] = '00:00'
@@ -37,6 +37,7 @@ export class TimePickerComponent implements OnInit {
             this.request[this.field.id] = this.field.more.defaultValue
             break
         }
+      }
     }
     else {
       this.field.more = {}
@@ -44,10 +45,6 @@ export class TimePickerComponent implements OnInit {
     this.field.addValidator(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))
 
 
-  }
-
-  setTime($event: any) {
-    console.log(moment($event))
   }
 
 
