@@ -442,7 +442,6 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 import { ReactiveFormComponent } from &#x27;./reactive-form/reactive-form.component&#x27;;
 import { ReactiveFormsModule, FormsModule } from &#x27;@angular/forms&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
-import { NguiDatetimePickerModule } from &#x27;@ngui/datetime-picker&#x27;;
 import { DatetimePickerComponent } from &#x27;./reactive-form/datetime-picker/datetime-picker.component&#x27;;
 import { DatePickerComponent } from &#x27;./reactive-form/date-picker/date-picker.component&#x27;;
 import { SelectComponent } from &#x27;./reactive-form/select/select.component&#x27;;
@@ -462,7 +461,7 @@ import { BusyButtonComponent } from &#x27;./busy-button/busy-button.component&#x
 import { BusyService } from &#x27;./busy-button/busy.service&#x27;
 
 import { DropdownTreeviewModule } from &#x27;ng2-dropdown-treeview&#x27;;
-
+import { DateTimePickerModule } from &#x27;ng-pick-datetime&#x27;;
 
 let decExp: any[] &#x3D;
   [
@@ -490,7 +489,7 @@ let decExp: any[] &#x3D;
     ReactiveFormsModule,
     CommonModule,
     TranslateModule,
-    NguiDatetimePickerModule,
+    DateTimePickerModule,
     FormsModule,
     DropdownTreeviewModule
   ],
