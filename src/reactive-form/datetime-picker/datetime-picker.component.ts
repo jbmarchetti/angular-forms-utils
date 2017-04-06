@@ -38,8 +38,7 @@ export class DatetimePickerComponent implements OnInit {
             break
         }
       }
-    }
-    else {
+    } else {
       this.field.more = {}
     }
 
