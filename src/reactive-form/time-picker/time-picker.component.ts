@@ -7,8 +7,8 @@ import { FormField } from '../form-field.model'
   selector: 'tw-time-picker',
   template: `
   <div [formGroup]='group'>
-  <input [formControlName]='field.id' name='{{field.id}}' [viewFormat]= "'HH:mm'"  [returnObject] = "'string'"  [(ngModel)]="request[field.id]" [(dateTimePicker)]="request[field.id]"  [locale]=" field.more.locale ||'en' " [mode]="field.more.mode ||'dropdown'" [pickerType]="'time'" [theme]="field.more.theme ||'default'" readonly/>
-</div>
+    <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false" [(ngModel)]="request[field.id]" [time-only]="true" date-format='HH:mm' parse-format='HH:mm'  readonly/>
+  </div>
   `
 })
 export class TimePickerComponent implements OnInit {
@@ -18,9 +18,6 @@ export class TimePickerComponent implements OnInit {
   @Input() request: any
 
   defaultValue: string = ''
-  minute: string = ''
-  // private sub: Subscription
-  closeOnSelect: boolean = false
 
   ngOnInit(): void {
 
@@ -28,13 +25,13 @@ export class TimePickerComponent implements OnInit {
       if (this.field.more.defaultValue) {
         switch (this.field.more.defaultValue) {
           case 'startOfDay':
-            this.request[this.field.id] = '00:00'
+            this.defaultValue = '00:00'
             break
           case 'endOfDay':
-            this.request[this.field.id] = '23:59'
+            this.defaultValue = '23:59'
             break
           default:
-            this.request[this.field.id] = this.field.more.defaultValue
+            this.defaultValue = this.field.more.defaultValue
             break
         }
       }

@@ -7,7 +7,7 @@ import { FormField } from '../form-field.model'
   selector: 'tw-datetime-picker',
   template: `
   <div [formGroup]='group'>
-  <input [formControlName]='field.id' name='{{field.id}}'  [ngModel]="request[field.id] | date: field.more.dateFormat || 'yyyy-MM-dd HH:mm'" [dateTimePicker]="defaultValue" (dateTimePickerChange)="request[field.id] = $event" [locale]=" field.more.locale ||'en' " [mode]="field.more.mode ||'dropdown'" [pickerType]="field.more.pickerType ||'both'" [theme]="field.more.theme ||'default'" readonly/>
+      <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false" [(ngModel)]="request[field.id]" [date-only]="field.more.dateOnly ||false" date-format='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"' parse-format='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"'  readonly/>
 </div>
   `
 })
@@ -19,11 +19,8 @@ export class DatetimePickerComponent implements OnInit {
 
   defaultValue: string = ''
   minute: string = ''
-  // private sub: Subscription
-  closeOnSelect: boolean = false
 
   ngOnInit(): void {
-
     if (this.field.more) {
       if (this.field.more.defaultValue) {
         switch (this.field.more.defaultValue) {
@@ -42,14 +39,10 @@ export class DatetimePickerComponent implements OnInit {
       this.field.more = {}
     }
 
-    switch (this.field.more.pickerType) {
-      case 'date':
-        this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
-        break;
-      case 'both': default:
-        this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|0[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$/))
-        break;
-    }
+    if (this.field.more.dateOnly)
+      this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
+    else
+      this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|0[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$/))
 
   }
 
