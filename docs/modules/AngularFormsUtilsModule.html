@@ -428,9 +428,6 @@
                             <li class="list-group-item">
                                     <a href="../s/...decExp.html" >...decExp</a>
                             </li>
-                            <li class="list-group-item">
-                                    <a href="../s/BusyService.html" >BusyService</a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -461,7 +458,8 @@ import { BusyButtonComponent } from &#x27;./busy-button/busy-button.component&#x
 import { BusyService } from &#x27;./busy-button/busy.service&#x27;
 
 import { DropdownTreeviewModule } from &#x27;ng2-dropdown-treeview&#x27;;
-import { DateTimePickerModule } from &#x27;ng2-date-time-picker&#x27;;
+import { NguiDatetimePickerModule } from &#x27;@ngui/datetime-picker&#x27;;
+
 
 let decExp: any[] &#x3D;
   [
@@ -481,6 +479,7 @@ let decExp: any[] &#x3D;
     BusyButtonComponent,
     TreeViewComponent,
     TreeViewTxtComponent
+
   ]
 
 
@@ -489,12 +488,12 @@ let decExp: any[] &#x3D;
     ReactiveFormsModule,
     CommonModule,
     TranslateModule,
-    DateTimePickerModule,
+    NguiDatetimePickerModule,
     FormsModule,
     DropdownTreeviewModule
   ],
   declarations: decExp,
-  exports: [...decExp, BusyService]
+  exports: [...decExp]
 })
 export class AngularFormsUtilsModule {
 

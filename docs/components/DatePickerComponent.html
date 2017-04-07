@@ -564,9 +564,9 @@ export class DatePickerComponent implements OnInit, OnDestroy {
     if (!this.field.more)
       this.field.more &#x3D; {}
 
-    this.field.more.pickerType &#x3D; &#x27;date&#x27;
+    this.field.more.dateOnly &#x3D; true
     if (!this.field.more.dateFormat)
-      this.field.more.dateFormat &#x3D; &#x27;yyyy-MM-dd&#x27;
+      this.field.more.dateFormat &#x3D; &#x27;YYYY-MM-DD&#x27;
   }
 
   ngOnDestroy(): void {
