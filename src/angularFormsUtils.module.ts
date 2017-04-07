@@ -22,7 +22,8 @@ import { BusyButtonComponent } from './busy-button/busy-button.component'
 import { BusyService } from './busy-button/busy.service'
 
 import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
-import { DateTimePickerModule } from 'ng2-date-time-picker';
+import { NguiDatetimePickerModule } from '@ngui/datetime-picker';
+
 
 let decExp: any[] =
   [
@@ -42,6 +43,7 @@ let decExp: any[] =
     BusyButtonComponent,
     TreeViewComponent,
     TreeViewTxtComponent
+
   ]
 
 
@@ -50,12 +52,12 @@ let decExp: any[] =
     ReactiveFormsModule,
     CommonModule,
     TranslateModule,
-    DateTimePickerModule,
+    NguiDatetimePickerModule,
     FormsModule,
     DropdownTreeviewModule
   ],
   declarations: decExp,
-  exports: [...decExp, BusyService]
+  exports: [...decExp]
 })
 export class AngularFormsUtilsModule {
 
