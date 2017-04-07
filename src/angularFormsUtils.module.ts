@@ -22,7 +22,7 @@ import { BusyButtonComponent } from './busy-button/busy-button.component'
 import { BusyService } from './busy-button/busy.service'
 
 import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
-import { DateTimePickerModule } from 'ng-pick-datetime';
+import { DateTimePickerModule } from 'ng2-date-time-picker';
 
 let decExp: any[] =
   [
