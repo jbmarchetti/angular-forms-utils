@@ -7,7 +7,7 @@ import { FormField } from '../form-field.model'
   selector: 'tw-datetime-picker',
   template: `
   <div [formGroup]='group'>
-      <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false" [(ngModel)]="request[field.id]" [date-only]="field.more.dateOnly ||false" date-format='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"' parse-format='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"'  readonly/>
+      <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false" [(ngModel)]="request[field.id]" [date-only]="field.more.dateOnly ||false" [date-format]='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"' [parse-format]='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"'  readonly/>
 </div>
   `
 })
