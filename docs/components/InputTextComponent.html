@@ -438,7 +438,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;type&#x3D;&#x27;{{field.type}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;[readonly]&#x3D;&#x27;field.readonly&#x27;&nbsp;/&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&nbsp;&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;type&#x3D;&#x27;{{field.type}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;[attr.readonly]&#x3D;&#x27;field.readonly&#x27;&nbsp;/&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -510,7 +510,7 @@ import { FormField } from &#x27;../form-field.model&#x27;
   template: &#x60;
    &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
   &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; type&#x3D;&#x27;{{field.type}}&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot;
-    [readonly]&#x3D;&#x27;field.readonly&#x27; /&gt;
+    [attr.readonly]&#x3D;&#x27;field.readonly&#x27; /&gt;
 &lt;/div&gt;
    &#x60;
 
