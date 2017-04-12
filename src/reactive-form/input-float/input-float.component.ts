@@ -7,7 +7,7 @@ import { FormField } from '../form-field.model'
   selector: 'tw-input-float',
   template: `
   <div [formGroup]='group'>
-    <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [readonly]='field.readonly' />
+    <input [formControlName]='field.id' name='{{field.id}}' type='text' class='form-control' [attr.readonly]='field.readonly' />
   </div>`
 })
 export class InputFloatComponent implements OnInit, OnDestroy {

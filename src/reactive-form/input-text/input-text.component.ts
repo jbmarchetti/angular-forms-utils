@@ -7,7 +7,7 @@ import { FormField } from '../form-field.model'
   template: `
    <div [formGroup]='group'>
   <input [formControlName]='field.id' name='{{field.id}}' type='{{field.type}}' class='form-control' [(ngModel)]="request[field.id]"
-    [readonly]='field.readonly' />
+    [attr.readonly]='field.readonly' />
 </div>
    `
 

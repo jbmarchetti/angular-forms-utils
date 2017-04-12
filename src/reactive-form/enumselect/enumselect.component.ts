@@ -21,7 +21,7 @@ export class EnumselectComponent {
   @Input() field: FormField
   @Input() request: any
 
-  private enumToArray(enumObj: any): string[] {
+  public enumToArray(enumObj: any): string[] {
     return Object.keys(enumObj).slice(Object.keys(enumObj).length / 2)
   }
 }
