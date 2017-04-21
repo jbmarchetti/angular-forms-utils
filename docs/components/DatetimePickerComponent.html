@@ -510,7 +510,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>defaultValue:     <code>string</code>
+                            <code>defaultValue:     <code>Date</code>
     </bcode>
                         </td>
                     </tr>
@@ -553,7 +553,7 @@ export class DatetimePickerComponent implements OnInit {
   @Input() field: FormField
   @Input() request: any
 
-  defaultValue: string &#x3D; &#x27;&#x27;
+  defaultValue: Date
   minute: string &#x3D; &#x27;&#x27;
 
   ngOnInit(): void {
@@ -561,10 +561,16 @@ export class DatetimePickerComponent implements OnInit {
       if (this.field.more.defaultValue) {
         switch (this.field.more.defaultValue) {
           case &#x27;startOfDay&#x27;:
-            this.defaultValue &#x3D; moment().startOf(&#x27;day&#x27;).format(&#x27;YYYY-MM-DD HH:mm&#x27;)
+            let date: Date &#x3D; new Date()
+            date.setHours(0)
+            date.setMinutes(0)
+            this.defaultValue &#x3D; date
             break
           case &#x27;endOfDay&#x27;:
-            this.defaultValue &#x3D; moment().endOf(&#x27;day&#x27;).format(&#x27;YYYY-MM-DD HH:mm&#x27;)
+            let date2: Date &#x3D; new Date()
+            date2.setHours(23)
+            date2.setMinutes(59)
+            this.defaultValue &#x3D; date2
             break
           default:
             this.defaultValue &#x3D; this.field.more.defaultValue
