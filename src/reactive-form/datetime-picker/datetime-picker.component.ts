@@ -17,7 +17,7 @@ export class DatetimePickerComponent implements OnInit {
   @Input() field: FormField
   @Input() request: any
 
-  defaultValue: string = ''
+  defaultValue: Date
   minute: string = ''
 
   ngOnInit(): void {
@@ -25,10 +25,16 @@ export class DatetimePickerComponent implements OnInit {
       if (this.field.more.defaultValue) {
         switch (this.field.more.defaultValue) {
           case 'startOfDay':
-            this.defaultValue = moment().startOf('day').format('YYYY-MM-DD HH:mm')
+            let date = new Date()
+            date.setHours(0)
+            date.setMinutes(0)
+            this.defaultValue = date
             break
           case 'endOfDay':
-            this.defaultValue = moment().endOf('day').format('YYYY-MM-DD HH:mm')
+            let date2 = new Date()
+            date2.setHours(23)
+            date2.setMinutes(59)
+            this.defaultValue = date2
             break
           default:
             this.defaultValue = this.field.more.defaultValue
