@@ -25,13 +25,13 @@ export class DatetimePickerComponent implements OnInit {
       if (this.field.more.defaultValue) {
         switch (this.field.more.defaultValue) {
           case 'startOfDay':
-            let date = new Date()
+            let date: Date = new Date()
             date.setHours(0)
             date.setMinutes(0)
             this.defaultValue = date
             break
           case 'endOfDay':
-            let date2 = new Date()
+            let date2: Date = new Date()
             date2.setHours(23)
             date2.setMinutes(59)
             this.defaultValue = date2
