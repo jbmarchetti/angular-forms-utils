@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { TreeviewConfig } from 'ng2-dropdown-treeview';
+import { TreeviewItem } from 'ng2-dropdown-treeview';
 
 import { Subscription } from 'rxjs'
 import * as moment from 'moment'
@@ -75,6 +76,7 @@ export class TreeViewRadioComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
+  allItem: TreeviewItem;
 
   public selectConfig: TreeviewConfig = {
     isShowAllCheckBox: true,
@@ -82,6 +84,15 @@ export class TreeViewRadioComponent implements OnInit {
     isShowCollapseExpand: true,
     maxHeight: 500
   }
+
+  toggleCollapseExpand() {
+    this.allItem.collapsed = !this.allItem.collapsed;
+    // if (!_.isNil(this.filterItems)) {
+    this.field.options.items.forEach((item: TreeviewItem) => item.setCollapsedRecursive(this.allItem.collapsed));
+    // }
+  }
+
+
 
   public updateModel(values?: any[]): void {
     if (values)
