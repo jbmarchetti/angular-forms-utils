@@ -38,13 +38,16 @@ export class DemoComponent {
       label: 'Group3',
       values: [
         { id: 'Group3FirstValue', label: '-- First Value' },
-        { id: 'Group3SecondValue', label: '-- Second Value' }
+        {
+          id: 'Group3SecondValue', label: '-- Second Value',
+          values: [
+            { id: 'Group3SecondValue-1', label: '-- Second-First Value' },
+            { id: 'Group3SecondValue-2', label: '-- Second-Second Value' }
+          ]
+        }
       ]
     }
   ]
-
-
-
 
 
   fields: FormField[]
@@ -69,6 +72,7 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'enummultiselect', type: 'enummultiselect', label: 'Enum Multi Select', options: EnumValues, optionValue: '', optionText: '' }),
       new FormField(<IFormField>{ id: 'groupselect', type: 'groupselect', label: 'Group Select', options: this.groupSelect, optionValue: 'id', optionText: 'label' }),
       new FormField(<IFormField>{ id: 'treeview', type: 'treeview-txt', label: 'Treeview Select', options: this.createCategoriesTree(), optionValue: '', optionText: '' }),
+      new FormField(<IFormField>{ id: 'treeviewradio', type: 'treeview-radio', label: 'Treeview Radio', options: this.createCategoriesTree(), optionValue: '', optionText: '' }),
     ]
 
 
