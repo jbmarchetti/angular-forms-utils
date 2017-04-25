@@ -121,13 +121,13 @@
                                     <a href="../components/TimePickerComponent.html" >TimePickerComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/TreeViewComponent.html"  class="active" >TreeViewComponent</a>
+                                    <a href="../components/TreeViewComponent.html" >TreeViewComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/TreeViewItemComponent.html" >TreeViewItemComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/TreeViewRadioComponent.html" >TreeViewRadioComponent</a>
+                                    <a href="../components/TreeViewRadioComponent.html"  class="active" >TreeViewRadioComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/TreeViewTxtComponent.html" >TreeViewTxtComponent</a>
@@ -312,13 +312,13 @@
                                            <a href="../components/TimePickerComponent.html" >TimePickerComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/TreeViewComponent.html"  class="active" >TreeViewComponent</a>
+                                           <a href="../components/TreeViewComponent.html" >TreeViewComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/TreeViewItemComponent.html" >TreeViewItemComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/TreeViewRadioComponent.html" >TreeViewRadioComponent</a>
+                                           <a href="../components/TreeViewRadioComponent.html"  class="active" >TreeViewRadioComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/TreeViewTxtComponent.html" >TreeViewTxtComponent</a>
@@ -402,7 +402,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>TreeViewComponent</li>
+  <li>TreeViewRadioComponent</li>
 </ol>
 
 
@@ -420,7 +420,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/reactive-form/treeview/treeview.component.ts</code>
+    <code>src/reactive-form/treeview-radio/treeview-radio.component.ts</code>
 </p>
 
 
@@ -443,14 +443,44 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>tw-treeview</code></td>
+                <td class="col-md-9"><code>tw-treeview-radio</code></td>
             </tr>
 
 
+            <tr>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code>
+.row-margin {
+    margin-top: .3rem;
+}
+.label-item-all {
+}
+.label-collapse-expand {
+    margin: 0;
+    padding: 0 .3rem;
+    cursor: pointer;
+}
+.divider {
+    height: 1px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    background: #000;
+}
+.treeview-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 18px;
+}
+.treeview-text {
+    padding: .3rem 0;
+    white-space: nowrap;
+}
+</code></td>
+            </tr>
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;leo-treeview&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;treeview&quot;&#x27;&nbsp;[config]&#x3D;&quot;selectConfig&quot;&nbsp;[items]&#x3D;&quot;field.options&quot;&nbsp;(selectedChange)&#x3D;&quot;updateModel($event)&quot;&gt;&lt;/leo-treeview&gt;<br>&nbsp;&nbsp;&nbsp;&lt;leo-dropdown-treeview&nbsp;*ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;dropdown-treeview&quot;&#x27;&nbsp;&nbsp;[config]&#x3D;&quot;selectConfig&quot;&nbsp;[items]&#x3D;&quot;field.options&quot;&nbsp;(selectedChange)&#x3D;&quot;updateModel($event)&quot;&gt;&lt;/leo-dropdown-treeview&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;type&#x3D;&#x27;hidden&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;template&nbsp;#tpl&nbsp;let-item&#x3D;&quot;item&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;let-toggleCollapseExpand&#x3D;&quot;toggleCollapseExpand&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;let-onCheckedChange&#x3D;&quot;onCheckedChange&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class&#x3D;&quot;form-check&quot;&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i&nbsp;*ngIf&#x3D;&quot;item.children&quot;&nbsp;(click)&#x3D;&quot;toggleCollapseExpand()&quot;&nbsp;aria-hidden&#x3D;&quot;true&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&#x3D;&quot;fa&quot;&nbsp;[class.fa-caret-right]&#x3D;&quot;item.collapsed&quot;&nbsp;[class.fa-caret-down]&#x3D;&quot;!item.collapsed&quot;&gt;&lt;/i&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;class&#x3D;&quot;form-check-label&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type&#x3D;&quot;radio&quot;&nbsp;&nbsp;class&#x3D;&quot;form-check-input&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;value&#x3D;&#x27;{{item.value}}&#x27;&nbsp;[disabled]&#x3D;&quot;item.disabled&quot;&nbsp;/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.text}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/template&gt;<br>&lt;div&nbsp;class&#x3D;&quot;treeview-header&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;*ngIf&#x3D;&quot;hasFilterItems&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;*ngIf&#x3D;&quot;selectConfig.isShowAllCheckBox&nbsp;||&nbsp;selectConfig.isShowCollapseExpand&quot;&nbsp;class&#x3D;&quot;row&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class&#x3D;&quot;col-12&quot;&nbsp;[class.row-margin]&#x3D;&quot;selectConfig.isShowFilter&nbsp;&amp;&amp;&nbsp;(selectConfig.isShowAllCheckBox&nbsp;||&nbsp;selectConfig.isShowCollapseExpand)&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;*ngIf&#x3D;&quot;selectConfig.isShowCollapseExpand&quot;&nbsp;class&#x3D;&quot;pull-right&nbsp;label-collapse-expand&quot;&nbsp;(click)&#x3D;&quot;toggleCollapseExpand()&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i&nbsp;[title]&#x3D;&quot;i18n.tooltipCollapseExpand(allItem.collapsed)&quot;&nbsp;aria-hidden&#x3D;&quot;true&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&#x3D;&quot;fa&quot;&nbsp;[class.fa-expand]&#x3D;&quot;allItem.collapsed&quot;&nbsp;[class.fa-compress]&#x3D;&quot;!allItem.collapsed&quot;&gt;&lt;/i&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;*ngIf&#x3D;&quot;selectConfig.isShowFilter&nbsp;||&nbsp;selectConfig.isShowAllCheckBox&nbsp;||&nbsp;selectConfig.isShowCollapseExpand&quot;&nbsp;class&#x3D;&quot;divider&quot;&gt;&lt;/div&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;<br>&lt;div&nbsp;class&#x3D;&quot;treeview-container&quot;&nbsp;[style.max-height.px]&#x3D;&quot;maxHeight&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;*ngFor&#x3D;&quot;let&nbsp;item&nbsp;of&nbsp;field.options&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-treeview-item&nbsp;[item]&#x3D;&quot;item&quot;&nbsp;[template]&#x3D;&quot;template&nbsp;||&nbsp;tpl&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tw-treeview-item&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -570,16 +600,70 @@ import * as moment from &#x27;moment&#x27;
 import { FormField } from &#x27;../form-field.model&#x27;
 
 @Component({
-  selector: &#x27;tw-treeview&#x27;,
+  selector: &#x27;tw-treeview-radio&#x27;,
   template: &#x60;
-  &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-   &lt;leo-treeview *ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;treeview&quot;&#x27; [config]&#x3D;&quot;selectConfig&quot; [items]&#x3D;&quot;field.options&quot; (selectedChange)&#x3D;&quot;updateModel($event)&quot;&gt;&lt;/leo-treeview&gt;
-   &lt;leo-dropdown-treeview *ngIf&#x3D;&#x27;field.type&#x3D;&#x3D;&#x3D;&quot;dropdown-treeview&quot;&#x27;  [config]&#x3D;&quot;selectConfig&quot; [items]&#x3D;&quot;field.options&quot; (selectedChange)&#x3D;&quot;updateModel($event)&quot;&gt;&lt;/leo-dropdown-treeview&gt;
-  &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; type&#x3D;&#x27;hidden&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot;/&gt;
+&lt;template #tpl let-item&#x3D;&quot;item&quot;
+    let-toggleCollapseExpand&#x3D;&quot;toggleCollapseExpand&quot;
+    let-onCheckedChange&#x3D;&quot;onCheckedChange&quot;&gt;
+    &lt;div class&#x3D;&quot;form-check&quot; [formGroup]&#x3D;&#x27;group&#x27;&gt;
+        &lt;i *ngIf&#x3D;&quot;item.children&quot; (click)&#x3D;&quot;toggleCollapseExpand()&quot; aria-hidden&#x3D;&quot;true&quot;
+            class&#x3D;&quot;fa&quot; [class.fa-caret-right]&#x3D;&quot;item.collapsed&quot; [class.fa-caret-down]&#x3D;&quot;!item.collapsed&quot;&gt;&lt;/i&gt;
+        &lt;label class&#x3D;&quot;form-check-label&quot;&gt;
+            &lt;input type&#x3D;&quot;radio&quot;  class&#x3D;&quot;form-check-input&quot;
+                [(ngModel)]&#x3D;&quot;request[field.id]&quot; [formControlName]&#x3D;&#x27;field.id&#x27;  name&#x3D;&#x27;{{field.id}}&#x27; value&#x3D;&#x27;{{item.value}}&#x27; [disabled]&#x3D;&quot;item.disabled&quot; /&gt;
+            {{item.text}}
+        &lt;/label&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;div class&#x3D;&quot;treeview-header&quot;&gt;
+    &lt;div *ngIf&#x3D;&quot;hasFilterItems&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;selectConfig.isShowAllCheckBox || selectConfig.isShowCollapseExpand&quot; class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-12&quot; [class.row-margin]&#x3D;&quot;selectConfig.isShowFilter &amp;&amp; (selectConfig.isShowAllCheckBox || selectConfig.isShowCollapseExpand)&quot;&gt;
+                &lt;label *ngIf&#x3D;&quot;selectConfig.isShowCollapseExpand&quot; class&#x3D;&quot;pull-right label-collapse-expand&quot; (click)&#x3D;&quot;toggleCollapseExpand()&quot;&gt;
+                    &lt;i [title]&#x3D;&quot;i18n.tooltipCollapseExpand(allItem.collapsed)&quot; aria-hidden&#x3D;&quot;true&quot;
+                        class&#x3D;&quot;fa&quot; [class.fa-expand]&#x3D;&quot;allItem.collapsed&quot; [class.fa-compress]&#x3D;&quot;!allItem.collapsed&quot;&gt;&lt;/i&gt;
+                &lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;selectConfig.isShowFilter || selectConfig.isShowAllCheckBox || selectConfig.isShowCollapseExpand&quot; class&#x3D;&quot;divider&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
-  &#x60;
+&lt;div class&#x3D;&quot;treeview-container&quot; [style.max-height.px]&#x3D;&quot;maxHeight&quot; &gt;
+    &lt;div *ngFor&#x3D;&quot;let item of field.options&quot;&gt;
+        &lt;tw-treeview-item [item]&#x3D;&quot;item&quot; [template]&#x3D;&quot;template || tpl&quot; &gt;
+        &lt;/tw-treeview-item&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&#x60;,
+  styles: [&#x60;
+.row-margin {
+    margin-top: .3rem;
+}
+.label-item-all {
+}
+.label-collapse-expand {
+    margin: 0;
+    padding: 0 .3rem;
+    cursor: pointer;
+}
+.divider {
+    height: 1px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    background: #000;
+}
+.treeview-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 18px;
+}
+.treeview-text {
+    padding: .3rem 0;
+    white-space: nowrap;
+}
+&#x60;]
 })
-export class TreeViewComponent implements OnInit {
+export class TreeViewRadioComponent implements OnInit {
 
   @Input() group: FormGroup
   @Input() field: FormField
@@ -594,11 +678,10 @@ export class TreeViewComponent implements OnInit {
 
   public updateModel(values?: any[]): void {
     if (values)
-      this.field.setValue(values)
+      this.field.setValue(values.join(&#x27;,&#x27;))
     else
-      this.field.setValue([])
+      this.field.setValue(&#x27;&#x27;)
   }
-
   ngOnInit(): void {
     if (this.field.more &amp;&amp; this.field.more.selectConfig)
       this.selectConfig &#x3D; this.field.more.selectConfig
