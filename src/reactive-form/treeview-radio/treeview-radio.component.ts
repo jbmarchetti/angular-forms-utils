@@ -17,8 +17,7 @@ import { FormField } from '../form-field.model'
         <i *ngIf="item.children" (click)="toggleCollapseExpand()" aria-hidden="true"
             class="fa" [class.fa-caret-right]="item.collapsed" [class.fa-caret-down]="!item.collapsed"></i>
         <label class="form-check-label">
-            <input type="radio"  class="form-check-input"
-                [(ngModel)]="request[field.id]" [formControlName]='field.id'  name='{{field.id}}' value='{{item.value}}' [disabled]="item.disabled" />
+            <input type="radio"  class="form-check-input" [(ngModel)]="request[field.id]" [formControlName]='field.id'  name='{{field.id}}' [value]='item.value' />
             {{item.text}}
         </label>
     </div>
