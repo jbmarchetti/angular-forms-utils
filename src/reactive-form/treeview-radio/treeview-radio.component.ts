@@ -85,7 +85,7 @@ export class TreeViewRadioComponent implements OnInit {
     maxHeight: 500
   }
 
-  toggleCollapseExpand() {
+  toggleCollapseExpand(): void {
     this.allItem.collapsed = !this.allItem.collapsed;
     // if (!_.isNil(this.filterItems)) {
     this.field.options.items.forEach((item: TreeviewItem) => item.setCollapsedRecursive(this.allItem.collapsed));
