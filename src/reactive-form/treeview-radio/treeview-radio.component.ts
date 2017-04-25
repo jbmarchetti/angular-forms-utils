@@ -87,9 +87,9 @@ export class TreeViewRadioComponent implements OnInit {
 
   toggleCollapseExpand(): void {
     this.allItem.collapsed = !this.allItem.collapsed;
-    // if (!_.isNil(this.filterItems)) {
-    this.field.options.items.forEach((item: TreeviewItem) => item.setCollapsedRecursive(this.allItem.collapsed));
-    // }
+    if (this.field.options.items) {
+      this.field.options.items.forEach((item: TreeviewItem) => item.setCollapsedRecursive(this.allItem.collapsed));
+    }
   }
 
 
