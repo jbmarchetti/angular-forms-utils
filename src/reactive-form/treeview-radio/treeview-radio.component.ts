@@ -24,17 +24,7 @@ import { FormField } from '../form-field.model'
     </div>
 </template>
 <div class="treeview-header">
-    <div *ngIf="hasFilterItems">
-        <div *ngIf="selectConfig.isShowAllCheckBox || selectConfig.isShowCollapseExpand" class="row">
-            <div class="col-12" [class.row-margin]="selectConfig.isShowFilter && (selectConfig.isShowAllCheckBox || selectConfig.isShowCollapseExpand)">
-                <label *ngIf="selectConfig.isShowCollapseExpand" class="pull-right label-collapse-expand" (click)="toggleCollapseExpand()">
-                    <i [title]="i18n.tooltipCollapseExpand(allItem.collapsed)" aria-hidden="true"
-                        class="fa" [class.fa-expand]="allItem.collapsed" [class.fa-compress]="!allItem.collapsed"></i>
-                </label>
-            </div>
-        </div>
-        <div *ngIf="selectConfig.isShowFilter || selectConfig.isShowAllCheckBox || selectConfig.isShowCollapseExpand" class="divider"></div>
-    </div>
+  
 </div>
 <div class="treeview-container" [style.max-height.px]="maxHeight" >
     <div *ngFor="let item of field.options">
