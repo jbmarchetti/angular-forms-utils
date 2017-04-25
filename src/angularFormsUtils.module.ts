@@ -17,6 +17,8 @@ import { DaysOfWeekComponent } from './reactive-form/days-of-week/days-of-week.c
 import { TextAreaComponent } from './reactive-form/textarea/textarea.component'
 import { TreeViewComponent } from './reactive-form/treeview/treeview.component'
 import { TreeViewTxtComponent } from './reactive-form/treeview-txt/treeview-txt.component'
+import { TreeViewRadioComponent } from './reactive-form/treeview-radio/treeview-radio.component'
+import { TreeViewItemComponent } from './reactive-form/treeview-radio/treeview-item.component'
 
 import { BusyButtonComponent } from './busy-button/busy-button.component'
 import { BusyService } from './busy-button/busy.service'
@@ -42,7 +44,9 @@ let decExp: any[] =
     TextAreaComponent,
     BusyButtonComponent,
     TreeViewComponent,
-    TreeViewTxtComponent
+    TreeViewTxtComponent,
+    TreeViewRadioComponent,
+    TreeViewItemComponent
 
   ]
 
