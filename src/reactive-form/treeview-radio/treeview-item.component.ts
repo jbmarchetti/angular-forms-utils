@@ -43,4 +43,7 @@ export class TreeViewItemComponent {
     @Input() template: TemplateRef<any>;
     @Input() item: TreeviewItem;
 
+    toggleCollapseExpand = () => {
+        this.item.collapsed = !this.item.collapsed;
+    }
 }
