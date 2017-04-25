@@ -546,6 +546,30 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> toggleCollapseExpand</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>toggleCollapseExpand()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b><span class="modifier">Public</span> updateModel</b>
                         </td>
                     </tr>
@@ -577,6 +601,21 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> allItem</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>allItem:     <code>TreeviewItem</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b><span class="modifier">Public</span> selectConfig</b>
                         </td>
                     </tr>
@@ -594,6 +633,7 @@
             <pre><code class="hljs javascript">import { Component, OnInit, Input, OnDestroy } from &#x27;@angular/core&#x27;;
 import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 import { TreeviewConfig } from &#x27;ng2-dropdown-treeview&#x27;;
+import { TreeviewItem } from &#x27;ng2-dropdown-treeview&#x27;;
 
 import { Subscription } from &#x27;rxjs&#x27;
 import * as moment from &#x27;moment&#x27;
@@ -668,6 +708,7 @@ export class TreeViewRadioComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
+  allItem: TreeviewItem;
 
   public selectConfig: TreeviewConfig &#x3D; {
     isShowAllCheckBox: true,
@@ -675,6 +716,15 @@ export class TreeViewRadioComponent implements OnInit {
     isShowCollapseExpand: true,
     maxHeight: 500
   }
+
+  toggleCollapseExpand(): void {
+    this.allItem.collapsed &#x3D; !this.allItem.collapsed;
+    if (this.field.options.items) {
+      this.field.options.items.forEach((item: TreeviewItem) &#x3D;&gt; item.setCollapsedRecursive(this.allItem.collapsed));
+    }
+  }
+
+
 
   public updateModel(values?: any[]): void {
     if (values)
