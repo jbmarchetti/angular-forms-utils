@@ -515,6 +515,24 @@
 
 
 
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> toggleCollapseExpand</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>toggleCollapseExpand:     <code>() &#x3D;&gt; void</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
             <pre><code class="hljs javascript">import { Component, OnInit, Output, EventEmitter, Input, OnDestroy, TemplateRef } from &#x27;@angular/core&#x27;;
@@ -562,6 +580,9 @@ export class TreeViewItemComponent {
     @Input() template: TemplateRef&lt;any&gt;;
     @Input() item: TreeviewItem;
 
+    toggleCollapseExpand &#x3D; () &#x3D;&gt; {
+        this.item.collapsed &#x3D; !this.item.collapsed;
+    }
 }
 </code></pre>
         </div>
