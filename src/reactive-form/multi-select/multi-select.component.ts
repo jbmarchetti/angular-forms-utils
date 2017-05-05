@@ -6,7 +6,7 @@ import { FormField } from '../form-field.model'
   selector: 'tw-multiselect',
   template: `
   <div [formGroup]='group'>
-   <button style='margin-top: -30px; margin-bottom: 5px;' [ngClass]="allSelected ? 'btn-primary' : 'btn-default'" class='btn-sm btn pull-right' (click)='selectAll()' > {{field.more.allText}}</button>
+   <button style='margin-top: -30px; margin-bottom: 5px;' [ngClass]="allSelected ? 'btn-primary' : 'btn-default'" class='btn-sm btn pull-right' (click)='selectAll()' > {{field.more.allText || 'All'}}</button>
    <select multiple [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
       <option [ngValue]="option[field.optionValue]" *ngFor="let option of field.options">
         {{option[field.optionText]}}
