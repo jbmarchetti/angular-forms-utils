@@ -31,6 +31,18 @@ export class MultiSelectComponent implements OnInit {
   }
 
 
+  selectAll(): void {
+    if (this.testSelected())
+      this.request[this.field.id] = []
+    else {
+      this.request[this.field.id] = []
+
+      this.field.options.forEach((option: any) => {
+        this.request[this.field.id].push(option[this.field.optionValue])
+      });
+    }
+  }
+
   private testSelected(): boolean {
     if (!this.request[this.field.id] || !this.field.options)
       return false
@@ -44,19 +56,6 @@ export class MultiSelectComponent implements OnInit {
     return false
   }
 
-
-
-  selectAll(): void {
-    if (this.testSelected())
-      this.request[this.field.id] = []
-    else {
-      this.request[this.field.id] = []
-
-      this.field.options.forEach((option: any) => {
-        this.request[this.field.id].push(option[this.field.optionValue])
-      });
-    }
-  }
 
 
 }
