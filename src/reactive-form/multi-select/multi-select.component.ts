@@ -35,7 +35,7 @@ export class MultiSelectComponent {
   }
 
 
-  selectAll() {
+  selectAll(): void {
     if (this.request[this.field.id] && this.request[this.field.id].length === this.field.options.length)
       this.request[this.field.id] = []
     else {
