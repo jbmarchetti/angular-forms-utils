@@ -610,7 +610,7 @@ export class MultiSelectComponent implements OnInit {
     if (this.request[this.field.id].length &#x3D;&#x3D;&#x3D; this.field.options.length)
       return true
 
-    if (this.request[this.field.id].size &#x3D;&#x3D;&#x3D; this.field.options.length)
+    if (this.request[this.field.id].length &#x3D;&#x3D;&#x3D; this.field.options.size)
       return true
 
     return false
