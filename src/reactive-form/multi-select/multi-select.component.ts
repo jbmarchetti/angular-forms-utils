@@ -27,15 +27,27 @@ export class MultiSelectComponent implements OnInit {
 
 
   get allSelected(): boolean {
-    if (this.request[this.field.id] && this.field.options && ((this.request[this.field.id].length === this.field.options.length) || (this.request[this.field.id].size === this.field.options.length)))
+    return this.testSelected()
+  }
+
+
+  private testSelected(): boolean {
+    if (!this.request[this.field.id] || !this.field.options)
+      return false
+
+    if (this.request[this.field.id].length === this.field.options.length)
+      return true
+
+    if (this.request[this.field.id].size === this.field.options.length)
       return true
 
     return false
   }
 
 
+
   selectAll(): void {
-    if (this.request[this.field.id] && this.field.options && ((this.request[this.field.id].length === this.field.options.length) || (this.request[this.field.id].size === this.field.options.length)))
+    if (this.testSelected())
       this.request[this.field.id] = []
     else {
       this.request[this.field.id] = []
