@@ -450,7 +450,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;[close-on-select]&#x3D;&quot;field.more.closeOnSelect&nbsp;||&nbsp;false&quot;&nbsp;&nbsp;(ngModelChange)&#x3D;&#x27;modelChange($event)&#x27;&nbsp;&nbsp;[(ngModel)]&#x3D;&quot;model&quot;&nbsp;&nbsp;[time-only]&#x3D;&quot;true&quot;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;&nbsp;readonly/&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&nbsp;class&#x3D;&quot;input-group&quot;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;[close-on-select]&#x3D;&quot;field.more.closeOnSelect&nbsp;||&nbsp;false&quot;&nbsp;&nbsp;(ngModelChange)&#x3D;&#x27;modelChange($event)&#x27;&nbsp;&nbsp;[(ngModel)]&#x3D;&quot;model&quot;&nbsp;&nbsp;[time-only]&#x3D;&quot;true&quot;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;&nbsp;readonly/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;input-group-btn&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class&#x3D;&#x27;btn&nbsp;btn-default&#x27;&nbsp;(click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -536,6 +536,30 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> clear</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>clear()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 
     <section>
@@ -581,8 +605,11 @@ import { FormField } from &#x27;../form-field.model&#x27;
 @Component({
   selector: &#x27;tw-time-picker&#x27;,
   template: &#x60;
-  &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
+  &lt;div [formGroup]&#x3D;&#x27;group&#x27; class&#x3D;&quot;input-group&quot;&gt;
     &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker default-value&#x3D;&#x27;{{defaultValue}}&#x27; [close-on-select]&#x3D;&quot;field.more.closeOnSelect || false&quot;  (ngModelChange)&#x3D;&#x27;modelChange($event)&#x27;  [(ngModel)]&#x3D;&quot;model&quot;  [time-only]&#x3D;&quot;true&quot; date-format&#x3D;&#x27;HH:mm&#x27; parse-format&#x3D;&#x27;HH:mm&#x27;  readonly/&gt;
+        &lt;span class&#x3D;&quot;input-group-btn&quot;&gt;
+        &lt;button class&#x3D;&#x27;btn btn-default&#x27; (click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;
+      &lt;/span&gt;
   &lt;/div&gt;
   &#x60;
 })
@@ -623,6 +650,12 @@ export class TimePickerComponent implements OnInit {
     if (date)
       this.request[this.field.id] &#x3D; date.toString()
   }
+
+  clear(): void {
+    this.model &#x3D; null
+    this.request[this.field.id] &#x3D; null
+  }
+
 }
 </code></pre>
         </div>
