@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/jbmarchetti/angular-forms-utils/compare/v0.2.55...v0.3.1) (2017-05-10)
+
+
+
 <a name="0.2.55"></a>
 ## [0.2.55](https://github.com/jbmarchetti/angular-forms-utils/compare/v0.2.54...v0.2.55) (2017-05-10)
 
