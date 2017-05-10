@@ -5,9 +5,12 @@ import { FormField } from '../form-field.model'
 @Component({
   selector: 'tw-input-text',
   template: `
-   <div [formGroup]='group'>
-  <input [formControlName]='field.id' name='{{field.id}}' type='{{field.type}}' class='form-control' (ngModelChange)='modelChange($event)' [(ngModel)]="request[field.id]" 
+   <div [formGroup]='group' [ngClass]='field.more?.nullable ? "input-group" :""'>
+  <input [formControlName]='field.id' name='{{field.id}}' type='{{field.type}}' class='form-control' [(ngModel)]="request[field.id]" 
     [attr.readonly]='field.readonly' />
+          <span class="input-group-btn" *ngIf='field.more?.nullable && field.type!=="hidden"'>
+        <button class='btn btn-default' (click)='clear()'>&times;</button>
+      </span>
 </div>
    `
 
@@ -17,8 +20,8 @@ export class InputTextComponent {
   @Input() field: FormField
   @Input() request: any
 
-  modelChange(value: string): void {
-    if (this.field.more && this.field.more.nullable && value === '')
-      this.request[this.field.id] = null
+
+  clear(): void {
+    this.request[this.field.id] = null
   }
 }
