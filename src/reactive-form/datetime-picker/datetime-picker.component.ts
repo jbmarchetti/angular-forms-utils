@@ -7,7 +7,7 @@ import { FormField } from '../form-field.model'
   selector: 'tw-datetime-picker',
   template: `
   <div [formGroup]='group' class="input-group">
-      <input [formControlName]='field.id' name='{{field.id}}' class='form-control' (ngModelChange)='modelChange($event)' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false" [(ngModel)]="model" [date-only]="field.more.dateOnly ||false" [date-format]='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"' [parse-format]='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"'  readonly/>
+      <input [formControlName]='field.id' name='{{field.id}}' class='form-control' (valueChanged)='valueChanged($event)' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false" [(ngModel)]="request[field.id]" [date-only]="field.more.dateOnly ||false" [date-format]='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"' [parse-format]='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"'  readonly/>
       <span class="input-group-btn">
         <button class='btn btn-default' (click)='clear()'>&times;</button>
       </span>
@@ -23,7 +23,6 @@ export class DatetimePickerComponent implements OnInit {
   defaultValue: Date
   minute: string = ''
 
-  model: Date
 
   ngOnInit(): void {
     if (this.field.more) {
@@ -56,21 +55,15 @@ export class DatetimePickerComponent implements OnInit {
       this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|0[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9])$/))
 
 
-    this.model = this.request[this.field.id]
-
   }
 
-  modelChange(date: Date): void {
+  valueChanged(date: Date): void {
     if (this.field.more.dateOnly && date)
       this.request[this.field.id] = date.toString()
-    else
-      this.request[this.field.id] = date
-
   }
 
 
   clear(): void {
-    this.model = null
     this.request[this.field.id] = null
   }
 
