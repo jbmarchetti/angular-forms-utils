@@ -450,7 +450,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&nbsp;style&#x3D;&#x27;display:none&#x27;&gt;<br>&lt;input&nbsp;type&#x3D;&#x27;hidden&#x27;&nbsp;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;[(ngModel)]&#x3D;&quot;this.request[this.field.id]&quot;&nbsp;/&gt;<br>&lt;/div&gt;<br>&lt;div&nbsp;class&#x3D;&#x27;clear&#x27;&nbsp;&gt;<br>&nbsp;&lt;select&nbsp;[(ngModel)]&#x3D;&quot;hour&quot;&nbsp;(ngModelChange)&#x3D;&#x27;onChange()&#x27;&nbsp;class&#x3D;&#x27;form-control&nbsp;pull-left&#x27;&nbsp;style&#x3D;&#x27;width:100px;&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;*ngFor&#x3D;&quot;let&nbsp;h&nbsp;of&nbsp;hours&quot;&nbsp;[ngValue]&#x3D;&quot;h&quot;&gt;{{h}}&lt;/option&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br>&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&#x27;pull-left&#x27;&nbsp;style&#x3D;&#x27;margin:5px&#x27;&gt;:&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&lt;select&nbsp;[(ngModel)]&#x3D;&quot;minute&quot;&nbsp;(ngModelChange)&#x3D;&#x27;onChange()&#x27;&nbsp;&nbsp;class&#x3D;&#x27;form-control&nbsp;pull-left&#x27;&nbsp;style&#x3D;&#x27;width:100px;&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;*ngFor&#x3D;&quot;let&nbsp;m&nbsp;of&nbsp;minutes&quot;&nbsp;[ngValue]&#x3D;&quot;m&quot;&gt;{{m}}&lt;/option&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class&#x3D;&#x27;btn&nbsp;btn-default&nbsp;pull-left&#x27;&nbsp;style&#x3D;&#x27;margin-left:5px&#x27;&nbsp;(click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&nbsp;style&#x3D;&#x27;display:none&#x27;&gt;<br>&lt;input&nbsp;type&#x3D;&#x27;hidden&#x27;&nbsp;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;[(ngModel)]&#x3D;&quot;this.request[this.field.id]&quot;&nbsp;/&gt;<br>&lt;/div&gt;<br>&lt;div&nbsp;class&#x3D;&#x27;clear&#x27;&nbsp;&gt;<br>&nbsp;&lt;select&nbsp;[(ngModel)]&#x3D;&quot;hour&quot;&nbsp;(ngModelChange)&#x3D;&#x27;onChange(true)&#x27;&nbsp;class&#x3D;&#x27;form-control&nbsp;pull-left&#x27;&nbsp;style&#x3D;&#x27;width:100px;&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;*ngFor&#x3D;&quot;let&nbsp;h&nbsp;of&nbsp;hours&quot;&nbsp;[ngValue]&#x3D;&quot;h&quot;&gt;{{h}}&lt;/option&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br>&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&#x27;pull-left&#x27;&nbsp;style&#x3D;&#x27;margin:5px&#x27;&gt;hh&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&lt;select&nbsp;[(ngModel)]&#x3D;&quot;minute&quot;&nbsp;(ngModelChange)&#x3D;&#x27;onChange()&#x27;&nbsp;&nbsp;class&#x3D;&#x27;form-control&nbsp;pull-left&#x27;&nbsp;style&#x3D;&#x27;width:100px;&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;*ngFor&#x3D;&quot;let&nbsp;m&nbsp;of&nbsp;minutes&quot;&nbsp;[ngValue]&#x3D;&quot;m&quot;&gt;{{m}}&lt;/option&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br>&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&#x27;pull-left&#x27;&nbsp;style&#x3D;&#x27;margin:5px&#x27;&gt;mm&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class&#x3D;&#x27;btn&nbsp;btn-default&nbsp;pull-left&#x27;&nbsp;&nbsp;(click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -535,7 +535,7 @@
     
                     <tr>
                         <td class="col-md-4">
-    <code>onChange()</code>
+    <code>onChange(hour: boolean)</code>
                         </td>
                     </tr>
     
@@ -669,16 +669,17 @@ import { NguiDatetimePickerModule, NguiDatetime } from &#x27;@ngui/datetime-pick
   &lt;input type&#x3D;&#x27;hidden&#x27;  [formControlName]&#x3D;&#x27;field.id&#x27; [(ngModel)]&#x3D;&quot;this.request[this.field.id]&quot; /&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&#x27;clear&#x27; &gt;
-   &lt;select [(ngModel)]&#x3D;&quot;hour&quot; (ngModelChange)&#x3D;&#x27;onChange()&#x27; class&#x3D;&#x27;form-control pull-left&#x27; style&#x3D;&#x27;width:100px;&#x27;&gt;
+   &lt;select [(ngModel)]&#x3D;&quot;hour&quot; (ngModelChange)&#x3D;&#x27;onChange(true)&#x27; class&#x3D;&#x27;form-control pull-left&#x27; style&#x3D;&#x27;width:100px;&#x27;&gt;
         &lt;option [ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;
         &lt;option *ngFor&#x3D;&quot;let h of hours&quot; [ngValue]&#x3D;&quot;h&quot;&gt;{{h}}&lt;/option&gt;
     &lt;/select&gt;
-    &lt;span class&#x3D;&#x27;pull-left&#x27; style&#x3D;&#x27;margin:5px&#x27;&gt;:&lt;/span&gt;
+    &lt;span class&#x3D;&#x27;pull-left&#x27; style&#x3D;&#x27;margin:5px&#x27;&gt;hh&lt;/span&gt;
      &lt;select [(ngModel)]&#x3D;&quot;minute&quot; (ngModelChange)&#x3D;&#x27;onChange()&#x27;  class&#x3D;&#x27;form-control pull-left&#x27; style&#x3D;&#x27;width:100px;&#x27;&gt;
         &lt;option [ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;
         &lt;option *ngFor&#x3D;&quot;let m of minutes&quot; [ngValue]&#x3D;&quot;m&quot;&gt;{{m}}&lt;/option&gt;
     &lt;/select&gt;
-      &lt;button class&#x3D;&#x27;btn btn-default pull-left&#x27; style&#x3D;&#x27;margin-left:5px&#x27; (click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;
+    &lt;span class&#x3D;&#x27;pull-left&#x27; style&#x3D;&#x27;margin:5px&#x27;&gt;mm&lt;/span&gt;
+      &lt;button class&#x3D;&#x27;btn btn-default pull-left&#x27;  (click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;
   &lt;/div&gt;
     &#x60;
 })
@@ -730,7 +731,10 @@ export class TimePickerComponent implements OnInit, OnChanges {
   //   console.log(this.hour)
   // }
 
-  onChange(): void {
+  onChange(hour?: boolean): void {
+    if (hour &amp;&amp; !this.minute)
+      this.minute &#x3D; &#x27;00&#x27;
+
     if (this.hour &amp;&amp; this.minute)
       this.request[this.field.id] &#x3D; this.hour + &#x27;:&#x27; + this.minute
     else
