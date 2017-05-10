@@ -54,7 +54,7 @@ export class DemoComponent {
   constructor() {
 
     this.fields = [
-      new FormField(<IFormField>{ id: 'text', type: 'text', label: 'Input Text' }),
+      new FormField(<IFormField>{ id: 'text', type: 'text', label: 'Input Text', more: { nullable: true } }),
       new FormField(<IFormField>{ id: 'number', type: 'number', label: 'Input Number' }),
       new FormField(<IFormField>{ id: 'email', type: 'email', label: 'Input Email' }),
       new FormField(<IFormField>{ id: 'hidden', type: 'hidden', label: 'Input Hidden (Set label to \'\')' }),
