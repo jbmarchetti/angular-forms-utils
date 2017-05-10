@@ -7,7 +7,7 @@ import { FormField } from '../form-field.model'
   selector: 'tw-time-picker',
   template: `
   <div [formGroup]='group' class="input-group">
-    <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false"  (ngModelChange)='modelChange($event)'  [(ngModel)]="model"  [time-only]="true" date-format='HH:mm' parse-format='HH:mm'  readonly/>
+    <input [formControlName]='field.id' name='{{field.id}}' class='form-control' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false"  (valueChanged)='valueChanged($event)'  [(ngModel)]="request[field.id]"  [time-only]="true" date-format='HH:mm' parse-format='HH:mm'  readonly/>
         <span class="input-group-btn">
         <button class='btn btn-default' (click)='clear()'>&times;</button>
       </span>
@@ -21,7 +21,6 @@ export class TimePickerComponent implements OnInit {
   @Input() request: any
 
   defaultValue: string = ''
-  model: Date
 
   ngOnInit(): void {
 
@@ -44,16 +43,15 @@ export class TimePickerComponent implements OnInit {
     }
     this.field.addValidator(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))
 
-    this.model = this.request[this.field.id]
   }
 
-  modelChange(date: Date): void {
+  valueChanged(date: Date): void {
     if (date)
       this.request[this.field.id] = date.toString()
   }
 
+
   clear(): void {
-    this.model = null
     this.request[this.field.id] = null
   }
 
