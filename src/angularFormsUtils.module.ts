@@ -78,9 +78,6 @@ let decExp: any[] =
 })
 export class AngularFormsUtilsModule {
 
-  constructor() {
-  }
-
   public static forRoot(): ModuleWithProviders {
     return { ngModule: AngularFormsUtilsModule, providers: [BusyService] };
   }
