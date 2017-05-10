@@ -44,7 +44,7 @@ export class TimePickerComponent implements OnInit {
     }
     this.field.addValidator(Validators.pattern(/^(00|0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[0-5][0-9])(:([0-9]|[0-5][0-9]))?$/))
 
-
+    this.model = this.request[this.field.id]
   }
 
   modelChange(date: Date): void {
