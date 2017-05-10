@@ -12,16 +12,17 @@ import { NguiDatetimePickerModule, NguiDatetime } from '@ngui/datetime-picker';
   <input type='hidden'  [formControlName]='field.id' [(ngModel)]="this.request[this.field.id]" />
   </div>
   <div class='clear' >
-   <select [(ngModel)]="hour" (ngModelChange)='onChange()' class='form-control pull-left' style='width:100px;'>
+   <select [(ngModel)]="hour" (ngModelChange)='onChange(true)' class='form-control pull-left' style='width:100px;'>
         <option [ngValue]=""></option>
         <option *ngFor="let h of hours" [ngValue]="h">{{h}}</option>
     </select>
-    <span class='pull-left' style='margin:5px'>:</span>
+    <span class='pull-left' style='margin:5px'>hh</span>
      <select [(ngModel)]="minute" (ngModelChange)='onChange()'  class='form-control pull-left' style='width:100px;'>
         <option [ngValue]=""></option>
         <option *ngFor="let m of minutes" [ngValue]="m">{{m}}</option>
     </select>
-      <button class='btn btn-default pull-left' style='margin-left:5px' (click)='clear()'>&times;</button>
+    <span class='pull-left' style='margin:5px'>mm</span>
+      <button class='btn btn-default pull-left'  (click)='clear()'>&times;</button>
   </div>
     `
 })
@@ -73,7 +74,10 @@ export class TimePickerComponent implements OnInit, OnChanges {
   //   console.log(this.hour)
   // }
 
-  onChange(): void {
+  onChange(hour?: boolean): void {
+    if (hour && !this.minute)
+      this.minute = '00'
+
     if (this.hour && this.minute)
       this.request[this.field.id] = this.hour + ':' + this.minute
     else
