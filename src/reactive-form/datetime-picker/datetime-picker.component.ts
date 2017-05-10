@@ -54,7 +54,7 @@ export class DatetimePickerComponent implements OnInit {
 
   }
 
-  modelChange(date: Date) {
+  modelChange(date: Date): void {
     if (this.field.more.dateOnly && date)
       this.request[this.field.id] = date.toString()
     else

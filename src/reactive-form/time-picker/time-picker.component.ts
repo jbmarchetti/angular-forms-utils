@@ -44,7 +44,7 @@ export class TimePickerComponent implements OnInit {
 
   }
 
-  modelChange(date: Date) {
+  modelChange(date: Date): void {
     if (date)
       this.request[this.field.id] = date.toString()
   }
