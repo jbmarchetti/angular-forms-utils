@@ -6,8 +6,11 @@ import { FormField } from '../form-field.model'
 @Component({
   selector: 'tw-datetime-picker',
   template: `
-  <div [formGroup]='group'>
+  <div [formGroup]='group' class="input-group">
       <input [formControlName]='field.id' name='{{field.id}}' class='form-control' (ngModelChange)='modelChange($event)' ngui-datetime-picker default-value='{{defaultValue}}' [close-on-select]="field.more.closeOnSelect || false" [(ngModel)]="model" [date-only]="field.more.dateOnly ||false" [date-format]='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"' [parse-format]='this.field.more.dateFormat || "YYYY-MM-DD HH:mm"'  readonly/>
+      <span class="input-group-btn">
+        <button class='btn btn-default' (click)='clear()'>&times;</button>
+      </span>
 </div>
   `
 })
@@ -62,5 +65,10 @@ export class DatetimePickerComponent implements OnInit {
 
   }
 
+
+  clear(): void {
+    this.model = null
+    this.request[this.field.id] = null
+  }
 
 }
