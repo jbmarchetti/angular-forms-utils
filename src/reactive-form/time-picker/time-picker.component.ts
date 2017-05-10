@@ -73,7 +73,7 @@ export class TimePickerComponent implements OnInit, OnChanges {
   //   console.log(this.hour)
   // }
 
-  onChange() {
+  onChange(): void {
     if (this.hour && this.minute)
       this.request[this.field.id] = this.hour + ':' + this.minute
     else
@@ -95,17 +95,17 @@ export class TimePickerComponent implements OnInit, OnChanges {
 
     if (this.field.more) {
       if (this.field.more.defaultValue) {
-        switch (this.field.more.defaultValue) {
-          case 'startOfDay':
-            this.defaultValue = '00:00'
-            break
-          case 'endOfDay':
-            this.defaultValue = '23:59'
-            break
-          default:
-            this.defaultValue = this.field.more.defaultValue
-            break
-        }
+        // switch (this.field.more.defaultValue) {
+        //   case 'startOfDay':
+        //     this.defaultValue = '00:00'
+        //     break
+        //   case 'endOfDay':
+        //     this.defaultValue = '23:59'
+        //     break
+        //   default:
+        //     this.defaultValue = this.field.more.defaultValue
+        //     break
+        // }
       }
     } else {
       this.field.more = {}
