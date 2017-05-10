@@ -81,7 +81,7 @@ export class TimePickerComponent implements OnInit, OnChanges {
   }
 
 
-  ngOnChanges(value: SimpleChanges) {
+  ngOnChanges(value: SimpleChanges): void {
     let newV = value['request'].currentValue[this.field.id]
     if (newV) {
       let split: string[] = newV.split(':')
