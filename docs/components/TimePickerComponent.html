@@ -450,7 +450,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&nbsp;class&#x3D;&quot;input-group&quot;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;[close-on-select]&#x3D;&quot;field.more.closeOnSelect&nbsp;||&nbsp;false&quot;&nbsp;&nbsp;(valueChanged)&#x3D;&#x27;valueChanged($event)&#x27;&nbsp;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&nbsp;[time-only]&#x3D;&quot;true&quot;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;&nbsp;readonly/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;input-group-btn&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class&#x3D;&#x27;btn&nbsp;btn-default&#x27;&nbsp;(click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&nbsp;style&#x3D;&#x27;display:none&#x27;&gt;<br>&lt;input&nbsp;type&#x3D;&#x27;hidden&#x27;&nbsp;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;[(ngModel)]&#x3D;&quot;this.request[this.field.id]&quot;&nbsp;/&gt;<br>&lt;/div&gt;<br>&lt;div&nbsp;class&#x3D;&#x27;clear&#x27;&nbsp;&gt;<br>&nbsp;&lt;select&nbsp;[(ngModel)]&#x3D;&quot;hour&quot;&nbsp;(ngModelChange)&#x3D;&#x27;onChange()&#x27;&nbsp;class&#x3D;&#x27;form-control&nbsp;pull-left&#x27;&nbsp;style&#x3D;&#x27;width:100px;&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;*ngFor&#x3D;&quot;let&nbsp;h&nbsp;of&nbsp;hours&quot;&nbsp;[ngValue]&#x3D;&quot;h&quot;&gt;{{h}}&lt;/option&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br>&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&#x27;pull-left&#x27;&nbsp;style&#x3D;&#x27;margin:5px&#x27;&gt;:&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&lt;select&nbsp;[(ngModel)]&#x3D;&quot;minute&quot;&nbsp;(ngModelChange)&#x3D;&#x27;onChange()&#x27;&nbsp;&nbsp;class&#x3D;&#x27;form-control&nbsp;pull-left&#x27;&nbsp;style&#x3D;&#x27;width:100px;&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;*ngFor&#x3D;&quot;let&nbsp;m&nbsp;of&nbsp;minutes&quot;&nbsp;[ngValue]&#x3D;&quot;m&quot;&gt;{{m}}&lt;/option&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class&#x3D;&#x27;btn&nbsp;btn-default&nbsp;pull-left&#x27;&nbsp;style&#x3D;&#x27;margin-left:5px&#x27;&nbsp;(click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -509,6 +509,19 @@
     </section>
 
 
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor()</code>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+    </section>
 
     <section>
         <h3 id="methods">Methods</h3>
@@ -516,13 +529,13 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b> valueChanged</b>
+                            <b> onChange</b>
                         </td>
                     </tr>
     
                     <tr>
                         <td class="col-md-4">
-    <code>valueChanged(date: Date)</code>
+    <code>onChange()</code>
                         </td>
                     </tr>
     
@@ -579,26 +592,104 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> hour</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>hour:     <code>string</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> hours</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>hours:     <code>string[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> minute</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>minute:     <code>string</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> minutes</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>minutes:     <code>string[]</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { OnInit, Component, Input } from &#x27;@angular/core&#x27;;
+            <pre><code class="hljs javascript">import { OnInit, Component, SimpleChanges, Input, OnChanges } from &#x27;@angular/core&#x27;;
 import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 import * as moment from &#x27;moment&#x27;
 import { FormField } from &#x27;../form-field.model&#x27;
+import { NguiDatetimePickerModule, NguiDatetime } from &#x27;@ngui/datetime-picker&#x27;;
+
 
 @Component({
   selector: &#x27;tw-time-picker&#x27;,
   template: &#x60;
-  &lt;div [formGroup]&#x3D;&#x27;group&#x27; class&#x3D;&quot;input-group&quot;&gt;
-    &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker default-value&#x3D;&#x27;{{defaultValue}}&#x27; [close-on-select]&#x3D;&quot;field.more.closeOnSelect || false&quot;  (valueChanged)&#x3D;&#x27;valueChanged($event)&#x27;  [(ngModel)]&#x3D;&quot;request[field.id]&quot;  [time-only]&#x3D;&quot;true&quot; date-format&#x3D;&#x27;HH:mm&#x27; parse-format&#x3D;&#x27;HH:mm&#x27;  readonly/&gt;
-        &lt;span class&#x3D;&quot;input-group-btn&quot;&gt;
-        &lt;button class&#x3D;&#x27;btn btn-default&#x27; (click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;
-      &lt;/span&gt;
+  &lt;div [formGroup]&#x3D;&#x27;group&#x27; style&#x3D;&#x27;display:none&#x27;&gt;
+  &lt;input type&#x3D;&#x27;hidden&#x27;  [formControlName]&#x3D;&#x27;field.id&#x27; [(ngModel)]&#x3D;&quot;this.request[this.field.id]&quot; /&gt;
   &lt;/div&gt;
-  &#x60;
+  &lt;div class&#x3D;&#x27;clear&#x27; &gt;
+   &lt;select [(ngModel)]&#x3D;&quot;hour&quot; (ngModelChange)&#x3D;&#x27;onChange()&#x27; class&#x3D;&#x27;form-control pull-left&#x27; style&#x3D;&#x27;width:100px;&#x27;&gt;
+        &lt;option [ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;
+        &lt;option *ngFor&#x3D;&quot;let h of hours&quot; [ngValue]&#x3D;&quot;h&quot;&gt;{{h}}&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;span class&#x3D;&#x27;pull-left&#x27; style&#x3D;&#x27;margin:5px&#x27;&gt;:&lt;/span&gt;
+     &lt;select [(ngModel)]&#x3D;&quot;minute&quot; (ngModelChange)&#x3D;&#x27;onChange()&#x27;  class&#x3D;&#x27;form-control pull-left&#x27; style&#x3D;&#x27;width:100px;&#x27;&gt;
+        &lt;option [ngValue]&#x3D;&quot;&quot;&gt;&lt;/option&gt;
+        &lt;option *ngFor&#x3D;&quot;let m of minutes&quot; [ngValue]&#x3D;&quot;m&quot;&gt;{{m}}&lt;/option&gt;
+    &lt;/select&gt;
+      &lt;button class&#x3D;&#x27;btn btn-default pull-left&#x27; style&#x3D;&#x27;margin-left:5px&#x27; (click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;
+  &lt;/div&gt;
+    &#x60;
 })
-export class TimePickerComponent implements OnInit {
+
+// &lt;div [formGroup]&#x3D;&#x27;group&#x27; class&#x3D;&quot;input-group&quot;&gt;
+//   &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker default-value&#x3D;&#x27;{{defaultValue}}&#x27; [close-on-select]&#x3D;&quot;field.more.closeOnSelect || false&quot;  (valueChanged)&#x3D;&#x27;valueChanged($event)&#x27;  [(ngModel)]&#x3D;&quot;request[field.id]&quot;  [time-only]&#x3D;&quot;true&quot; date-format&#x3D;&#x27;HH:mm&#x27; parse-format&#x3D;&#x27;HH:mm&#x27;  readonly/&gt;
+//       &lt;span class&#x3D;&quot;input-group-btn&quot;&gt;
+//       &lt;button class&#x3D;&#x27;btn btn-default&#x27; (click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;
+//     &lt;/span&gt;
+// &lt;/div&gt;
+export class TimePickerComponent implements OnInit, OnChanges {
   // &lt;small class&#x3D;&#x27;text-danger&#x27; *ngIf&#x3D;&#x27;field.control.value &amp;&amp; field.control.invalid&#x27;&gt;Invalid Format : YYYY-MM-DD HH:MM&lt;/small&gt;
   @Input() group: FormGroup
   @Input() field: FormField
@@ -606,21 +697,72 @@ export class TimePickerComponent implements OnInit {
 
   defaultValue: string &#x3D; &#x27;&#x27;
 
+  hours: string[]
+  minutes: string[]
+
+  hour: string
+  minute: string
+
+  constructor() {
+    this.hours &#x3D; []
+    for (let i: number &#x3D; 0; i &lt;&#x3D; 23; i++) {
+      if (i &lt; 10)
+        this.hours.push(&#x27;0&#x27; + i.toString())
+      else
+        this.hours.push(i.toString())
+    }
+
+    this.minutes &#x3D; []
+    for (let i: number &#x3D; 0; i &lt;&#x3D; 59; i++) {
+      if (i &lt; 10)
+        this.minutes.push(&#x27;0&#x27; + i.toString())
+      else
+        this.minutes.push(i.toString())
+    }
+  }
+
+  // get model(): string {
+  //   return this.request[this.field.id]
+
+  // }
+
+  // set model(m: string) {
+  //   console.log(this.hour)
+  // }
+
+  onChange(): void {
+    if (this.hour &amp;&amp; this.minute)
+      this.request[this.field.id] &#x3D; this.hour + &#x27;:&#x27; + this.minute
+    else
+      this.request[this.field.id] &#x3D; null
+  }
+
+
+  ngOnChanges(value: SimpleChanges): void {
+    let newV: string &#x3D; value[&#x27;request&#x27;].currentValue[this.field.id]
+    if (newV) {
+      let split: string[] &#x3D; newV.split(&#x27;:&#x27;)
+      this.hour &#x3D; split[0] ? split[0] : &#x27;&#x27;
+      this.minute &#x3D; split[1] ? split[1] : &#x27;&#x27;
+    }
+
+  }
+
   ngOnInit(): void {
 
     if (this.field.more) {
       if (this.field.more.defaultValue) {
-        switch (this.field.more.defaultValue) {
-          case &#x27;startOfDay&#x27;:
-            this.defaultValue &#x3D; &#x27;00:00&#x27;
-            break
-          case &#x27;endOfDay&#x27;:
-            this.defaultValue &#x3D; &#x27;23:59&#x27;
-            break
-          default:
-            this.defaultValue &#x3D; this.field.more.defaultValue
-            break
-        }
+        // switch (this.field.more.defaultValue) {
+        //   case &#x27;startOfDay&#x27;:
+        //     this.defaultValue &#x3D; &#x27;00:00&#x27;
+        //     break
+        //   case &#x27;endOfDay&#x27;:
+        //     this.defaultValue &#x3D; &#x27;23:59&#x27;
+        //     break
+        //   default:
+        //     this.defaultValue &#x3D; this.field.more.defaultValue
+        //     break
+        // }
       }
     } else {
       this.field.more &#x3D; {}
@@ -629,13 +771,18 @@ export class TimePickerComponent implements OnInit {
 
   }
 
-  valueChanged(date: Date): void {
-    if (date)
-      this.request[this.field.id] &#x3D; date.toString()
-  }
+
+
+  // valueChanged(date: Date): void {
+  //   // console.log(&#x27;time changed&#x27;)
+  //   if (date)
+  //     this.request[this.field.id] &#x3D; date.toString()
+  // }
 
 
   clear(): void {
+    this.hour &#x3D; &#x27;&#x27;
+    this.minute &#x3D; &#x27;&#x27;
     this.request[this.field.id] &#x3D; null
   }
 

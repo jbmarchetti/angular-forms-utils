@@ -472,8 +472,21 @@ import { BusyButtonComponent } from &#x27;./busy-button/busy-button.component&#x
 import { BusyService } from &#x27;./busy-button/busy.service&#x27;
 
 import { DropdownTreeviewModule } from &#x27;ng2-dropdown-treeview&#x27;;
-import { NguiDatetimePickerModule } from &#x27;@ngui/datetime-picker&#x27;;
+import { NguiDatetimePickerModule, NguiDatetime } from &#x27;@ngui/datetime-picker&#x27;;
+import * as moment from &#x27;moment&#x27;
 
+
+NguiDatetime.parseDate &#x3D; (str: any): any &#x3D;&gt; {
+  let m: any &#x3D; moment(str)
+  if (!m.isValid()) { //Time
+    // let tmp &#x3D; str.split(&#x27;:&#x27;);
+    m &#x3D; moment()
+    // m.set(&#x27;hour&#x27;, parseInt(tmp[0] || &#x27;0&#x27;, 10))
+    // m.set(&#x27;minute&#x27;, parseInt(tmp[1] || &#x27;0&#x27;, 10))
+    // m.set(&#x27;second&#x27;, parseInt(tmp[2] || &#x27;0&#x27;, 10))
+  }
+  return m.toDate()
+}
 
 let decExp: any[] &#x3D;
   [
