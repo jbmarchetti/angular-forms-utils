@@ -101,7 +101,7 @@
     }
   },
   "dependencies": {
-    "@ngui/datetime-picker": "^0.16.0",
+    "@ngui/datetime-picker": "^0.16.2",
     "@ngx-translate/core": "^6.0.0",
     "moment": "^2.18.0",
     "ng2-dropdown-treeview": "^1.0.5"
