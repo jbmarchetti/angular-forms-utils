@@ -29,7 +29,7 @@ import * as moment from 'moment'
 
 
 NguiDatetime.parseDate = (str: any): any => {
-  let m = moment(str)
+  let m: any = moment(str)
   if (!m.isValid()) { //Time
     // let tmp = str.split(':');
     m = moment()

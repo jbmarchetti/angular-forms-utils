@@ -48,7 +48,7 @@ export class TimePickerComponent implements OnInit, OnChanges {
 
   constructor() {
     this.hours = []
-    for (let i = 0; i <= 23; i++) {
+    for (let i: number = 0; i <= 23; i++) {
       if (i < 10)
         this.hours.push('0' + i.toString())
       else
@@ -56,7 +56,7 @@ export class TimePickerComponent implements OnInit, OnChanges {
     }
 
     this.minutes = []
-    for (let i = 0; i <= 59; i++) {
+    for (let i: number = 0; i <= 59; i++) {
       if (i < 10)
         this.minutes.push('0' + i.toString())
       else
