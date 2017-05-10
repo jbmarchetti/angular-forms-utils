@@ -20,7 +20,5 @@ export class InputTextComponent {
   modelChange(value: string): void {
     if (this.field.more && this.field.more.nullable && value === '')
       this.request[this.field.id] = null
-
-    console.log(this.request[this.field.id])
   }
 }
