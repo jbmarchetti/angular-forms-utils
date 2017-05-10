@@ -28,6 +28,18 @@ import { NguiDatetimePickerModule, NguiDatetime } from '@ngui/datetime-picker';
 import * as moment from 'moment'
 
 
+NguiDatetime.parseDate = (str: any): any => {
+  let m = moment(str)
+  if (!m.isValid()) { //Time
+    // let tmp = str.split(':');
+    m = moment()
+    // m.set('hour', parseInt(tmp[0] || '0', 10))
+    // m.set('minute', parseInt(tmp[1] || '0', 10))
+    // m.set('second', parseInt(tmp[2] || '0', 10))
+  }
+  return m.toDate()
+}
+
 let decExp: any[] =
   [
     ReactiveFormComponent,
@@ -67,18 +79,6 @@ let decExp: any[] =
 export class AngularFormsUtilsModule {
 
   constructor() {
-    // NguiDatetime.parseDate = (str: any): any => {
-    //   let m = moment(str)
-    //   if (!m.isValid()) { //Time
-    //     let tmp = str.split(':');
-    //     m = moment()
-    //     m.set('hour', parseInt(tmp[0] || '0', 10))
-    //     m.set('minute', parseInt(tmp[1] || '0', 10))
-    //     m.set('second', parseInt(tmp[2] || '0', 10))
-    //   }
-    //   return m.toDate()
-    // }
-
   }
 
   public static forRoot(): ModuleWithProviders {
