@@ -450,7 +450,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;[close-on-select]&#x3D;&quot;field.more.closeOnSelect&nbsp;||&nbsp;false&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;[time-only]&#x3D;&quot;true&quot;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;&nbsp;readonly/&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;ngui-datetime-picker&nbsp;default-value&#x3D;&#x27;{{defaultValue}}&#x27;&nbsp;[close-on-select]&#x3D;&quot;field.more.closeOnSelect&nbsp;||&nbsp;false&quot;&nbsp;&nbsp;(ngModelChange)&#x3D;&#x27;modelChange($event)&#x27;&nbsp;&nbsp;[(ngModel)]&#x3D;&quot;model&quot;&nbsp;&nbsp;[time-only]&#x3D;&quot;true&quot;&nbsp;date-format&#x3D;&#x27;HH:mm&#x27;&nbsp;parse-format&#x3D;&#x27;HH:mm&#x27;&nbsp;&nbsp;readonly/&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -510,6 +510,33 @@
 
 
 
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> modelChange</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>modelChange(date: Date)</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
     <section>
         <h3 id="inputs">Properties</h3>
@@ -528,6 +555,21 @@
                     </tr>
                 </tbody>
             </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> model</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>model:     <code>Date</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
@@ -540,7 +582,7 @@ import { FormField } from &#x27;../form-field.model&#x27;
   selector: &#x27;tw-time-picker&#x27;,
   template: &#x60;
   &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-    &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker default-value&#x3D;&#x27;{{defaultValue}}&#x27; [close-on-select]&#x3D;&quot;field.more.closeOnSelect || false&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; [time-only]&#x3D;&quot;true&quot; date-format&#x3D;&#x27;HH:mm&#x27; parse-format&#x3D;&#x27;HH:mm&#x27;  readonly/&gt;
+    &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; ngui-datetime-picker default-value&#x3D;&#x27;{{defaultValue}}&#x27; [close-on-select]&#x3D;&quot;field.more.closeOnSelect || false&quot;  (ngModelChange)&#x3D;&#x27;modelChange($event)&#x27;  [(ngModel)]&#x3D;&quot;model&quot;  [time-only]&#x3D;&quot;true&quot; date-format&#x3D;&#x27;HH:mm&#x27; parse-format&#x3D;&#x27;HH:mm&#x27;  readonly/&gt;
   &lt;/div&gt;
   &#x60;
 })
@@ -551,6 +593,7 @@ export class TimePickerComponent implements OnInit {
   @Input() request: any
 
   defaultValue: string &#x3D; &#x27;&#x27;
+  model: Date
 
   ngOnInit(): void {
 
@@ -576,7 +619,10 @@ export class TimePickerComponent implements OnInit {
 
   }
 
-
+  modelChange(date: Date): void {
+    if (date)
+      this.request[this.field.id] &#x3D; date.toString()
+  }
 }
 </code></pre>
         </div>
