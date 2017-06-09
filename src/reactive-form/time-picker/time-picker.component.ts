@@ -1,8 +1,6 @@
 import { OnInit, Component, SimpleChanges, Input, OnChanges } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
-import * as moment from 'moment'
+import { FormGroup } from '@angular/forms';
 import { FormField } from '../form-field.model'
-import { NguiDatetimePickerModule, NguiDatetime } from '@ngui/datetime-picker';
 
 
 @Component({

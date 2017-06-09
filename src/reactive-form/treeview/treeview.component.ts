@@ -1,9 +1,6 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { TreeviewConfig } from 'ng2-dropdown-treeview';
-
-import { Subscription } from 'rxjs'
-import * as moment from 'moment'
 import { FormField } from '../form-field.model'
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 // import { Subscription } from 'rxjs'
 import { FormField } from '../form-field.model'

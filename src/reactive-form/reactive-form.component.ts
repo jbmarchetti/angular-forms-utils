@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { FormField } from './form-field.model';
 
 @Component({

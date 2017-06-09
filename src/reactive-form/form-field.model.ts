@@ -1,5 +1,6 @@
 import { FormControl, ValidatorFn, Validators } from '@angular/forms';
-import { Observable } from 'rxjs/Rx';
+
+declare var Object: any
 
 export interface IFormField {
     id: string
