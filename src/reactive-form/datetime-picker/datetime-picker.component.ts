@@ -1,6 +1,5 @@
-import { OnInit, Component, Input, OnDestroy } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
-import * as moment from 'moment'
+import { OnInit, Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { FormField } from '../form-field.model'
 
 @Component({

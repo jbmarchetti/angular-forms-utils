@@ -1,18 +1,13 @@
-import { Component, OnInit, Output, EventEmitter, Input, OnDestroy, TemplateRef } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
-import { TreeviewItemComponent } from 'ng2-dropdown-treeview/src/treeview-item.component';
+import { Component, Input, TemplateRef } from '@angular/core';
 import { TreeviewItem } from 'ng2-dropdown-treeview';
 // import { TreeviewItemTemplateContext } from 'ng2-dropdown-treeview/src/treeview-item-template-context';
-import { Subscription } from 'rxjs'
-import * as moment from 'moment'
-import { FormField } from '../form-field.model'
 
 @Component({
     selector: 'tw-treeview-item',
     template: `
 <div class="treeview-item">
     <template [ngTemplateOutlet]="template"
-        [ngOutletContext]="{item: item, toggleCollapseExpand: toggleCollapseExpand, onCheckedChange: onCheckedChange}">
+        [ngOutletContext]="{item: item, toggleCollapseExpand: toggleCollapseExpand}">
     </template>
     <div *ngIf="!item.collapsed">
         <tw-treeview-item *ngFor="let child of item.children" [item]="child" [template]="template">

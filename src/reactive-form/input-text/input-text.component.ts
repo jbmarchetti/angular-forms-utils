@@ -7,7 +7,7 @@ import { FormField } from '../form-field.model'
   template: `
    <div [formGroup]='group' [ngClass]='field.more?.nullable ? "input-group" :""'>
   <input [formControlName]='field.id' name='{{field.id}}' type='{{field.type}}' class='form-control' [(ngModel)]="request[field.id]" 
-    [attr.readonly]='field.readonly' />
+    [readonly]='field.more?.readonly' />
           <span class="input-group-btn" *ngIf='field.more?.nullable && field.type!=="hidden"'>
         <button class='btn btn-default' (click)='clear()'>&times;</button>
       </span>

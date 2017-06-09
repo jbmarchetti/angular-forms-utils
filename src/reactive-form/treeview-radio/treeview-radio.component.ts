@@ -1,15 +1,13 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { TreeviewConfig } from 'ng2-dropdown-treeview';
 import { TreeviewItem } from 'ng2-dropdown-treeview';
 
-import { Subscription } from 'rxjs'
-import * as moment from 'moment'
 import { FormField } from '../form-field.model'
 
 @Component({
-  selector: 'tw-treeview-radio',
-  template: `
+    selector: 'tw-treeview-radio',
+    template: `
 <template #tpl let-item="item"
     let-toggleCollapseExpand="toggleCollapseExpand"
     let-onCheckedChange="onCheckedChange">
@@ -25,14 +23,14 @@ import { FormField } from '../form-field.model'
 <div class="treeview-header">
   
 </div>
-<div class="treeview-container" [style.max-height.px]="maxHeight" >
+<div class="treeview-container" [style.max-height.px]="selectConfig.maxHeight" >
     <div *ngFor="let item of field.options">
         <tw-treeview-item [item]="item" [template]="template || tpl" >
         </tw-treeview-item>
     </div>
 </div>
 `,
-  styles: [`
+    styles: [`
 .row-margin {
     margin-top: .3rem;
 }
@@ -62,35 +60,35 @@ import { FormField } from '../form-field.model'
 })
 export class TreeViewRadioComponent implements OnInit {
 
-  @Input() group: FormGroup
-  @Input() field: FormField
-  @Input() request: any
-  allItem: TreeviewItem;
+    @Input() group: FormGroup
+    @Input() field: FormField
+    @Input() request: any
+    allItem: TreeviewItem;
 
-  public selectConfig: TreeviewConfig = {
-    isShowAllCheckBox: true,
-    isShowFilter: true,
-    isShowCollapseExpand: true,
-    maxHeight: 500
-  }
-
-  toggleCollapseExpand(): void {
-    this.allItem.collapsed = !this.allItem.collapsed;
-    if (this.field.options.items) {
-      this.field.options.items.forEach((item: TreeviewItem) => item.setCollapsedRecursive(this.allItem.collapsed));
+    public selectConfig: TreeviewConfig = {
+        isShowAllCheckBox: true,
+        isShowFilter: true,
+        isShowCollapseExpand: true,
+        maxHeight: 500
     }
-  }
+
+    toggleCollapseExpand(): void {
+        this.allItem.collapsed = !this.allItem.collapsed;
+        if (this.field.options.items) {
+            this.field.options.items.forEach((item: TreeviewItem) => item.setCollapsedRecursive(this.allItem.collapsed));
+        }
+    }
 
 
 
-  public updateModel(values?: any[]): void {
-    if (values)
-      this.field.setValue(values.join(','))
-    else
-      this.field.setValue('')
-  }
-  ngOnInit(): void {
-    if (this.field.more && this.field.more.selectConfig)
-      this.selectConfig = this.field.more.selectConfig
-  }
+    public updateModel(values?: any[]): void {
+        if (values)
+            this.field.setValue(values.join(','))
+        else
+            this.field.setValue('')
+    }
+    ngOnInit(): void {
+        if (this.field.more && this.field.more.selectConfig)
+            this.selectConfig = this.field.more.selectConfig
+    }
 }
