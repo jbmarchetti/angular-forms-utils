@@ -9,7 +9,7 @@ import { FormField } from '../form-field.model'
   <select [attr.multiple]='field.type === "enumselect"?null:true' [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
       <option [ngValue]="field.firstValue.value" *ngIf='field.firstValue' >{{field.firstValue.text | translate}}</option>
       <option [ngValue]="option" *ngFor="let option of enumToArray(field.options)">
-        {{option}}
+        {{option | translate}}
       </option>
     </select>
 </div>
