@@ -480,7 +480,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;template&nbsp;#tpl&nbsp;let-item&#x3D;&quot;item&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;let-toggleCollapseExpand&#x3D;&quot;toggleCollapseExpand&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;let-onCheckedChange&#x3D;&quot;onCheckedChange&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class&#x3D;&quot;form-check&quot;&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i&nbsp;*ngIf&#x3D;&quot;item.children&quot;&nbsp;(click)&#x3D;&quot;toggleCollapseExpand()&quot;&nbsp;aria-hidden&#x3D;&quot;true&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&#x3D;&quot;fa&quot;&nbsp;[class.fa-caret-right]&#x3D;&quot;item.collapsed&quot;&nbsp;[class.fa-caret-down]&#x3D;&quot;!item.collapsed&quot;&gt;&lt;/i&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;class&#x3D;&quot;form-check-label&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type&#x3D;&quot;radio&quot;&nbsp;&nbsp;class&#x3D;&quot;form-check-input&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;[value]&#x3D;&#x27;item.value&#x27;&nbsp;/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.text}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/template&gt;<br>&lt;div&nbsp;class&#x3D;&quot;treeview-header&quot;&gt;<br><br>&lt;/div&gt;<br>&lt;div&nbsp;class&#x3D;&quot;treeview-container&quot;&nbsp;[style.max-height.px]&#x3D;&quot;maxHeight&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;*ngFor&#x3D;&quot;let&nbsp;item&nbsp;of&nbsp;field.options&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-treeview-item&nbsp;[item]&#x3D;&quot;item&quot;&nbsp;[template]&#x3D;&quot;template&nbsp;||&nbsp;tpl&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tw-treeview-item&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;template&nbsp;#tpl&nbsp;let-item&#x3D;&quot;item&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;let-toggleCollapseExpand&#x3D;&quot;toggleCollapseExpand&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;let-onCheckedChange&#x3D;&quot;onCheckedChange&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class&#x3D;&quot;form-check&quot;&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i&nbsp;*ngIf&#x3D;&quot;item.children&quot;&nbsp;(click)&#x3D;&quot;toggleCollapseExpand()&quot;&nbsp;aria-hidden&#x3D;&quot;true&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&#x3D;&quot;fa&quot;&nbsp;[class.fa-caret-right]&#x3D;&quot;item.collapsed&quot;&nbsp;[class.fa-caret-down]&#x3D;&quot;!item.collapsed&quot;&gt;&lt;/i&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&nbsp;class&#x3D;&quot;form-check-label&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;type&#x3D;&quot;radio&quot;&nbsp;&nbsp;class&#x3D;&quot;form-check-input&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;[value]&#x3D;&#x27;item.value&#x27;&nbsp;/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.text}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/template&gt;<br>&lt;div&nbsp;class&#x3D;&quot;treeview-header&quot;&gt;<br><br>&lt;/div&gt;<br>&lt;div&nbsp;class&#x3D;&quot;treeview-container&quot;&nbsp;[style.max-height.px]&#x3D;&quot;selectConfig.maxHeight&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;*ngFor&#x3D;&quot;let&nbsp;item&nbsp;of&nbsp;field.options&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-treeview-item&nbsp;[item]&#x3D;&quot;item&quot;&nbsp;[template]&#x3D;&quot;template&nbsp;||&nbsp;tpl&quot;&nbsp;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tw-treeview-item&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -630,18 +630,16 @@
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, OnInit, Input, OnDestroy } from &#x27;@angular/core&#x27;;
-import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+            <pre><code class="hljs javascript">import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
+import { FormGroup } from &#x27;@angular/forms&#x27;;
 import { TreeviewConfig } from &#x27;ng2-dropdown-treeview&#x27;;
 import { TreeviewItem } from &#x27;ng2-dropdown-treeview&#x27;;
 
-import { Subscription } from &#x27;rxjs&#x27;
-import * as moment from &#x27;moment&#x27;
 import { FormField } from &#x27;../form-field.model&#x27;
 
 @Component({
-  selector: &#x27;tw-treeview-radio&#x27;,
-  template: &#x60;
+    selector: &#x27;tw-treeview-radio&#x27;,
+    template: &#x60;
 &lt;template #tpl let-item&#x3D;&quot;item&quot;
     let-toggleCollapseExpand&#x3D;&quot;toggleCollapseExpand&quot;
     let-onCheckedChange&#x3D;&quot;onCheckedChange&quot;&gt;
@@ -657,14 +655,14 @@ import { FormField } from &#x27;../form-field.model&#x27;
 &lt;div class&#x3D;&quot;treeview-header&quot;&gt;
   
 &lt;/div&gt;
-&lt;div class&#x3D;&quot;treeview-container&quot; [style.max-height.px]&#x3D;&quot;maxHeight&quot; &gt;
+&lt;div class&#x3D;&quot;treeview-container&quot; [style.max-height.px]&#x3D;&quot;selectConfig.maxHeight&quot; &gt;
     &lt;div *ngFor&#x3D;&quot;let item of field.options&quot;&gt;
         &lt;tw-treeview-item [item]&#x3D;&quot;item&quot; [template]&#x3D;&quot;template || tpl&quot; &gt;
         &lt;/tw-treeview-item&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &#x60;,
-  styles: [&#x60;
+    styles: [&#x60;
 .row-margin {
     margin-top: .3rem;
 }
@@ -694,37 +692,37 @@ import { FormField } from &#x27;../form-field.model&#x27;
 })
 export class TreeViewRadioComponent implements OnInit {
 
-  @Input() group: FormGroup
-  @Input() field: FormField
-  @Input() request: any
-  allItem: TreeviewItem;
+    @Input() group: FormGroup
+    @Input() field: FormField
+    @Input() request: any
+    allItem: TreeviewItem;
 
-  public selectConfig: TreeviewConfig &#x3D; {
-    isShowAllCheckBox: true,
-    isShowFilter: true,
-    isShowCollapseExpand: true,
-    maxHeight: 500
-  }
-
-  toggleCollapseExpand(): void {
-    this.allItem.collapsed &#x3D; !this.allItem.collapsed;
-    if (this.field.options.items) {
-      this.field.options.items.forEach((item: TreeviewItem) &#x3D;&gt; item.setCollapsedRecursive(this.allItem.collapsed));
+    public selectConfig: TreeviewConfig &#x3D; {
+        isShowAllCheckBox: true,
+        isShowFilter: true,
+        isShowCollapseExpand: true,
+        maxHeight: 500
     }
-  }
+
+    toggleCollapseExpand(): void {
+        this.allItem.collapsed &#x3D; !this.allItem.collapsed;
+        if (this.field.options.items) {
+            this.field.options.items.forEach((item: TreeviewItem) &#x3D;&gt; item.setCollapsedRecursive(this.allItem.collapsed));
+        }
+    }
 
 
 
-  public updateModel(values?: any[]): void {
-    if (values)
-      this.field.setValue(values.join(&#x27;,&#x27;))
-    else
-      this.field.setValue(&#x27;&#x27;)
-  }
-  ngOnInit(): void {
-    if (this.field.more &amp;&amp; this.field.more.selectConfig)
-      this.selectConfig &#x3D; this.field.more.selectConfig
-  }
+    public updateModel(values?: any[]): void {
+        if (values)
+            this.field.setValue(values.join(&#x27;,&#x27;))
+        else
+            this.field.setValue(&#x27;&#x27;)
+    }
+    ngOnInit(): void {
+        if (this.field.more &amp;&amp; this.field.more.selectConfig)
+            this.selectConfig &#x3D; this.field.more.selectConfig
+    }
 }
 </code></pre>
         </div>

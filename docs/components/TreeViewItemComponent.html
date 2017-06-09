@@ -469,7 +469,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;class&#x3D;&quot;treeview-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;template&nbsp;[ngTemplateOutlet]&#x3D;&quot;template&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ngOutletContext]&#x3D;&quot;{item:&nbsp;item,&nbsp;toggleCollapseExpand:&nbsp;toggleCollapseExpand,&nbsp;onCheckedChange:&nbsp;onCheckedChange}&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/template&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;*ngIf&#x3D;&quot;!item.collapsed&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-treeview-item&nbsp;*ngFor&#x3D;&quot;let&nbsp;child&nbsp;of&nbsp;item.children&quot;&nbsp;[item]&#x3D;&quot;child&quot;&nbsp;[template]&#x3D;&quot;template&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tw-treeview-item&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;class&#x3D;&quot;treeview-item&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;template&nbsp;[ngTemplateOutlet]&#x3D;&quot;template&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ngOutletContext]&#x3D;&quot;{item:&nbsp;item,&nbsp;toggleCollapseExpand:&nbsp;toggleCollapseExpand}&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/template&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;*ngIf&#x3D;&quot;!item.collapsed&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tw-treeview-item&nbsp;*ngFor&#x3D;&quot;let&nbsp;child&nbsp;of&nbsp;item.children&quot;&nbsp;[item]&#x3D;&quot;child&quot;&nbsp;[template]&#x3D;&quot;template&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tw-treeview-item&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -535,21 +535,16 @@
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, OnInit, Output, EventEmitter, Input, OnDestroy, TemplateRef } from &#x27;@angular/core&#x27;;
-import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
-import { TreeviewItemComponent } from &#x27;ng2-dropdown-treeview/src/treeview-item.component&#x27;;
+            <pre><code class="hljs javascript">import { Component, Input, TemplateRef } from &#x27;@angular/core&#x27;;
 import { TreeviewItem } from &#x27;ng2-dropdown-treeview&#x27;;
 // import { TreeviewItemTemplateContext } from &#x27;ng2-dropdown-treeview/src/treeview-item-template-context&#x27;;
-import { Subscription } from &#x27;rxjs&#x27;
-import * as moment from &#x27;moment&#x27;
-import { FormField } from &#x27;../form-field.model&#x27;
 
 @Component({
     selector: &#x27;tw-treeview-item&#x27;,
     template: &#x60;
 &lt;div class&#x3D;&quot;treeview-item&quot;&gt;
     &lt;template [ngTemplateOutlet]&#x3D;&quot;template&quot;
-        [ngOutletContext]&#x3D;&quot;{item: item, toggleCollapseExpand: toggleCollapseExpand, onCheckedChange: onCheckedChange}&quot;&gt;
+        [ngOutletContext]&#x3D;&quot;{item: item, toggleCollapseExpand: toggleCollapseExpand}&quot;&gt;
     &lt;/template&gt;
     &lt;div *ngIf&#x3D;&quot;!item.collapsed&quot;&gt;
         &lt;tw-treeview-item *ngFor&#x3D;&quot;let child of item.children&quot; [item]&#x3D;&quot;child&quot; [template]&#x3D;&quot;template&quot;&gt;

@@ -450,7 +450,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&nbsp;&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&nbsp;[ngClass]&#x3D;&#x27;field.more?.nullable&nbsp;?&nbsp;&quot;input-group&quot;&nbsp;:&quot;&quot;&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;type&#x3D;&#x27;{{field.type}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;[attr.readonly]&#x3D;&#x27;field.readonly&#x27;&nbsp;/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;input-group-btn&quot;&nbsp;*ngIf&#x3D;&#x27;field.more?.nullable&nbsp;&amp;&amp;&nbsp;field.type!&#x3D;&#x3D;&quot;hidden&quot;&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class&#x3D;&#x27;btn&nbsp;btn-default&#x27;&nbsp;(click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&nbsp;&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&nbsp;[ngClass]&#x3D;&#x27;field.more?.nullable&nbsp;?&nbsp;&quot;input-group&quot;&nbsp;:&quot;&quot;&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;type&#x3D;&#x27;{{field.type}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;[readonly]&#x3D;&#x27;field.more?.readonly&#x27;&nbsp;/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class&#x3D;&quot;input-group-btn&quot;&nbsp;*ngIf&#x3D;&#x27;field.more?.nullable&nbsp;&amp;&amp;&nbsp;field.type!&#x3D;&#x3D;&quot;hidden&quot;&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&nbsp;class&#x3D;&#x27;btn&nbsp;btn-default&#x27;&nbsp;(click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/span&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -549,7 +549,7 @@ import { FormField } from &#x27;../form-field.model&#x27;
   template: &#x60;
    &lt;div [formGroup]&#x3D;&#x27;group&#x27; [ngClass]&#x3D;&#x27;field.more?.nullable ? &quot;input-group&quot; :&quot;&quot;&#x27;&gt;
   &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; type&#x3D;&#x27;{{field.type}}&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot; 
-    [attr.readonly]&#x3D;&#x27;field.readonly&#x27; /&gt;
+    [readonly]&#x3D;&#x27;field.more?.readonly&#x27; /&gt;
           &lt;span class&#x3D;&quot;input-group-btn&quot; *ngIf&#x3D;&#x27;field.more?.nullable &amp;&amp; field.type!&#x3D;&#x3D;&quot;hidden&quot;&#x27;&gt;
         &lt;button class&#x3D;&#x27;btn btn-default&#x27; (click)&#x3D;&#x27;clear()&#x27;&gt;&amp;times;&lt;/button&gt;
       &lt;/span&gt;
