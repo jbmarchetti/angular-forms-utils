@@ -60,7 +60,6 @@ let decExp: any[] =
     TreeViewTxtComponent,
     TreeViewRadioComponent,
     TreeViewItemComponent
-
   ]
 
 
