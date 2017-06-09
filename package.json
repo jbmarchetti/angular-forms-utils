@@ -95,16 +95,15 @@
   },
   "peerDependencies": {
     "@angular/core": ">=4.0.0",
-    "@ngx-translate/core": ">=6.0.0"
+    "@ngx-translate/core": ">=6.0.0",
+    "ng2-dropdown-treeview": ">=2.0.1",
+    "moment": ">=2.18.1",
+    "@ngui/datetime-picker": ">=0.16.2"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
   },
-  "dependencies": {
-    "@ngui/datetime-picker": "^0.16.2",
-    "moment": "^2.18.1",
-    "ng2-dropdown-treeview": "^2.0.1"
-  }
+  "dependencies": {}
 }
