@@ -40,7 +40,6 @@ export class MultiSelectComponent implements OnInit {
         opt.name = opt[this.field.optionText]
         return opt
       })
-
     return []
   }
 
