@@ -103,6 +103,9 @@
                                     <a href="../components/InputTextComponent.html" >InputTextComponent</a>
                                 </li>
                                 <li class="link">
+                                    <a href="../components/MultiSelectCBComponent.html" >MultiSelectCBComponent</a>
+                                </li>
+                                <li class="link">
                                     <a href="../components/MultiSelectComponent.html"  class="active" >MultiSelectComponent</a>
                                 </li>
                                 <li class="link">
@@ -294,6 +297,9 @@
                                            <a href="../components/InputTextComponent.html" >InputTextComponent</a>
                                        </li>
                                        <li class="link">
+                                           <a href="../components/MultiSelectCBComponent.html" >MultiSelectCBComponent</a>
+                                       </li>
+                                       <li class="link">
                                            <a href="../components/MultiSelectComponent.html"  class="active" >MultiSelectComponent</a>
                                        </li>
                                        <li class="link">
@@ -450,7 +456,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;button&nbsp;style&#x3D;&#x27;margin-top:&nbsp;-30px;&nbsp;margin-bottom:&nbsp;5px;&#x27;&nbsp;[ngClass]&#x3D;&quot;allSelected&nbsp;?&nbsp;&#x27;btn-primary&#x27;&nbsp;:&nbsp;&#x27;btn-default&#x27;&quot;&nbsp;class&#x3D;&#x27;btn-sm&nbsp;btn&nbsp;pull-right&#x27;&nbsp;(click)&#x3D;&#x27;selectAll()&#x27;&nbsp;&gt;&nbsp;{{field.more.allText&nbsp;||&nbsp;&#x27;All&#x27;}}&lt;/button&gt;<br>&nbsp;&nbsp;&lt;ss-multiselect-dropdown&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;[options]&#x3D;&quot;options&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;&lt;/ss-multiselect-dropdown&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&nbsp;&nbsp;&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&nbsp;&lt;button&nbsp;style&#x3D;&#x27;margin-top:&nbsp;-30px;&nbsp;margin-bottom:&nbsp;5px;&#x27;&nbsp;[ngClass]&#x3D;&quot;allSelected&nbsp;?&nbsp;&#x27;btn-primary&#x27;&nbsp;:&nbsp;&#x27;btn-default&#x27;&quot;&nbsp;class&#x3D;&#x27;btn-sm&nbsp;btn&nbsp;pull-right&#x27;&nbsp;(click)&#x3D;&#x27;selectAll()&#x27;&nbsp;&gt;&nbsp;{{field.more.allText&nbsp;||&nbsp;&#x27;All&#x27;}}&lt;/button&gt;<br>&lt;select&nbsp;multiple&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;option&nbsp;[ngValue]&#x3D;&quot;option[field.optionValue]&quot;&nbsp;*ngFor&#x3D;&quot;let&nbsp;option&nbsp;of&nbsp;field.options&quot;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{option[field.optionText]}}<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/option&gt;<br>&nbsp;&nbsp;&lt;/select&gt;<br>&nbsp;&nbsp;&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -555,21 +561,6 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> options</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>options:     <code>any</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
@@ -577,20 +568,19 @@
 import { FormGroup } from &#x27;@angular/forms&#x27;;
 import { FormField } from &#x27;../form-field.model&#x27;
 
-//  &lt;button style&#x3D;&#x27;margin-top: -30px; margin-bottom: 5px;&#x27; [ngClass]&#x3D;&quot;allSelected ? &#x27;btn-primary&#x27; : &#x27;btn-default&#x27;&quot; class&#x3D;&#x27;btn-sm btn pull-right&#x27; (click)&#x3D;&#x27;selectAll()&#x27; &gt; {{field.more.allText || &#x27;All&#x27;}}&lt;/button&gt;
-// &lt;select multiple [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot;&gt;
-//     &lt;option [ngValue]&#x3D;&quot;option[field.optionValue]&quot; *ngFor&#x3D;&quot;let option of field.options&quot;&gt;
-//       {{option[field.optionText]}}
-//     &lt;/option&gt;
-//   &lt;/select&gt;
+
 
 
 @Component({
   selector: &#x27;tw-multiselect&#x27;,
   template: &#x60;
   &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-    &lt;button style&#x3D;&#x27;margin-top: -30px; margin-bottom: 5px;&#x27; [ngClass]&#x3D;&quot;allSelected ? &#x27;btn-primary&#x27; : &#x27;btn-default&#x27;&quot; class&#x3D;&#x27;btn-sm btn pull-right&#x27; (click)&#x3D;&#x27;selectAll()&#x27; &gt; {{field.more.allText || &#x27;All&#x27;}}&lt;/button&gt;
-    &lt;ss-multiselect-dropdown [formControlName]&#x3D;&#x27;field.id&#x27; [options]&#x3D;&quot;options&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;&lt;/ss-multiselect-dropdown&gt;
+   &lt;button style&#x3D;&#x27;margin-top: -30px; margin-bottom: 5px;&#x27; [ngClass]&#x3D;&quot;allSelected ? &#x27;btn-primary&#x27; : &#x27;btn-default&#x27;&quot; class&#x3D;&#x27;btn-sm btn pull-right&#x27; (click)&#x3D;&#x27;selectAll()&#x27; &gt; {{field.more.allText || &#x27;All&#x27;}}&lt;/button&gt;
+&lt;select multiple [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot;&gt;
+    &lt;option [ngValue]&#x3D;&quot;option[field.optionValue]&quot; *ngFor&#x3D;&quot;let option of field.options&quot;&gt;
+      {{option[field.optionText]}}
+    &lt;/option&gt;
+  &lt;/select&gt;
   &lt;/div&gt;
   &#x60;
 })
@@ -604,18 +594,9 @@ export class MultiSelectComponent implements OnInit {
       this.field.more &#x3D; {}
   }
 
+
   get allSelected(): boolean {
     return this.testSelected()
-  }
-
-  get options() {
-    if (this.field.options)
-      return this.field.options.map((opt: any) &#x3D;&gt; {
-        opt.id &#x3D; opt[this.field.optionValue]
-        opt.name &#x3D; opt[this.field.optionText]
-        return opt
-      })
-    return []
   }
 
 

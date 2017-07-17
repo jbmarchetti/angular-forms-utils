@@ -97,13 +97,13 @@
                                     <a href="../components/GroupSelectComponent.html" >GroupSelectComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/InputFloatComponent.html"  class="active" >InputFloatComponent</a>
+                                    <a href="../components/InputFloatComponent.html" >InputFloatComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/InputTextComponent.html" >InputTextComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/MultiSelectCBComponent.html" >MultiSelectCBComponent</a>
+                                    <a href="../components/MultiSelectCBComponent.html"  class="active" >MultiSelectCBComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/MultiSelectComponent.html" >MultiSelectComponent</a>
@@ -291,13 +291,13 @@
                                            <a href="../components/GroupSelectComponent.html" >GroupSelectComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/InputFloatComponent.html"  class="active" >InputFloatComponent</a>
+                                           <a href="../components/InputFloatComponent.html" >InputFloatComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/InputTextComponent.html" >InputTextComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/MultiSelectCBComponent.html" >MultiSelectCBComponent</a>
+                                           <a href="../components/MultiSelectCBComponent.html"  class="active" >MultiSelectCBComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/MultiSelectComponent.html" >MultiSelectComponent</a>
@@ -408,7 +408,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>InputFloatComponent</li>
+  <li>MultiSelectCBComponent</li>
 </ol>
 
 
@@ -426,7 +426,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/reactive-form/input-float/input-float.component.ts</code>
+    <code>src/reactive-form/multi-selectcb/multi-selectcb.component.ts</code>
 </p>
 
 
@@ -449,14 +449,14 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>tw-input-float</code></td>
+                <td class="col-md-9"><code>tw-multiselectcb</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;input&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;name&#x3D;&#x27;{{field.id}}&#x27;&nbsp;type&#x3D;&#x27;text&#x27;&nbsp;class&#x3D;&#x27;form-control&#x27;&nbsp;[readonly]&#x3D;&#x27;field.more?.readonly&#x27;&nbsp;&nbsp;/&gt;<br>&lt;/div&gt;</code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;button&nbsp;style&#x3D;&#x27;margin-top:&nbsp;-30px;&nbsp;margin-bottom:&nbsp;5px;&#x27;&nbsp;[ngClass]&#x3D;&quot;allSelected&nbsp;?&nbsp;&#x27;btn-primary&#x27;&nbsp;:&nbsp;&#x27;btn-default&#x27;&quot;&nbsp;class&#x3D;&#x27;btn-sm&nbsp;btn&nbsp;pull-right&#x27;&nbsp;(click)&#x3D;&#x27;selectAll()&#x27;&nbsp;&gt;&nbsp;{{field.more.allText&nbsp;||&nbsp;&#x27;All&#x27;}}&lt;/button&gt;<br>&nbsp;&nbsp;&lt;ss-multiselect-dropdown&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;[options]&#x3D;&quot;options&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;&lt;/ss-multiselect-dropdown&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -516,39 +516,136 @@
 
 
 
+    <section>
+        <h3 id="methods">Methods</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> selectAll</b>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    <code>selectAll()</code>
+                        </td>
+                    </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                    <b>Returns: </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 
+    <section>
+        <h3 id="inputs">Properties</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> allSelected</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>allSelected:     <code>boolean</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> options</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>options:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import { Component, Input, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
-import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
-import { Subscription } from &#x27;rxjs&#x27;
+            <pre><code class="hljs javascript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { FormGroup } from &#x27;@angular/forms&#x27;;
 import { FormField } from &#x27;../form-field.model&#x27;
 
 @Component({
-  selector: &#x27;tw-input-float&#x27;,
+  selector: &#x27;tw-multiselectcb&#x27;,
   template: &#x60;
   &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-    &lt;input [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; type&#x3D;&#x27;text&#x27; class&#x3D;&#x27;form-control&#x27; [readonly]&#x3D;&#x27;field.more?.readonly&#x27;  /&gt;
-  &lt;/div&gt;&#x60;
+    &lt;button style&#x3D;&#x27;margin-top: -30px; margin-bottom: 5px;&#x27; [ngClass]&#x3D;&quot;allSelected ? &#x27;btn-primary&#x27; : &#x27;btn-default&#x27;&quot; class&#x3D;&#x27;btn-sm btn pull-right&#x27; (click)&#x3D;&#x27;selectAll()&#x27; &gt; {{field.more.allText || &#x27;All&#x27;}}&lt;/button&gt;
+    &lt;ss-multiselect-dropdown [formControlName]&#x3D;&#x27;field.id&#x27; [options]&#x3D;&quot;options&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;&lt;/ss-multiselect-dropdown&gt;
+  &lt;/div&gt;
+  &#x60;
 })
-export class InputFloatComponent implements OnInit, OnDestroy {
+export class MultiSelectCBComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
-  private sub: Subscription
 
   ngOnInit(): void {
-    this.field.addValidator(Validators.pattern(/^[+-]?([0-9]*[.])?[0-9]+$/))
-    this.sub &#x3D; this.field.control.valueChanges.subscribe((value: string) &#x3D;&gt; {
-      this.request[this.field.id] &#x3D; parseFloat(value)
-    });
+    if (!this.field.more)
+      this.field.more &#x3D; {}
   }
 
-  ngOnDestroy(): void {
-    if (this.sub)
-      this.sub.unsubscribe()
+  get allSelected(): boolean {
+    return this.testSelected()
   }
-}</code></pre>
+
+  get options() {
+    if (this.field.options)
+      return this.field.options.map((opt: any) &#x3D;&gt; {
+        opt.id &#x3D; opt[this.field.optionValue]
+        opt.name &#x3D; opt[this.field.optionText]
+        return opt
+      })
+    return []
+  }
+
+
+  selectAll(): void {
+    if (this.testSelected())
+      this.request[this.field.id] &#x3D; []
+    else {
+      this.request[this.field.id] &#x3D; []
+
+      this.field.options.forEach((option: any) &#x3D;&gt; {
+        this.request[this.field.id].push(option[this.field.optionValue])
+      });
+    }
+  }
+
+  private testSelected(): boolean {
+    if (!this.request[this.field.id] || !this.field.options)
+      return false
+
+    if (this.request[this.field.id].length &#x3D;&#x3D;&#x3D; this.field.options.length)
+      return true
+
+    if (this.request[this.field.id].length &#x3D;&#x3D;&#x3D; this.field.options.size)
+      return true
+
+    return false
+  }
+
+
+
+}
+</code></pre>
         </div>
     </div>
 
