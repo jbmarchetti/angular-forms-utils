@@ -14,7 +14,8 @@ import { FormField } from '../form-field.model'
   selector: 'tw-multiselect',
   template: `
   <div [formGroup]='group'>
-    <ss-multiselect-dropdown [formControlName]='field.id' [options]="field.options" [(ngModel)]="request[field.id]" ></ss-multiselect-dropdown>
+    <button style='margin-top: -30px; margin-bottom: 5px;' [ngClass]="allSelected ? 'btn-primary' : 'btn-default'" class='btn-sm btn pull-right' (click)='selectAll()' > {{field.more.allText || 'All'}}</button>
+    <ss-multiselect-dropdown [formControlName]='field.id' [options]="options" [(ngModel)]="request[field.id]" ></ss-multiselect-dropdown>
   </div>
   `
 })
@@ -31,6 +32,14 @@ export class MultiSelectComponent implements OnInit {
 
   get allSelected(): boolean {
     return this.testSelected()
+  }
+
+  get options() {
+    return this.field.options.map((opt: any) => {
+      opt.id = opt[this.field.optionValue]
+      opt.name = opt[this.field.optionText]
+      return opt
+    })
   }
 
 
