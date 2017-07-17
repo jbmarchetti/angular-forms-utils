@@ -10,15 +10,19 @@ import { TreeviewItem } from 'ng2-dropdown-treeview';
 export class DemoComponent {
 
   form: FormGroup = new FormGroup({});
+
+  selectValues: any[] =
+  [
+    { id: 'FirstValue', name: 'First Value' },
+    { id: 'SecondValue', name: 'Second Value' }
+  ]
+
+
+
   request: any = {
     time: '10:30', 'treeviewradio': 921
   }
 
-  selectValues: any[] =
-  [
-    { id: 'FirstValue', label: 'First Value' },
-    { id: 'SecondValue', label: 'Second Value' }
-  ]
 
   groupSelect: any[] =
   [

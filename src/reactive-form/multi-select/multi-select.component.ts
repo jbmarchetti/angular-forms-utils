@@ -1,24 +1,34 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormField } from '../form-field.model'
+import { IMultiSelectSettings } from 'angular-2-dropdown-multiselect';
+
+//  <button style='margin-top: -30px; margin-bottom: 5px;' [ngClass]="allSelected ? 'btn-primary' : 'btn-default'" class='btn-sm btn pull-right' (click)='selectAll()' > {{field.more.allText || 'All'}}</button>
+// <select multiple [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
+//     <option [ngValue]="option[field.optionValue]" *ngFor="let option of field.options">
+//       {{option[field.optionText]}}
+//     </option>
+//   </select>
+
 
 @Component({
   selector: 'tw-multiselect',
   template: `
   <div [formGroup]='group'>
-   <button style='margin-top: -30px; margin-bottom: 5px;' [ngClass]="allSelected ? 'btn-primary' : 'btn-default'" class='btn-sm btn pull-right' (click)='selectAll()' > {{field.more.allText || 'All'}}</button>
-   <select multiple [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
-      <option [ngValue]="option[field.optionValue]" *ngFor="let option of field.options">
-        {{option[field.optionText]}}
-      </option>
-    </select>
-</div>
+    <ss-multiselect-dropdown [settings]="mySettings" [formControlName]='field.id' [options]="field.options" [(ngModel)]="request[field.id]" ></ss-multiselect-dropdown>
+  </div>
   `
 })
 export class MultiSelectComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
+
+  mySettings: IMultiSelectSettings =
+  {
+    enableSearch: true,
+    displayAllSelectedText: true
+  }
 
   ngOnInit(): void {
     if (!this.field.more)
