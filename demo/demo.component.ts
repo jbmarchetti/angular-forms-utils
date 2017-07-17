@@ -81,7 +81,6 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'treeviewradio', type: 'treeview-radio', label: 'Treeview Radio', options: this.createCategoriesTree(), optionValue: '', optionText: '' }),
     ]
 
-
   }
 
   private createCategoriesTree(): TreeviewItem[] {
