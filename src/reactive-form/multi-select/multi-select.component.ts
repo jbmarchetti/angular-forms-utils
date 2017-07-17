@@ -29,7 +29,6 @@ export class MultiSelectComponent implements OnInit {
       this.field.more = {}
   }
 
-
   get allSelected(): boolean {
     return this.testSelected()
   }
