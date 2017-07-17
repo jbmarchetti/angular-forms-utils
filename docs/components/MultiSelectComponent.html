@@ -450,7 +450,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;ss-multiselect-dropdown&nbsp;[settings]&#x3D;&quot;mySettings&quot;&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;[options]&#x3D;&quot;field.options&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;&lt;/ss-multiselect-dropdown&gt;<br>&lt;/div&gt;<br></code></td>
+                <td class="col-md-9"><code>&lt;div&nbsp;[formGroup]&#x3D;&#x27;group&#x27;&gt;<br>&nbsp;&nbsp;&lt;ss-multiselect-dropdown&nbsp;[formControlName]&#x3D;&#x27;field.id&#x27;&nbsp;[options]&#x3D;&quot;field.options&quot;&nbsp;[(ngModel)]&#x3D;&quot;request[field.id]&quot;&nbsp;&gt;&lt;/ss-multiselect-dropdown&gt;<br>&lt;/div&gt;<br></code></td>
             </tr>
 
 
@@ -555,28 +555,12 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> mySettings</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>mySettings:     <code>IMultiSelectSettings</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
     </section>
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
             <pre><code class="hljs javascript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 import { FormGroup } from &#x27;@angular/forms&#x27;;
 import { FormField } from &#x27;../form-field.model&#x27;
-import { IMultiSelectSettings } from &#x27;angular-2-dropdown-multiselect&#x27;;
 
 //  &lt;button style&#x3D;&#x27;margin-top: -30px; margin-bottom: 5px;&#x27; [ngClass]&#x3D;&quot;allSelected ? &#x27;btn-primary&#x27; : &#x27;btn-default&#x27;&quot; class&#x3D;&#x27;btn-sm btn pull-right&#x27; (click)&#x3D;&#x27;selectAll()&#x27; &gt; {{field.more.allText || &#x27;All&#x27;}}&lt;/button&gt;
 // &lt;select multiple [formControlName]&#x3D;&#x27;field.id&#x27; name&#x3D;&#x27;{{field.id}}&#x27; class&#x3D;&#x27;form-control&#x27; [(ngModel)]&#x3D;&quot;request[field.id]&quot;&gt;
@@ -590,7 +574,7 @@ import { IMultiSelectSettings } from &#x27;angular-2-dropdown-multiselect&#x27;;
   selector: &#x27;tw-multiselect&#x27;,
   template: &#x60;
   &lt;div [formGroup]&#x3D;&#x27;group&#x27;&gt;
-    &lt;ss-multiselect-dropdown [settings]&#x3D;&quot;mySettings&quot; [formControlName]&#x3D;&#x27;field.id&#x27; [options]&#x3D;&quot;field.options&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;&lt;/ss-multiselect-dropdown&gt;
+    &lt;ss-multiselect-dropdown [formControlName]&#x3D;&#x27;field.id&#x27; [options]&#x3D;&quot;field.options&quot; [(ngModel)]&#x3D;&quot;request[field.id]&quot; &gt;&lt;/ss-multiselect-dropdown&gt;
   &lt;/div&gt;
   &#x60;
 })
@@ -598,12 +582,6 @@ export class MultiSelectComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
-
-  mySettings: IMultiSelectSettings &#x3D;
-  {
-    enableSearch: true,
-    displayAllSelectedText: true
-  }
 
   ngOnInit(): void {
     if (!this.field.more)
