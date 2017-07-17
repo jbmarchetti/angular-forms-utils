@@ -609,11 +609,13 @@ export class MultiSelectComponent implements OnInit {
   }
 
   get options() {
-    return this.field.options.map((opt: any) &#x3D;&gt; {
-      opt.id &#x3D; opt[this.field.optionValue]
-      opt.name &#x3D; opt[this.field.optionText]
-      return opt
-    })
+    if (this.field.options)
+      return this.field.options.map((opt: any) &#x3D;&gt; {
+        opt.id &#x3D; opt[this.field.optionValue]
+        opt.name &#x3D; opt[this.field.optionText]
+        return opt
+      })
+    return []
   }
 
 
