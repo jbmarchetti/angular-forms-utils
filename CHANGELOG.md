@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<<<<<<< HEAD
 <a name="0.3.25"></a>
 ## [0.3.25](https://github.com/jbmarchetti/angular-forms-utils/compare/v0.3.24...v0.3.25) (2017-07-17)
 
@@ -31,6 +32,18 @@ All notable changes to this project will be documented in this file. See [standa
 ## [0.3.20](https://github.com/jbmarchetti/angular-forms-utils/compare/v0.3.19...v0.3.20) (2017-06-09)
 =======
 =======
+=======
+<a name="0.3.26"></a>
+## [0.3.26](https://github.com/jbmarchetti/angular-forms-utils/compare/v0.3.24...v0.3.26) (2017-07-17)
+
+
+
+<a name="0.3.25"></a>
+## [0.3.25](https://github.com/jbmarchetti/angular-forms-utils/compare/v0.3.24...v0.3.25) (2017-07-17)
+
+
+
+>>>>>>> master
 <a name="0.3.24"></a>
 ## [0.3.24](https://github.com/jbmarchetti/angular-forms-utils/compare/v0.3.23...v0.3.24) (2017-07-17)
 

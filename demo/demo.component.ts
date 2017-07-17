@@ -13,8 +13,8 @@ export class DemoComponent {
 
   selectValues: any[] =
   [
-    { id: 'FirstValue', name: 'First Value' },
-    { id: 'SecondValue', name: 'Second Value' }
+    { id: 'FirstValue', label: 'First Value' },
+    { id: 'SecondValue', label: 'Second Value' }
   ]
 
 
@@ -60,6 +60,7 @@ export class DemoComponent {
   constructor() {
 
     this.fields = [
+      new FormField(<IFormField>{ id: 'multiselect', type: 'multiselect', label: 'Multi Select', options: this.selectValues, optionValue: 'id', optionText: 'label', more: { all: true, allText: 'All' } }),
       new FormField(<IFormField>{ id: 'text', type: 'text', label: 'Input Text', more: { nullable: true } }),
       new FormField(<IFormField>{ id: 'number', type: 'number', label: 'Input Number' }),
       new FormField(<IFormField>{ id: 'email', type: 'email', label: 'Input Email' }),
@@ -73,7 +74,6 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'switch', type: 'boolean', label: 'Switch' }),
       new FormField(<IFormField>{ id: 'daysOfWeek', type: 'daysOfWeek', label: 'Days Of Week' }),
       new FormField(<IFormField>{ id: 'select', type: 'select', label: 'Select', options: this.selectValues, optionValue: 'id', optionText: 'label' }),
-      new FormField(<IFormField>{ id: 'multiselect', type: 'multiselect', label: 'Multi Select', options: this.selectValues, optionValue: 'id', optionText: 'label', more: { all: true, allText: 'All' } }),
       new FormField(<IFormField>{ id: 'enumselect', type: 'enumselect', label: 'Enum Select', options: EnumValues, optionValue: '', optionText: '' }),
       new FormField(<IFormField>{ id: 'enummultiselect', type: 'enummultiselect', label: 'Enum Multi Select', options: EnumValues, optionValue: '', optionText: '' }),
       new FormField(<IFormField>{ id: 'groupselect', type: 'groupselect', label: 'Group Select', options: this.groupSelect, optionValue: 'id', optionText: 'label' }),
