@@ -18,6 +18,7 @@ import { FormField } from './form-field.model';
       <tw-switch *ngIf='field.type==="boolean"' [group]='form' [field]='field' [request]='request'></tw-switch>
       <tw-groupselect *ngIf='field.type==="groupselect"' [group]='form' [field]='field' [request]='request'></tw-groupselect>
       <tw-multiselect *ngIf='field.type==="multiselect"' [group]='form' [field]='field' [request]='request'></tw-multiselect>
+      <tw-multiselectcb *ngIf='field.type==="multiselectcb"' [group]='form' [field]='field' [request]='request'></tw-multiselectcb>
       <tw-textarea *ngIf='field.type==="textarea"' [group]='form' [field]='field' [request]='request'></tw-textarea>
       <tw-date-picker *ngIf='field.type==="date"' [group]='form' [field]='field' [request]='request'></tw-date-picker>
       <tw-dof *ngIf='field.type==="daysOfWeek"' [group]='form' [field]='field' [request]='request'></tw-dof>
