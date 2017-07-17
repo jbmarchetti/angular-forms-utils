@@ -17,8 +17,6 @@ export class DemoComponent {
     { id: 'SecondValue', label: 'Second Value' }
   ]
 
-
-
   request: any = {
     time: '10:30', 'treeviewradio': 921
   }
