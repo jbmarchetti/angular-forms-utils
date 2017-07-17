@@ -2,23 +2,16 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormField } from '../form-field.model'
 
-
-
-
 @Component({
-  selector: 'tw-multiselect',
+  selector: 'tw-multiselectcb',
   template: `
   <div [formGroup]='group'>
-   <button style='margin-top: -30px; margin-bottom: 5px;' [ngClass]="allSelected ? 'btn-primary' : 'btn-default'" class='btn-sm btn pull-right' (click)='selectAll()' > {{field.more.allText || 'All'}}</button>
-<select multiple [formControlName]='field.id' name='{{field.id}}' class='form-control' [(ngModel)]="request[field.id]">
-    <option [ngValue]="option[field.optionValue]" *ngFor="let option of field.options">
-      {{option[field.optionText]}}
-    </option>
-  </select>
+    <button style='margin-top: -30px; margin-bottom: 5px;' [ngClass]="allSelected ? 'btn-primary' : 'btn-default'" class='btn-sm btn pull-right' (click)='selectAll()' > {{field.more.allText || 'All'}}</button>
+    <ss-multiselect-dropdown [formControlName]='field.id' [options]="options" [(ngModel)]="request[field.id]" ></ss-multiselect-dropdown>
   </div>
   `
 })
-export class MultiSelectComponent implements OnInit {
+export class MultiSelectCBComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
@@ -28,9 +21,18 @@ export class MultiSelectComponent implements OnInit {
       this.field.more = {}
   }
 
-
   get allSelected(): boolean {
     return this.testSelected()
+  }
+
+  get options() {
+    if (this.field.options)
+      return this.field.options.map((opt: any) => {
+        opt.id = opt[this.field.optionValue]
+        opt.name = opt[this.field.optionText]
+        return opt
+      })
+    return []
   }
 
 
