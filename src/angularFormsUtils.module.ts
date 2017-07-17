@@ -13,6 +13,7 @@ import { TimePickerComponent } from './reactive-form/time-picker/time-picker.com
 import { SwitchComponent } from './reactive-form/switch/switch.component';
 import { GroupSelectComponent } from './reactive-form/group-select/group-select.component';
 import { MultiSelectComponent } from './reactive-form/multi-select/multi-select.component';
+import { MultiSelectCBComponent } from './reactive-form/multi-selectcb/multi-selectcb.component';
 import { DaysOfWeekComponent } from './reactive-form/days-of-week/days-of-week.component'
 import { TextAreaComponent } from './reactive-form/textarea/textarea.component'
 import { TreeViewComponent } from './reactive-form/treeview/treeview.component'
@@ -45,6 +46,7 @@ let decExp: any[] =
   [
     ReactiveFormComponent,
     DatetimePickerComponent,
+    MultiSelectCBComponent,
     SelectComponent,
     EnumselectComponent,
     InputTextComponent,
