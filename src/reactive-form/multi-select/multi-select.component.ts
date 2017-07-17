@@ -34,11 +34,13 @@ export class MultiSelectComponent implements OnInit {
   }
 
   get options() {
-    return this.field.options.map((opt: any) => {
-      opt.id = opt[this.field.optionValue]
-      opt.name = opt[this.field.optionText]
-      return opt
-    })
+    if (this.field.options)
+      return this.field.options.map((opt: any) => {
+        opt.id = opt[this.field.optionValue]
+        opt.name = opt[this.field.optionText]
+        return opt
+      })
+    return []
   }
 
 
