@@ -22,6 +22,7 @@ import { TreeViewItemComponent } from './reactive-form/treeview-radio/treeview-i
 
 import { BusyButtonComponent } from './busy-button/busy-button.component'
 import { BusyService } from './busy-button/busy.service'
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
 import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
 import { NguiDatetimePickerModule, NguiDatetime } from '@ngui/datetime-picker';
@@ -68,6 +69,7 @@ let decExp: any[] =
     ReactiveFormsModule,
     CommonModule,
     TranslateModule,
+    MultiselectDropdownModule,
     NguiDatetimePickerModule,
     FormsModule,
     DropdownTreeviewModule
