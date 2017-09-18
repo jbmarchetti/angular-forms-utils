@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DatetimePickerComponent } from './reactive-form/datetime-picker/datetime-picker.component';
 import { DatePickerComponent } from './reactive-form/date-picker/date-picker.component';
 import { SelectComponent } from './reactive-form/select/select.component';
+import { SelectTComponent } from './reactive-form/select-t/select-t.component';
 import { EnumselectComponent } from './reactive-form/enumselect/enumselect.component';
 import { InputTextComponent } from './reactive-form/input-text/input-text.component';
 import { InputFloatComponent } from './reactive-form/input-float/input-float.component';
@@ -62,7 +63,8 @@ let decExp: any[] =
     TreeViewComponent,
     TreeViewTxtComponent,
     TreeViewRadioComponent,
-    TreeViewItemComponent
+    TreeViewItemComponent,
+    SelectTComponent
   ]
 
 

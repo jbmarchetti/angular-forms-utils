@@ -12,6 +12,7 @@ import { FormField } from './form-field.model';
       <tw-input-text *ngIf='field.type==="text" || field.type==="number" || field.type==="hidden" || field.type==="email" || field.type==="password"' [group]='form' [field]='field' [request]='request'></tw-input-text>
       <tw-input-float *ngIf='field.type==="float"' [group]='form' [field]='field' [request]='request'></tw-input-float>
       <tw-select *ngIf='field.type==="select"' [group]='form' [field]='field' [request]='request'></tw-select>
+      <tw-select-t *ngIf='field.type==="selectT"' [group]='form' [field]='field' [request]='request'></tw-select-t>
       <tw-enumselect *ngIf='field.type==="enumselect" || field.type==="enummultiselect"' [group]='form' [field]='field' [request]='request'></tw-enumselect>
       <tw-datetime-picker *ngIf='field.type==="datetime"' [group]='form' [field]='field' [request]='request'></tw-datetime-picker>
       <tw-time-picker *ngIf='field.type==="time"' [group]='form' [field]='field' [request]='request'></tw-time-picker>
