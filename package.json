@@ -1,6 +1,6 @@
 {
   "name": "angular-forms-utils",
-  "version": "0.3.34",
+  "version": "0.3.43",
   "description": "Angular2 Reactive forms utils",
   "main": "./bundles/angular-forms-utils.umd.js",
   "module": "./index.js",
@@ -95,19 +95,21 @@
     "webpack": "^2.6.1",
     "webpack-angular-externals": "^1.0.2",
     "webpack-dev-server": "^2.4.5",
-    "webpack-rxjs-externals": "^1.0.0"
+    "webpack-rxjs-externals": "^1.0.0",
+    "ng2-daterangepicker": "^2.0.10"
   },
   "peerDependencies": {
     "@angular/core": ">=4.0.0",
     "@ngx-translate/core": ">=6.0.0",
     "ng2-dropdown-treeview": ">=2.0.1",
     "moment": ">=2.18.1",
-    "@ngui/datetime-picker": ">=0.16.2",
+    "ng2-daterangepicker": "^2.0.10",
     "angular-2-dropdown-multiselect": "^1.4.2"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "dependencies": {}
 }

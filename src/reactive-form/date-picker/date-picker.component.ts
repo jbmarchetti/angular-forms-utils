@@ -6,7 +6,7 @@ import { FormField } from '../form-field.model'
 
 @Component({
   selector: 'tw-date-picker',
-  template: `<tw-datetime-picker [group]='group' [field]='field' [request]='request'></tw-datetime-picker>`
+  template: `<tw-datetime-picker [group]='group' [field]='field'  [request]='request'></tw-datetime-picker>`
 
 })
 export class DatePickerComponent implements OnInit, OnDestroy {

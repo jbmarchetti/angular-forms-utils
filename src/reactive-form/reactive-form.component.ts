@@ -15,6 +15,7 @@ import { FormField } from './form-field.model';
       <tw-select-t *ngIf='field.type==="selectT"' [group]='form' [field]='field' [request]='request'></tw-select-t>
       <tw-enumselect *ngIf='field.type==="enumselect" || field.type==="enummultiselect"' [group]='form' [field]='field' [request]='request'></tw-enumselect>
       <tw-datetime-picker *ngIf='field.type==="datetime"' [group]='form' [field]='field' [request]='request'></tw-datetime-picker>
+      <tw-daterange-picker *ngIf='field.type==="daterange"' [group]='form' [field]='field' [request]='request'></tw-daterange-picker>
       <tw-time-picker *ngIf='field.type==="time"' [group]='form' [field]='field' [request]='request'></tw-time-picker>
       <tw-switch *ngIf='field.type==="boolean"' [group]='form' [field]='field' [request]='request'></tw-switch>
       <tw-groupselect *ngIf='field.type==="groupselect"' [group]='form' [field]='field' [request]='request'></tw-groupselect>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms'
 import { FormField, IFormField } from '../src/reactive-form/form-field.model'
 import { TreeviewItem } from 'ng2-dropdown-treeview';
-
+import * as moment from 'moment'
 @Component({
   selector: 'tw-demo-app',
   templateUrl: 'demo.component.html'
@@ -66,7 +66,8 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'float', type: 'float', label: 'Input Float' }),
       new FormField(<IFormField>{ id: 'textarea', type: 'textarea', label: 'Textarea' }),
       new FormField(<IFormField>{ id: 'datetime', type: 'datetime', label: 'Datetime From', more: { defaultValue: 'startOfDay' } }).required(),
-      new FormField(<IFormField>{ id: 'datetime2', type: 'datetime', label: 'Datetime To', more: { defaultValue: 'endOfDay' } }).required(),
+      new FormField(<IFormField>{ id: 'datetime2', type: 'datetime', label: 'Datetime To', more: { defaultValue: 'endOfDay', options: { maxDate: moment().add(-1, 'days') } } }).required(),
+      new FormField(<IFormField>{ id: 'datetimerange', type: 'daterange', label: 'Date Range', more: { defaultValue1: 'startOfDay', defaultValue2: 'endOfDay', model1: 'dateRangeFrom', model2: 'dateRangeTo' } }).required(),
       new FormField(<IFormField>{ id: 'time', type: 'time', label: 'Time', more: { defaultValue: 'startOfDay' } }),
       new FormField(<IFormField>{ id: 'date', type: 'date', label: 'Date' }),
       new FormField(<IFormField>{ id: 'switch', type: 'boolean', label: 'Switch' }),

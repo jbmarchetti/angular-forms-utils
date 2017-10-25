@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { DatetimePickerComponent } from './reactive-form/datetime-picker/datetime-picker.component';
 import { DatePickerComponent } from './reactive-form/date-picker/date-picker.component';
+import { DateRangePickerComponent } from './reactive-form/date-range-picker/date-range-picker.component';
 import { SelectComponent } from './reactive-form/select/select.component';
 import { SelectTComponent } from './reactive-form/select-t/select-t.component';
 import { EnumselectComponent } from './reactive-form/enumselect/enumselect.component';
@@ -27,21 +28,23 @@ import { BusyService } from './busy-button/busy.service'
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
 import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
-import { NguiDatetimePickerModule, NguiDatetime } from '@ngui/datetime-picker';
-import * as moment from 'moment'
+// import { NguiDatetimePickerModule, NguiDatetime } from '@ngui/datetime-picker';
+// import * as moment from 'moment'
+
+import { Daterangepicker } from 'ng2-daterangepicker';
 
 
-NguiDatetime.parseDate = (str: any): any => {
-  let m: any = moment(str)
-  if (!m.isValid()) { //Time
-    // let tmp = str.split(':');
-    m = moment()
-    // m.set('hour', parseInt(tmp[0] || '0', 10))
-    // m.set('minute', parseInt(tmp[1] || '0', 10))
-    // m.set('second', parseInt(tmp[2] || '0', 10))
-  }
-  return m.toDate()
-}
+// NguiDatetime.parseDate = (str: any): any => {
+//   let m: any = moment(str)
+//   if (!m.isValid()) { //Time
+//     // let tmp = str.split(':');
+//     m = moment()
+//     // m.set('hour', parseInt(tmp[0] || '0', 10))
+//     // m.set('minute', parseInt(tmp[1] || '0', 10))
+//     // m.set('second', parseInt(tmp[2] || '0', 10))
+//   }
+//   return m.toDate()
+// }
 
 let decExp: any[] =
   [
@@ -64,7 +67,8 @@ let decExp: any[] =
     TreeViewTxtComponent,
     TreeViewRadioComponent,
     TreeViewItemComponent,
-    SelectTComponent
+    SelectTComponent,
+    DateRangePickerComponent
   ]
 
 
@@ -74,9 +78,10 @@ let decExp: any[] =
     CommonModule,
     TranslateModule,
     MultiselectDropdownModule,
-    NguiDatetimePickerModule,
+    // NguiDatetimePickerModule,
     FormsModule,
-    DropdownTreeviewModule
+    DropdownTreeviewModule,
+    Daterangepicker
   ],
   declarations: decExp,
   exports: [...decExp]
