@@ -27,12 +27,12 @@ import { BusyButtonComponent } from './busy-button/busy-button.component'
 import { BusyService } from './busy-button/busy.service'
 import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
 
-import { DropdownTreeviewModule } from 'ng2-dropdown-treeview';
+import { TreeviewModule } from 'ngx-treeview';
 // import { NguiDatetimePickerModule, NguiDatetime } from '@ngui/datetime-picker';
 // import * as moment from 'moment'
 
 import { Daterangepicker } from 'ng2-daterangepicker';
-
+import { AngularFormsUtilsConfigs } from './angularFormsUtilsConfigs.service';
 
 // NguiDatetime.parseDate = (str: any): any => {
 //   let m: any = moment(str)
@@ -80,11 +80,12 @@ let decExp: any[] =
     MultiselectDropdownModule,
     // NguiDatetimePickerModule,
     FormsModule,
-    DropdownTreeviewModule,
+    TreeviewModule,
     Daterangepicker
   ],
   declarations: decExp,
-  exports: [...decExp]
+  exports: decExp,
+  providers: [AngularFormsUtilsConfigs]
 })
 export class AngularFormsUtilsModule {
 

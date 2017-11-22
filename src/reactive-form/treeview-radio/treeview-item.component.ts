@@ -1,5 +1,5 @@
 import { Component, Input, TemplateRef } from '@angular/core';
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewItem } from 'ngx-treeview';
 // import { TreeviewItemTemplateContext } from 'ng2-dropdown-treeview/src/treeview-item-template-context';
 
 @Component({

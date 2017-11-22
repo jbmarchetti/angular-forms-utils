@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { TreeviewConfig } from 'ng2-dropdown-treeview';
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewConfig, TreeviewItem } from 'ngx-treeview';
 
 import { FormField } from '../form-field.model'
 
@@ -65,12 +64,13 @@ export class TreeViewRadioComponent implements OnInit {
     @Input() request: any
     allItem: TreeviewItem;
 
-    public selectConfig: TreeviewConfig = {
-        isShowAllCheckBox: true,
-        isShowFilter: true,
-        isShowCollapseExpand: true,
+    public selectConfig: TreeviewConfig = TreeviewConfig.create({
+        hasAllCheckBox: true,
+        hasFilter: true,
+        hasCollapseExpand: true,
+        decoupleChildFromParent: false,
         maxHeight: 500
-    }
+    })
 
     toggleCollapseExpand(): void {
         this.allItem.collapsed = !this.allItem.collapsed;

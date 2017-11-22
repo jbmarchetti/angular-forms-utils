@@ -72,10 +72,16 @@ export class DatetimePickerComponent implements OnInit {
       } else {
         this.defaultValue = moment()
       }
+
     } else {
       this.field.more = {}
     }
 
+    if (this.request[this.field.id]) {
+      let v: moment.Moment = moment(this.request[this.field.id])
+      this.defaultValue = v
+      this.field.control.setValue(v.format(this.field.more.dateFormat || "YYYY-MM-DD HH:mm"))
+    }
     // if (this.field.more.dateOnly)
     // this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
     // else

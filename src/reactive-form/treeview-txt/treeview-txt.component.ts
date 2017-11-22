@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { TreeviewConfig } from 'ng2-dropdown-treeview';
+import { TreeviewConfig, TreeviewSelection, TreeviewComponent, TreeviewItem } from 'ngx-treeview';
 import { FormField } from '../form-field.model'
 
 @Component({
   selector: 'tw-treeview-txt',
   template: `
   <div [formGroup]='group'>
-   <leo-treeview *ngIf='field.type==="treeview-txt"' id="treeview_{{field.id}}" [config]="selectConfig" [items]="field.options" (selectedChange)="updateModel($event)"></leo-treeview>
-   <leo-dropdown-treeview *ngIf='field.type==="dropdown-treeview-txt"' id="treeview_{{field.id}}" [config]="selectConfig" [items]="field.options" (selectedChange)="updateModel($event)"></leo-dropdown-treeview>
+   <ngx-treeview #treeview *ngIf='field.type==="treeview-txt"' id="treeview_{{field.id}}" [config]="selectConfig" [items]="field.options" (selectedChange)="updateModel($event)"></ngx-treeview>
+   <ngx-dropdown-treeview *ngIf='field.type==="dropdown-treeview-txt"' id="treeview_{{field.id}}" [config]="selectConfig" [items]="field.options" (selectedChange)="updateModel($event)"></ngx-dropdown-treeview>
     <input [formControlName]='field.id' name='{{field.id}}' type='hidden' class='form-control' [(ngModel)]="request[field.id]"/>
 </div>
   `
@@ -18,15 +18,45 @@ export class TreeViewTxtComponent implements OnInit {
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
+  @ViewChild(TreeviewComponent) treeviewComponent: TreeviewComponent
 
-  public selectConfig: TreeviewConfig = {
-    isShowAllCheckBox: true,
-    isShowFilter: true,
-    isShowCollapseExpand: true,
+  public selectConfig: TreeviewConfig = TreeviewConfig.create({
+    hasAllCheckBox: true,
+    hasFilter: true,
+    hasCollapseExpand: true,
+    decoupleChildFromParent: false,
     maxHeight: 500
+  })
+
+
+
+  private checkItem(item: TreeviewItem): any[] {
+    let selection: TreeviewSelection = item.getSelection();
+    let values: any[] = []
+
+    if (item.children) {
+      if (selection.uncheckedItems.length === 0)
+        values.push(item.value)
+
+      for (const child of item.children)
+        values = values.concat(this.checkItem(child))
+
+    }
+    return values
   }
 
+
+
+
   public updateModel(values?: any[]): void {
+
+    /*Select Parent*/
+    if (this.treeviewComponent) {
+      for (const item of this.treeviewComponent.items) {
+        values = values.concat(this.checkItem(item))
+      }
+    }
+
     if (values)
       this.field.setValue(values.join(','))
     else

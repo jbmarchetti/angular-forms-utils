@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms'
 import { FormField, IFormField } from '../src/reactive-form/form-field.model'
-import { TreeviewItem } from 'ng2-dropdown-treeview';
+import { TreeviewItem } from 'ngx-treeview';
 import * as moment from 'moment'
+import { AngularFormsUtilsConfigs } from '../src/angularFormsUtilsConfigs.service';
+
+
 @Component({
   selector: 'tw-demo-app',
   templateUrl: 'demo.component.html'
@@ -12,50 +15,55 @@ export class DemoComponent {
   form: FormGroup = new FormGroup({});
 
   selectValues: any[] =
-  [
-    { id: 'FirstValue', label: 'First Value' },
-    { id: 'SecondValue', label: 'Second Value' }
-  ]
+    [
+      { id: 'FirstValue', label: 'First Value' },
+      { id: 'SecondValue', label: 'Second Value' }
+    ]
 
   request: any = {
-    time: '10:30', 'treeviewradio': 921
+    time: '10:30',
+    treeviewradio: 921,
+    date: moment().add(2, 'days').format(),
+    datetime: moment().add(6, 'hours').format(),
+    dateRangeFrom: moment().add(2, 'hours').format(),
+    dateRangeTo: moment().add(4, 'hours').format()
   }
 
 
   groupSelect: any[] =
-  [
-    {
-      label: 'Group1',
-      values: [
-        { id: 'Group1FirstValue', label: '-- First Value' },
-        { id: 'Group1SecondValue', label: '-- Second Value' }
-      ]
-    },
-    {
-      label: 'Group2',
-      values: [
-        { id: 'Group2FirstValue', label: '-- First Value' },
-        { id: 'Group2SecondValue', label: '-- Second Value' }
-      ]
-    },
-    {
-      label: 'Group3',
-      values: [
-        { id: 'Group3FirstValue', label: '-- First Value' },
-        {
-          id: 'Group3SecondValue', label: '-- Second Value',
-          values: [
-            { id: 'Group3SecondValue-1', label: '-- Second-First Value' },
-            { id: 'Group3SecondValue-2', label: '-- Second-Second Value' }
-          ]
-        }
-      ]
-    }
-  ]
+    [
+      {
+        label: 'Group1',
+        values: [
+          { id: 'Group1FirstValue', label: '-- First Value' },
+          { id: 'Group1SecondValue', label: '-- Second Value' }
+        ]
+      },
+      {
+        label: 'Group2',
+        values: [
+          { id: 'Group2FirstValue', label: '-- First Value' },
+          { id: 'Group2SecondValue', label: '-- Second Value' }
+        ]
+      },
+      {
+        label: 'Group3',
+        values: [
+          { id: 'Group3FirstValue', label: '-- First Value' },
+          {
+            id: 'Group3SecondValue', label: '-- Second Value',
+            values: [
+              { id: 'Group3SecondValue-1', label: '-- Second-First Value' },
+              { id: 'Group3SecondValue-2', label: '-- Second-Second Value' }
+            ]
+          }
+        ]
+      }
+    ]
 
 
   fields: FormField[]
-  constructor() {
+  constructor(private formConfigs: AngularFormsUtilsConfigs) {
 
     this.fields = [
       new FormField(<IFormField>{ id: 'multiselect', type: 'multiselect', label: 'Multi Select', options: this.selectValues, optionValue: 'id', optionText: 'label', more: { all: true, allText: 'All' } }),
@@ -79,6 +87,19 @@ export class DemoComponent {
       new FormField(<IFormField>{ id: 'treeview', type: 'treeview-txt', label: 'Treeview Select', options: this.createCategoriesTree(), optionValue: '', optionText: '' }),
       new FormField(<IFormField>{ id: 'treeviewradio', type: 'treeview-radio', label: 'Treeview Radio', options: this.createCategoriesTree(), optionValue: '', optionText: '' }),
     ]
+
+
+    this.formConfigs.daterangepickerConfig.settings = {
+      ranges:
+        {
+          // 'Today': [moment().startOf('day'), moment().endOf('day')],
+          // 'Yesterday': [moment().subtract(1, 'days').startOf('day'), moment().subtract(1, 'days').endOf('day')],
+          // 'Last 7 Days': [moment().subtract(6, 'days').startOf('day'), moment().endOf('day')],
+          'Last 30 Days': [moment().subtract(29, 'days').startOf('day'), moment().endOf('day')],
+          'This Month': [moment().startOf('month').startOf('day'), moment().endOf('month').endOf('day')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month').startOf('day'), moment().subtract(1, 'month').endOf('month').endOf('day')]
+        }
+    };
 
   }
 
@@ -109,11 +130,11 @@ export class DemoComponent {
     });
     let teenCategory: TreeviewItem = new TreeviewItem({
       text: 'Teen', value: 2, collapsed: true, disabled: true, children: [
-        { text: 'Adventure', value: 21 },
-        { text: 'Science', value: 22 }
+        { text: 'Adventure', value: 21, checked: false },
+        { text: 'Science', value: 22, checked: false }
       ]
     });
-    let othersCategory: TreeviewItem = new TreeviewItem({ text: 'Others', value: 3, collapsed: true, disabled: true });
+    let othersCategory: TreeviewItem = new TreeviewItem({ text: 'Others', value: 3, collapsed: true, disabled: true, checked: false });
     return [childrenCategory, itCategory, teenCategory, othersCategory];
   }
 

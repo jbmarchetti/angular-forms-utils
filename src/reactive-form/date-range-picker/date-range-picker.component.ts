@@ -97,6 +97,20 @@ export class DateRangePickerComponent implements OnInit {
       this.field.more = {}
     }
 
+    if (this.request[this.field.more.model1]) {
+      let v: moment.Moment = moment(this.request[this.field.more.model1])
+      this.defaultValue1 = v
+    }
+
+    if (this.request[this.field.more.model2]) {
+      let v: moment.Moment = moment(this.request[this.field.more.model2])
+      this.defaultValue2 = v
+    }
+
+    if (this.request[this.field.more.model1] && this.request[this.field.more.model2])
+      this.field.control.setValue(this.defaultValue1.format(this.field.more.dateFormat || "YYYY-MM-DD HH:mm") + ' - ' + this.defaultValue2.format(this.field.more.dateFormat || "YYYY-MM-DD HH:mm"))
+
+
     // if (this.field.more.dateOnly)
     // this.field.addValidator(Validators.pattern(/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$/))
     // else
@@ -108,16 +122,7 @@ export class DateRangePickerComponent implements OnInit {
       autoUpdateInput: false,
       autoApply: true,
       startDate: this.defaultValue1,
-      endDate: this.defaultValue2,
-      ranges:
-      {
-        'Today': [moment().startOf('day'), moment().endOf('day')],
-        'Yesterday': [moment().subtract(1, 'days').startOf('day'), moment().subtract(1, 'days').endOf('day')],
-        'Last 7 Days': [moment().subtract(6, 'days').startOf('day'), moment().endOf('day')],
-        'Last 30 Days': [moment().subtract(29, 'days').startOf('day'), moment().endOf('day')],
-        'This Month': [moment().startOf('month').startOf('day'), moment().endOf('month').endOf('day')],
-        'Last Month': [moment().subtract(1, 'month').startOf('month').startOf('day'), moment().subtract(1, 'month').endOf('month').endOf('day')]
-      }
+      endDate: this.defaultValue2
     };
 
     if (this.field.more.options)
