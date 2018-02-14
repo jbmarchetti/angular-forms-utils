@@ -7,7 +7,7 @@ import { FormField } from '../form-field.model'
 @Component({
     selector: 'tw-treeview-radio',
     template: `
-<template #tpl let-item="item"
+<ng-template #tpl let-item="item"
     let-toggleCollapseExpand="toggleCollapseExpand"
     let-onCheckedChange="onCheckedChange">
     <div class="form-check" [formGroup]='group'>
@@ -18,7 +18,7 @@ import { FormField } from '../form-field.model'
             {{item.text}}
         </label>
     </div>
-</template>
+</ng-template>
 <div class="treeview-header">
   
 </div>

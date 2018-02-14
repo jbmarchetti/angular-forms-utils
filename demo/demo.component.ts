@@ -103,7 +103,7 @@ export class DemoComponent implements AfterViewInit {
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.fields[7].setValue(moment().add(1, 'months').add(5, 'days'))
   }
 

@@ -6,9 +6,9 @@ import { TreeviewItem } from 'ngx-treeview';
     selector: 'tw-treeview-item',
     template: `
 <div class="treeview-item">
-    <template [ngTemplateOutlet]="template"
-        [ngOutletContext]="{item: item, toggleCollapseExpand: toggleCollapseExpand}">
-    </template>
+    <ng-template [ngTemplateOutlet]="template"
+        [ngTemplateOutletContext]="{item: item, toggleCollapseExpand: toggleCollapseExpand}">
+    </ng-template>
     <div *ngIf="!item.collapsed">
         <tw-treeview-item *ngFor="let child of item.children" [item]="child" [template]="template">
         </tw-treeview-item>
