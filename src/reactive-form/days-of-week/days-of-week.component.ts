@@ -21,11 +21,11 @@ export class DaysOfWeekComponent implements OnInit {
 
 
 export enum DaysOfWeekValues {
-  'Sunday',
-  'Monday',
-  'Tuesday',
-  'Wednesday',
-  'Thursday',
-  'Friday',
-  'Saturday'
+  Sunday,
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday
 }

@@ -1,10 +1,13 @@
 import { Component, Input, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormField } from '../form-field.model'
-import * as moment from 'moment';
 import { Subscription } from 'rxjs'
 // import * as jQuery from 'jquery'
 import { DaterangePickerComponent } from 'ng2-daterangepicker';
+
+
+import * as moment_ from 'moment';
+const moment = moment_;
 
 @Component({
   selector: 'tw-datetime-picker',
@@ -33,6 +36,8 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
 
   @ViewChild('datepicker') datepicker: ElementRef;
   @ViewChild(DaterangePickerComponent) datepickerComponent: DaterangePickerComponent;
+
+  public daterange: any = {};
 
   defaultValue: any
   minute: string = ''
@@ -84,7 +89,7 @@ export class DatetimePickerComponent implements OnInit, OnDestroy {
     }
 
     if (this.request[this.field.id]) {
-      let v: moment.Moment = moment(this.request[this.field.id])
+      let v: any = moment(this.request[this.field.id])
       this.defaultValue = v
       this.field.control.setValue(v.format(this.field.more.dateFormat || "YYYY-MM-DD HH:mm"))
     }

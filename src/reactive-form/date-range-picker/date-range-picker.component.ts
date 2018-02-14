@@ -1,7 +1,8 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormField } from '../form-field.model'
-import * as moment from 'moment';
+import * as moment_ from 'moment';
+const moment = moment_;
 
 @Component({
   selector: 'tw-daterange-picker',
@@ -29,7 +30,7 @@ export class DateRangePickerComponent implements OnInit {
   @Input() request: any
 
   @ViewChild('datepicker') datepicker: ElementRef;
-
+  public daterange: any = {};
   defaultValue1: any
   defaultValue2: any
   minute: string = ''
@@ -99,12 +100,12 @@ export class DateRangePickerComponent implements OnInit {
     }
 
     if (this.request[this.field.more.model1]) {
-      let v: moment.Moment = moment(this.request[this.field.more.model1])
+      let v: any = moment(this.request[this.field.more.model1])
       this.defaultValue1 = v
     }
 
     if (this.request[this.field.more.model2]) {
-      let v: moment.Moment = moment(this.request[this.field.more.model2])
+      let v: any = moment(this.request[this.field.more.model2])
       this.defaultValue2 = v
     }
 

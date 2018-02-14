@@ -1,5 +1,4 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
     "target": "es5",
     "module": "es2015",
@@ -15,11 +14,11 @@
     "pretty": true,
     "stripInternal": true,
     "skipLibCheck": true,
-    "noUnusedLocals": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "rootDir": "./tmp/src-inlined"
   },
   "files": [
-    "./src/index.ts"
+    "./tmp/src-inlined/index.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "dist",
