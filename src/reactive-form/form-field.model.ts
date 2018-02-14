@@ -1,4 +1,5 @@
 import { FormControl, ValidatorFn, Validators } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
 
 declare var Object: any
 
@@ -29,12 +30,16 @@ export class FormField implements IFormField {
     col: string
     firstValue: any
     more: any
+    nativeElement: any
 
     control: FormControl
+
+    valueChange: EventEmitter<any>
 
     constructor(values: IFormField) {
         Object.assign(this, values);
         this.control = new FormControl('')
+        this.valueChange = new EventEmitter<any>()
     }
 
     required(): FormField {
@@ -49,6 +54,7 @@ export class FormField implements IFormField {
 
     setValue(v: any): FormField {
         this.control.setValue(v)
+        this.valueChange.next(v)
         return this
     }
 

@@ -62,6 +62,7 @@ export class DateRangePickerComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.datepicker.nativeElement = this.datepicker.nativeElement
     if (this.field.more) {
       if (this.field.more.defaultValue1) {
         switch (this.field.more.defaultValue1) {

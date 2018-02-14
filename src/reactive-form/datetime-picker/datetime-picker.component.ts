@@ -1,7 +1,10 @@
-import { OnInit, ViewChild, ElementRef, Component, Input } from '@angular/core';
+import { Component, Input, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormField } from '../form-field.model'
-import * as moment from 'moment'
+import * as moment from 'moment';
+import { Subscription } from 'rxjs'
+// import * as jQuery from 'jquery'
+import { DaterangePickerComponent } from 'ng2-daterangepicker';
 
 @Component({
   selector: 'tw-datetime-picker',
@@ -15,20 +18,21 @@ import * as moment from 'moment'
   //   `
   template: `
   <div [formGroup]='group' class="input-group">
-  <input #datepicker class='form-control' type="text" [formControlName]='field.id' name='{{field.id}}' daterangepicker [options]="options" (selected)="selectedDate($event, daterange)" (showDaterangepicker)="showDaterangepicker($event)"  readonly/>
+  <input #datepicker class='form-control' type="text" [formControlName]='field.id' name='{{field.id}}' id='{{field.id}}' daterangepicker [options]="options" (selected)="selectedDate($event, daterange)" (showDaterangepicker)="showDaterangepicker($event)"  readonly/>
   <span class="input-group-btn">
   <button class='btn btn-default' (click)='clear()'>&times;</button>
   </span>
   </div>`
 
 })
-export class DatetimePickerComponent implements OnInit {
+export class DatetimePickerComponent implements OnInit, OnDestroy {
   // <small class='text-danger' *ngIf='field.control.value && field.control.invalid'>Invalid Format : YYYY-MM-DD HH:MM</small>
   @Input() group: FormGroup
   @Input() field: FormField
   @Input() request: any
 
   @ViewChild('datepicker') datepicker: ElementRef;
+  @ViewChild(DaterangePickerComponent) datepickerComponent: DaterangePickerComponent;
 
   defaultValue: any
   minute: string = ''
@@ -36,8 +40,9 @@ export class DatetimePickerComponent implements OnInit {
   options: any
   firstShow = true
 
-  selectedDate(value: any, datepicker?: any) {
+  private sub: Subscription
 
+  selectedDate(value: any, datepicker?: any) {
     if (!this.field.more.dateOnly)
       this.request[this.field.id] = value.start
     else
@@ -56,6 +61,7 @@ export class DatetimePickerComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.datepicker.nativeElement = this.datepicker.nativeElement
     if (this.field.more) {
       if (this.field.more.defaultValue) {
         switch (this.field.more.defaultValue) {
@@ -99,6 +105,13 @@ export class DatetimePickerComponent implements OnInit {
     if (this.field.more.options)
       for (let i in this.field.more.options)
         this.options[i] = this.field.more.options[i]
+
+
+    this.sub = this.field.valueChange.subscribe((v: any) => {
+      this.datepickerComponent.render();
+      this.datepickerComponent.selected.next({ start: v });
+      this.datepickerComponent.datePicker.setStartDate(v);
+    })
   }
 
   // valueChanged(date: Date): void {
@@ -111,6 +124,11 @@ export class DatetimePickerComponent implements OnInit {
     this.request[this.field.id] = null
     this.datepicker.nativeElement.value = ''
     this.field.control.setValue('')
+  }
+
+  ngOnDestroy() {
+    if (this.sub)
+      this.sub.unsubscribe()
   }
 
 }

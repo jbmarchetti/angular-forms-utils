@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormGroup } from '@angular/forms'
 import { FormField, IFormField } from '../src/reactive-form/form-field.model'
 import { TreeviewItem } from 'ngx-treeview';
-import * as moment from 'moment'
+import * as moment from 'moment';
 import { AngularFormsUtilsConfigs } from '../src/angularFormsUtilsConfigs.service';
 
 
@@ -10,7 +10,7 @@ import { AngularFormsUtilsConfigs } from '../src/angularFormsUtilsConfigs.servic
   selector: 'tw-demo-app',
   templateUrl: 'demo.component.html'
 })
-export class DemoComponent {
+export class DemoComponent implements AfterViewInit {
 
   form: FormGroup = new FormGroup({});
 
@@ -101,6 +101,10 @@ export class DemoComponent {
         }
     };
 
+  }
+
+  ngAfterViewInit() {
+    this.fields[7].setValue(moment().add(1, 'months').add(5, 'days'))
   }
 
   private createCategoriesTree(): TreeviewItem[] {
